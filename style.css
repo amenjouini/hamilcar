@@ -565,23 +565,33 @@ ul {
 }
 .video-wrapper {
   position: relative;
-  padding-bottom: 56.25%;
+  padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
   height: 0;
   overflow: hidden;
-  max-width: 100%;
+  max-width: 90%; /* Keep this */
   background: #000;
   border-radius: 8px;
   box-shadow: var(--shadow-lg);
+  /* --- ENSURE THIS IS PRESENT --- */
+  margin-left: auto;
+  margin-right: auto;
+  /* Remove duplicate max-width and commented-out justify-content */
 }
+
+/* Find this existing rule in your CSS */
 .video-wrapper iframe,
-.video-wrapper img {
+.video-wrapper img,
+.video-wrapper video {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
   border: 0;
-  object-fit: cover;
+  object-fit: cover; /* Keep cover if you prefer filling space */
+  /* --- REMOVE THESE (ineffective) --- */
+  /* justify-content: center; */
+  /* align-items: center; */
 }
 
 .construction-container {
@@ -603,27 +613,49 @@ ul {
   top: 0;
   left: 0;
   width: 100%;
+  height: 100%; /* Ensure height is set if not already */
+  object-fit: cover; /* Ensure object-fit is set */
+  border-radius: 8px; /* Keep consistent styling */
+
+  /* Default state (before animation starts or after reset) */
   opacity: 0;
-  transform: translateY(-50px);
-  animation: dropFade 1s ease forwards;
+  transform: translateY(-50px); /* Start position */
+  /* Remove the base animation property here */
 }
-.construction-step:nth-child(1) {
+
+/* Apply animation ONLY when the container has the 'animate-steps' class */
+.construction-container.animate-steps .construction-step {
+  /* Define animation properties here */
+  animation-name: dropFade;
+  animation-duration: 1s;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards; /* Keep 'forwards' */
+  /* Remove individual animation delays from here if applying below */
+}
+
+/* Apply delays when the container has the 'animate-steps' class */
+.construction-container.animate-steps .construction-step:nth-child(1) {
   z-index: 1;
   animation-delay: 0.5s;
 }
-.construction-step:nth-child(2) {
+.construction-container.animate-steps .construction-step:nth-child(2) {
   z-index: 2;
   animation-delay: 2s;
 }
-.construction-step:nth-child(3) {
+.construction-container.animate-steps .construction-step:nth-child(3) {
   z-index: 3;
   animation-delay: 3.5s;
 }
-.construction-step:nth-child(4) {
+.construction-container.animate-steps .construction-step:nth-child(4) {
   z-index: 4;
   animation-delay: 5s;
 }
+
+/* Keep your keyframes */
 @keyframes dropFade {
+  /* Make sure the 'from' state matches the default state if needed,
+     though 'forwards' handles the end state persistence */
+  /* from { opacity: 0; transform: translateY(-50px); } */
   to {
     opacity: 1;
     transform: translateY(0);
@@ -729,6 +761,73 @@ img {
   padding: 20px;
 }
 /* Example Testimonial Item Style (adapt to your slider) */
+
+/*          technologie produit           */
+
+/* Grid Container for the vehicles */
+.vehicules-layout {
+  display: grid; /* Use CSS Grid */
+  grid-template-columns: repeat(2, 1fr); /* Create 2 equal-width columns */
+  gap: 30px; /* Space between grid items (adjust as needed) */
+  margin-top: 40px; /* Adjust top margin */
+  /* Remove align-items: center; Flexbox property */
+}
+
+/* Styling for each vehicle card */
+.vehicle-card {
+  background-color: var(--color-surface, #fff); /* Background for the card */
+  border-radius: 10px; /* Slightly rounder corners */
+  overflow: hidden; /* Keep image and title within bounds */
+  box-shadow: var(--shadow-md, 0 4px 6px rgba(0,0,0,0.1)); /* Use shadow variable or default */
+  text-align: center; /* Center the title text */
+  transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover effect */
+  /* Remove flex: 1; Flexbox property */
+}
+
+.vehicle-card:hover {
+  transform: translateY(-6px); /* Lift card slightly on hover */
+  box-shadow: var(--shadow-lg, 0 10px 15px rgba(0,0,0,0.15)); /* Enhance shadow on hover */
+}
+
+/* Styling for the image within the card */
+.vehicle-card img {
+  display: block; /* Remove extra space below image */
+  width: 100%; /* Make image fill card width */
+  height: auto; /* Maintain aspect ratio */
+  /* Consider adding aspect-ratio if images have varying heights */
+  /* aspect-ratio: 16 / 10; */
+  object-fit: cover; /* Cover the area, may crop */
+}
+
+/* Styling for the title text inside the card */
+.vehicle-card .vehicle-title {
+  padding: 15px 10px; /* Padding around the title text */
+  font-size: 1rem; /* Adjust title font size */
+  font-weight: 600; /* Make title semi-bold */
+  color: var(--color-text, #333); /* Use text color variable or default */
+  background-color: var(--color-surface-alt, #f8f8f8); /* Optional subtle background for title area */
+  border-top: 1px solid var(--color-border-light, #eee); /* Optional separator line */
+}
+
+/* --- Responsive Adjustments --- */
+/* On smaller screens, stack the cards into a single column */
+@media (max-width: 768px) {
+  .vehicules-layout {
+    grid-template-columns: 1fr; /* Switch to 1 column */
+    gap: 25px; /* Adjust vertical gap */
+  }
+}
+
+@media (max-width: 480px) {
+  .vehicle-card .vehicle-title {
+    font-size: 0.9rem; /* Slightly smaller title on very small screens */
+    padding: 12px 8px;
+  }
+  .vehicules-layout {
+     gap: 20px;
+  }
+}
+
 /* .testimonial-item { padding: 30px; text-align: center; }
 .testimonial-item blockquote { font-size: 1.2rem; font-style: italic; color: var(--color-primary-text); border-left: 3px solid var(--color-accent-primary); padding-left: 20px; margin-bottom: 20px; text-align: left; }
 .testimonial-author { display: flex; align-items: center; justify-content: center; gap: 15px; }

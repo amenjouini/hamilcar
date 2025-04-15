@@ -269,4 +269,49 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     }
 
+     // Find the container element where the images are
+     const constructionContainer = document.querySelector('.construction-container');
+
+     // Check if the container element actually exists on the page
+     if (!constructionContainer) {
+         console.error("Error: Could not find the '.construction-container' element.");
+         return; // Stop the script if the container isn't found
+     }
+ 
+     // --- Animation Configuration ---
+     const animationDuration = 1; // Duration of the dropFade animation in seconds
+     const longestDelay = 3;      // The animation-delay of the last image (step 4) in seconds
+     const pauseDuration = 3;     // Your desired pause after the sequence finishes, in seconds
+     // --- End Configuration ---
+ 
+     // Calculate total time for one full animation cycle + pause, in milliseconds
+     const totalCycleTime = (longestDelay + animationDuration + pauseDuration) * 1000;
+ 
+     // This function handles one cycle of the animation
+     function runAnimationCycle() {
+         // 1. Add the 'animate-steps' class to the container.
+         // This makes the CSS rules with animations and delays active.
+         console.log("Starting animation cycle, adding class..."); // For debugging
+         constructionContainer.classList.add('animate-steps');
+ 
+         // 2. Set a timer to run code AFTER the entire sequence and pause have finished
+         setTimeout(() => {
+             // Remove the 'animate-steps' class. This makes the images
+             // revert to their default CSS state (opacity: 0, transform: translateY(-50px))
+             console.log("Cycle finished, removing class to reset..."); // For debugging
+             constructionContainer.classList.remove('animate-steps');
+ 
+             // 3. IMPORTANT: Wait a tiny moment before starting the next cycle.
+             // This short delay (e.g., 50ms) ensures the browser processes the class removal
+             // and style reset before the class is added back, allowing the animation to restart properly.
+             setTimeout(runAnimationCycle, 10); // Restart the cycle after 50ms
+ 
+         }, totalCycleTime); // Wait for the calculated total cycle time
+     }
+ 
+     // Start the very first animation cycle when the page is ready
+     console.log("DOM loaded, starting first animation cycle."); // For debugging
+     runAnimationCycle();
+ 
+
 });
