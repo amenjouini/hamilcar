@@ -313,5 +313,17 @@ document.addEventListener('DOMContentLoaded', function() {
      console.log("DOM loaded, starting first animation cycle."); // For debugging
      runAnimationCycle();
  
+     const toggleButtons = document.querySelectorAll('.toggle-button');
+
+     toggleButtons.forEach(button => {
+         button.addEventListener('click', function() {
+             const targetId = this.dataset.target;
+             const contentElement = document.getElementById(targetId);
+             const isHidden = contentElement.style.display === 'none' || contentElement.style.display === '';
+ 
+             contentElement.style.display = isHidden ? 'block' : 'none';
+             this.textContent = isHidden ? '-' : '+';
+         });
+     });
 
 });
