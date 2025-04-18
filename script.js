@@ -110,35 +110,33 @@ document.addEventListener('DOMContentLoaded', function() {
     // Use setTimeout to ensure layout is fully calculated after load
     setTimeout(scrollSpy, 100);
 
-    const modalOverlay = document.getElementById('modal-overlay');
-    const closeModalBtn = document.getElementById('close-modal-btn');
 
     // --- Functions to control modal ---
-    function showSuccessModal() {
-        if(modalOverlay) {
-            modalOverlay.classList.add('active');
-        }
-    }
+    // function showSuccessModal() {
+    //     if(modalOverlay) {
+    //         modalOverlay.classList.add('active');
+    //     }
+    // }
 
-    function hideSuccessModal() {
-         if(modalOverlay) {
-            modalOverlay.classList.remove('active');
-        }
-    }
+    // function hideSuccessModal() {
+    //      if(modalOverlay) {
+    //         modalOverlay.classList.remove('active');
+    //     }
+    // }
 
-    // --- Close Modal Listeners ---
-    if(closeModalBtn) {
-        closeModalBtn.addEventListener('click', hideSuccessModal);
-    }
-    // Optional: Close modal if user clicks on the overlay background
-    if(modalOverlay) {
-        modalOverlay.addEventListener('click', function(event) {
-            // Only close if the click is directly on the overlay, not the modal box itself
-            if (event.target === modalOverlay) {
-                hideSuccessModal();
-            }
-        });
-    }
+    // // --- Close Modal Listeners ---
+    // if(closeModalBtn) {
+    //     closeModalBtn.addEventListener('click', hideSuccessModal);
+    // }
+    // // Optional: Close modal if user clicks on the overlay background
+    // if(modalOverlay) {
+    //     modalOverlay.addEventListener('click', function(event) {
+    //         // Only close if the click is directly on the overlay, not the modal box itself
+    //         if (event.target === modalOverlay) {
+    //             hideSuccessModal();
+    //         }
+    //     });
+    // }
 
     const image1 = document.getElementById('image-1');
     const image2 = document.getElementById('image-2');
@@ -195,79 +193,7 @@ document.addEventListener('DOMContentLoaded', function() {
     // Initial setup on page load
     showImage(0); // Start by showing the first image and setting button states
 
-    const form = document.getElementById('cta-form');
-    const formStatus = document.getElementById('form-status'); // Get the status div
-
-
-    if (form) {
-        const submitButton = form.querySelector('button[type="submit"]'); // Defined here
-
-        form.addEventListener('submit', function(event) {
-            event.preventDefault();
-
-            const formData = new FormData(form);
-            const formSubmitUrl = "https://formsubmit.co/amen.jouini18@gmail.com";
-
-            // Update button state
-            if(submitButton) {
-                submitButton.disabled = true;
-                submitButton.textContent = 'Sending...';
-            }
-            if(formStatus) {
-                formStatus.textContent = '';
-                formStatus.style.color = 'inherit';
-            }
-
-
-            fetch(formSubmitUrl, {
-                method: 'POST',
-                body: formData,
-                headers: {
-                    'Accept': 'application/json'
-                }
-            })
-            .then(response => {
-                if (response.ok) {
-                    console.log('Form submission successful (status ok).');
-                    return Promise.resolve();
-                } else {
-                    return response.text().then(text => {
-                        console.error("FormSubmit Error Response Body:", text);
-                        throw new Error(`Form submission failed: ${response.status} ${response.statusText}`);
-                    });
-                }
-            })
-            .then(() => {
-                console.log('Handling successful submission action...');
-
-                // --- Perform Success Action: Show Modal ---
-                showSuccessModal(); // <--- Show the pop-up!
-
-                // Also reset the form and button
-                form.reset(); // Clear the form fields
-                if(submitButton) {
-                    submitButton.disabled = false; // Re-enable button
-                    submitButton.textContent = 'Contact Us'; // Reset button text
-                }
-                 if(formStatus) { // Clear any previous status messages
-                    formStatus.textContent = '';
-                 }
-
-            })
-            .catch(error => {
-                console.error('Form Submission Error:', error);
-                 if(formStatus) { // Display error inline
-                    formStatus.textContent = "Oops! Something went wrong. Please try again.";
-                    formStatus.style.color = 'red';
-                 }
-                // Ensure button is re-enabled on error
-                 if(submitButton) {
-                    submitButton.disabled = false;
-                    submitButton.textContent = 'Contact Us';
-                 }
-            });
-        });
-    }
+    
 
      // Find the container element where the images are
      const constructionContainer = document.querySelector('.construction-container');
@@ -325,5 +251,112 @@ document.addEventListener('DOMContentLoaded', function() {
              this.textContent = isHidden ? '-' : '+';
          });
      });
+
+     const modalOverlay = document.getElementById('modal-overlay');
+     const closeModalBtn = document.getElementById('close-modal-btn');
+ 
+     // --- Functions to control modal ---
+     function showSuccessModal() {
+         if(modalOverlay) {
+             modalOverlay.classList.add('active');
+         }
+     }
+ 
+     function hideSuccessModal() {
+          if(modalOverlay) {
+             modalOverlay.classList.remove('active');
+         }
+     }
+ 
+     // --- Close Modal Listeners ---
+     if(closeModalBtn) {
+         closeModalBtn.addEventListener('click', hideSuccessModal);
+     }
+     // Optional: Close modal if user clicks on the overlay background
+     if(modalOverlay) {
+         modalOverlay.addEventListener('click', function(event) {
+             // Only close if the click is directly on the overlay, not the modal box itself
+             if (event.target === modalOverlay) {
+                 hideSuccessModal();
+             }
+         });
+     }
+ 
+ 
+     const form = document.getElementById('cta-form');
+     const formStatus = document.getElementById('form-status'); // Get the status div
+ 
+ 
+     if (form) {
+         const submitButton = form.querySelector('button[type="submit"]'); // Defined here
+ 
+         form.addEventListener('submit', function(event) {
+             event.preventDefault();
+ 
+             const formData = new FormData(form);
+             const formSubmitUrl = "https://formsubmit.co/amen.jouini18@gmail.com";
+ 
+             // Update button state
+             if(submitButton) {
+                 submitButton.disabled = true;
+                 submitButton.textContent = 'Sending...';
+             }
+             if(formStatus) {
+                 formStatus.textContent = '';
+                 formStatus.style.color = 'inherit';
+             }
+ 
+ 
+             fetch(formSubmitUrl, {
+                 method: 'POST',
+                 body: formData,
+                 headers: {
+                     'Accept': 'application/json'
+                 }
+             })
+             .then(response => {
+                 if (response.ok) {
+                     console.log('Form submission successful (status ok).');
+                    //  return Promise.resolve();
+                    return console.log("okkk");
+                    
+                 } else {
+                     return response.text().then(text => {
+                         console.error("FormSubmit Error Response Body:", text);
+                         throw new Error(`Form submission failed: ${response.status} ${response.statusText}`);
+                     });
+                 }
+             })
+             .then(() => {
+                 console.log('Handling successful submission action...');
+ 
+                 // --- Perform Success Action: Show Modal ---
+                 showSuccessModal(); // <--- Show the pop-up!
+ 
+                 // Also reset the form and button
+                 form.reset(); // Clear the form fields
+                 if(submitButton) {
+                     submitButton.disabled = false; // Re-enable button
+                     submitButton.textContent = 'Contact Us'; // Reset button text
+                 }
+                  if(formStatus) { // Clear any previous status messages
+                     formStatus.textContent = '';
+                  }
+ 
+             })
+             .catch(error => {
+                 console.error('Form Submission Error:', error);
+                  if(formStatus) { // Display error inline
+                     formStatus.textContent = "Oops! Something went wrong. Please try again.";
+                     formStatus.style.color = 'red';
+                  }
+                 // Ensure button is re-enabled on error
+                  if(submitButton) {
+                     submitButton.disabled = false;
+                     submitButton.textContent = 'Contact Us';
+                  }
+             });
+         });
+     }
 
 });
