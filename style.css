@@ -1321,7 +1321,7 @@ footer {
 }
 
 .modal-box {
-  background-color: #fff;
+  background-color: #121212;
   padding: 30px 40px;
   border-radius: 8px;
   box-shadow: 0 5px 15px rgba(0,0,0,0.3);
@@ -1348,7 +1348,7 @@ footer {
 .modal-box h3 {
   font-family: 'Trueno', sans-serif; /* Or your title font */
   font-weight: bold;
-  color: #333; /* Dark title color */
+  color: #ffffff; /* Dark title color */
   margin-top: 0;
   margin-bottom: 15px;
   font-size: 1.6rem;
@@ -1356,7 +1356,7 @@ footer {
 
 .modal-box p {
   font-family: 'Kentledge', sans-serif; /* Or your body font */
-  color: #555;
+  color: #ffffff;
   margin-bottom: 10px;
   line-height: 1.5;
   text-align: center; /* Ensure centered */
