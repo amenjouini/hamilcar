@@ -239,16 +239,19 @@ document.addEventListener('DOMContentLoaded', function() {
      console.log("DOM loaded, starting first animation cycle."); // For debugging
      runAnimationCycle();
  
-     const toggleButtons = document.querySelectorAll('.toggle-button');
+     const toggleHeaders = document.querySelectorAll('.toggle-clickable');
 
-     toggleButtons.forEach(button => {
-         button.addEventListener('click', function() {
+     toggleHeaders.forEach(header => {
+         header.addEventListener('click', function() {
              const targetId = this.dataset.target;
              const contentElement = document.getElementById(targetId);
+             const buttonElement = this.querySelector('.toggle-button'); // Find the button within the header
              const isHidden = contentElement.style.display === 'none' || contentElement.style.display === '';
- 
+     
              contentElement.style.display = isHidden ? 'block' : 'none';
-             this.textContent = isHidden ? '-' : '+';
+             if (buttonElement) {
+                 buttonElement.textContent = isHidden ? '-' : '+';
+             }
          });
      });
 

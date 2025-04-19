@@ -1114,6 +1114,9 @@ footer {
     flex-direction: column;
     gap: 0px;
   }
+  .about-text {
+    margin-top: 40px;
+  }
   .contact-layout {
     gap: 40px;
   }
@@ -1209,7 +1212,7 @@ footer {
     flex-direction: column;
   }
   .about-image-or-video {
-    margin-top: 30px;
+    margin-top: 0px;
   }
   .technology-layout {
     flex-direction: column-reverse;
@@ -1276,10 +1279,10 @@ footer {
     font-size: 1rem;
   }
   .cta-button {
-    padding: 12px 25px;
+    padding: 10px 20px;
     font-size: 0.9rem;
-    width: 100%;
-    max-width: 300px;
+    width: 80%;
+    max-width: auto;
   }
   .contact-form-container button[type="submit"] {
     width: 100%;
@@ -1296,6 +1299,7 @@ footer {
   .footer-social a {
     margin: 0 8px;
   }
+
 }
 /* --- Modal Styles --- */
 
