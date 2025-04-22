@@ -138,116 +138,80 @@ document.addEventListener('DOMContentLoaded', function() {
     //     });
     // }
 
-    const image1 = document.getElementById('image-1');
-    const image2 = document.getElementById('image-2');
-    const prevBtn = document.getElementById('prev-btn');
-    const nextBtn = document.getElementById('next-btn');
+    const imageSwitcher = document.querySelector('.simple-image-switcher');
 
-    // Check if all elements exist before proceeding
-    if (!image1 || !image2 || !prevBtn || !nextBtn) {
-        console.error("Switcher elements not found!");
-        return;
-    }
+    if (imageSwitcher) {
+        const image1 = document.getElementById('image-1');
+        const image2 = document.getElementById('image-2');
+        const prevBtn = document.getElementById('prev-btn');
+        const nextBtn = document.getElementById('next-btn');
 
-    let currentIndex = 0; // 0 for image1, 1 for image2
-    const images = [image1, image2];
+        // Check if all elements exist before proceeding
+        if (!image1 || !image2 || !prevBtn || !nextBtn) {
+            console.error("Switcher elements not found!");
+            return;
+        }
 
-    function showImage(index) {
-        // Ensure index is valid (should always be 0 or 1 here)
-        if (index < 0 || index >= images.length) return;
+        let currentIndex = 0; // 0 for image1, 1 for image2
+        const images = [image1, image2];
 
-        // Update image visibility
-        images.forEach((img, i) => {
-            if (i === index) {
-                img.classList.add('active');
-            } else {
-                img.classList.remove('active');
+        function showImage(index) {
+            // Ensure index is valid (should always be 0 or 1 here)
+            if (index < 0 || index >= images.length) return;
+
+            // Update image visibility
+            images.forEach((img, i) => {
+                if (i === index) {
+                    img.classList.add('active');
+                } else {
+                    img.classList.remove('active');
+                }
+            });
+
+            // Update button visibility
+            if (index === 0) {
+                prevBtn.classList.add('hidden'); // Hide prev on first image
+                nextBtn.classList.remove('hidden');
+            } else if (index === 1) {
+                prevBtn.classList.remove('hidden');
+                nextBtn.classList.add('hidden'); // Hide next on second image
+            }
+
+            currentIndex = index; // Update the current index
+        }
+
+        // Event Listeners
+        prevBtn.addEventListener('click', () => {
+            if (currentIndex > 0) { // Only go prev if not on first image
+                showImage(currentIndex - 1);
             }
         });
 
-        // Update button visibility
-        if (index === 0) {
-            prevBtn.classList.add('hidden'); // Hide prev on first image
-            nextBtn.classList.remove('hidden');
-        } else if (index === 1) {
-            prevBtn.classList.remove('hidden');
-            nextBtn.classList.add('hidden'); // Hide next on second image
-        }
+        nextBtn.addEventListener('click', () => {
+            if (currentIndex < images.length - 1) { // Only go next if not on last image
+                showImage(currentIndex + 1);
+            }
+        });
 
-        currentIndex = index; // Update the current index
+        // Initial setup on page load
+        showImage(0); // Start by showing the first image and setting button states
     }
 
-    // Event Listeners
-    prevBtn.addEventListener('click', () => {
-        if (currentIndex > 0) { // Only go prev if not on first image
-            showImage(currentIndex - 1);
-        }
-    });
 
-    nextBtn.addEventListener('click', () => {
-        if (currentIndex < images.length - 1) { // Only go next if not on last image
-            showImage(currentIndex + 1);
-        }
-    });
 
-    // Initial setup on page load
-    showImage(0); // Start by showing the first image and setting button states
 
-    
-
-     // Find the container element where the images are
-     const constructionContainer = document.querySelector('.construction-container');
-
-     // Check if the container element actually exists on the page
-     if (!constructionContainer) {
-         console.error("Error: Could not find the '.construction-container' element.");
-         return; // Stop the script if the container isn't found
-     }
- 
-     // --- Animation Configuration ---
-     const animationDuration = 1; // Duration of the dropFade animation in seconds
-     const longestDelay = 3;      // The animation-delay of the last image (step 4) in seconds
-     const pauseDuration = 3;     // Your desired pause after the sequence finishes, in seconds
-     // --- End Configuration ---
- 
-     // Calculate total time for one full animation cycle + pause, in milliseconds
-     const totalCycleTime = (longestDelay + animationDuration + pauseDuration) * 1000;
- 
-     // This function handles one cycle of the animation
-     function runAnimationCycle() {
-         // 1. Add the 'animate-steps' class to the container.
-         // This makes the CSS rules with animations and delays active.
-         console.log("Starting animation cycle, adding class..."); // For debugging
-         constructionContainer.classList.add('animate-steps');
- 
-         // 2. Set a timer to run code AFTER the entire sequence and pause have finished
-         setTimeout(() => {
-             // Remove the 'animate-steps' class. This makes the images
-             // revert to their default CSS state (opacity: 0, transform: translateY(-50px))
-             console.log("Cycle finished, removing class to reset..."); // For debugging
-             constructionContainer.classList.remove('animate-steps');
- 
-             // 3. IMPORTANT: Wait a tiny moment before starting the next cycle.
-             // This short delay (e.g., 50ms) ensures the browser processes the class removal
-             // and style reset before the class is added back, allowing the animation to restart properly.
-             setTimeout(runAnimationCycle, 10); // Restart the cycle after 50ms
- 
-         }, totalCycleTime); // Wait for the calculated total cycle time
-     }
- 
-     // Start the very first animation cycle when the page is ready
-     console.log("DOM loaded, starting first animation cycle."); // For debugging
-     runAnimationCycle();
  
      const toggleHeaders = document.querySelectorAll('.toggle-clickable');
+     console.log("toggleHeaders", toggleHeaders);
 
      toggleHeaders.forEach(header => {
+
          header.addEventListener('click', function() {
              const targetId = this.dataset.target;
              const contentElement = document.getElementById(targetId);
              const buttonElement = this.querySelector('.toggle-button'); // Find the button within the header
              const isHidden = contentElement.style.display === 'none' || contentElement.style.display === '';
-     
+            
              contentElement.style.display = isHidden ? 'block' : 'none';
              if (buttonElement) {
                  buttonElement.textContent = isHidden ? '-' : '+';

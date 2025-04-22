@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="fr">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>HAMILCAR - Engineered for Dominance</title>
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
+    <link rel="stylesheet" href="style.css" />
+  </head>
+  <body>
+    <header id="header" class="sticky">
+      <nav class="container">
+        <a href="#hero" class="logo-link">
+          <img
+            alt="HAMILCAR Logo"
+            height="50"
+            src="/assets/icons/signature-hamilcar-nobg.png"
+          />
+        </a>
+        <ul class="nav-links">
+          <li><a href="/about-legacy.html">Présentation</a></li>
+          <li><a href="/vehicles.html">Véhicules Hamilcar</a></li>
+          <li><a href="/technology.html">Technologie</a></li>
+          <li><a href="/clients.html">Clients</a></li>
+          <li><a href="/contact.html">Contact</a></li>
+        </ul>
+
+
+        <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
+      </nav>
+    </header>
+
+    <main>
+
+      <section id="contact" class="content-section contact-section">
+        <div class="container">
+          <div class="section-header" data-aos="fade-up">
+            <h2 class="section-title">Contactez HAMILCAR</h2>
+            <p class="section-subtitle">
+              Prêt à discuter de votre prochain projet ou véhicule ?
+            </p>
+          </div>
+          <div class="contact-layout" data-aos="fade-up" data-aos-delay="100">
+            <div class="contact-info">
+              <h3>Nos Coordonnées</h3>
+              <p>Pour toute demande, notre équipe est à votre disposition.</p>
+              <ul class="contact-details">
+                <li>
+                  <img
+                    src="/assets/icons/address.png"
+                    alt="Adresse"
+                    class="contact-icon"
+                  />
+                  <span>[VOTRE ADRESSE HAMILCAR ICI], Tunisie</span>
+                </li>
+                <li>
+                  <img
+                    src="/assets/icons/phone.png"
+                    alt="Téléphone"
+                    class="contact-icon"
+                  />
+                  <a href="tel:+216XXXXXXXX">+216 94 888 342</a>
+                </li>
+                <li>
+                  <img
+                    src="/assets/icons/email.png"
+                    alt="Email"
+                    class="contact-icon"
+                  />
+                  <a href="mailto:contact@hamilcar.tn">contact@hamilcar.tn</a>
+                </li>
+              </ul>
+              <div class="map-placeholder">
+                <p>Carte Interactive Ici (Intégration Google Maps / Leaflet)</p>
+              </div>
+            </div>
+            <div class="contact-form-container">
+              <h3>Envoyez-nous un Message</h3>
+              <div id="form-status"></div>
+              <form
+              id="cta-form"
+              action="https://formsubmit.co/amen.jouini18@gmail.com"
+              method="POST"
+            >
+              <label for="first_name">First Name:</label>
+              <input type="text" id="first_name" name="first_name" required />
+
+              <label for="last_name">Last Name:</label>
+              <input type="text" id="last_name" name="last_name" required />
+
+              <label for="email">Email:</label>
+              <input type="email" id="email" name="email" required />
+
+              <label for="phone">Phone Number:</label>
+              <input type="tel" id="phone" name="phone" required/>
+
+              <label for="message">Message (Optional):</label>
+              <textarea id="message" name="message" rows="4"></textarea>
+
+              <button type="submit" class="cta-button">Contact Us</button>
+
+              <input type="hidden" name="_captcha" value="false" />
+            </form>
+            </div>
+          </div>
+        </div>
+      </section>
+    </main>
+
+    <footer>
+      <div class="container footer-content">
+         <!-- <div class="footer-logo">
+          <img
+            alt="HAMILCAR Logo Footer"
+            height="40"
+            src="/assets/images/Signature_HAMILCAR.jpg"
+          />
+        </div>  -->
+
+        <div class="footer-social">
+          <a href="https://www.facebook.com/profile.php?id=100083210768748" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+            ><img src="/assets/icons/fb.png" alt="Facebook"
+          /></a>
+          <a href="https://www.linkedin.com/in/hamilcar-tunisie-012b48252/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+            ><img src="/assets/icons/linkedin.png" alt="LinkedIn"
+          /></a>
+        </div> 
+        <p class="footer-copyright">
+          &copy; <span id="current-year"></span> HAMILCAR. Tous droits réservés.
+        </p>
+      </div>
+    </footer>
+    <div id="modal-overlay" class="modal-overlay">
+      <div
+        id="success-modal"
+        class="modal-box"
+        role="dialog"
+        aria-modal="true"
+        aria-labelledby="modal-title"
+        aria-describedby="modal-desc"
+      >
+        <button
+          id="close-modal-btn"
+          class="modal-close-btn"
+          aria-label="Close modal"
+        >
+          &times;
+        </button>
+        <div class="modal-icon">
+          <svg
+            xmlns="http://www.w3.org/2000/svg"
+            viewBox="0 0 24 24"
+            fill="currentColor"
+            width="48px"
+            height="48px"
+            color="#28a745"
+          >
+            <path
+              fill-rule="evenodd"
+              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
+              clip-rule="evenodd"
+            />
+          </svg>
+        </div>
+        <h3 id="modal-title">Success!</h3>
+        <p id="modal-desc">
+          Your message has been sent successfully.<br />We'll be in touch
+          shortly.
+        </p>
+      </div>
+    </div>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="script.js"></script>
+  </body>
+</html>
