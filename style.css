@@ -72,6 +72,7 @@ h1 {
   margin-bottom: 1rem;
 } /* Responsive H1 */
 h2.section-title {
+  margin-top: 2rem;
   font-size: clamp(2rem, 4vw, 2.8rem);
   margin-bottom: 1rem;
   color: var(--color-heading);
@@ -305,10 +306,10 @@ html[dir="rtl"] #header .logo-link {
 }
 
 /* Ensure the language selector is positioned correctly within the nav */
-nav .container {
+/* nav .container {
     display: flex;
     align-items: center;
-    justify-content: space-between; /* Or space-around, adjust as needed */
+    justify-content: space-between; /* Or space-around, adjust as needed */ 
 }
 
 nav ul.nav-links {
@@ -1424,6 +1425,12 @@ footer {
     margin: 0;
   }
 }
+
+/* @media (min-width: 769px) {
+  .mobile-menu-toggle {
+    display: none;
+  }
+} */
 
 @media (max-width: 480px) {
   html {
