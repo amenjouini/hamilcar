@@ -18,675 +18,98 @@
           />
         </a>
         <ul class="nav-links">
-          <li><a href="/about-legacy.html">Présentation</a></li>
-          <li><a href="/vehicles.html">Véhicules Hamilcar</a></li>
-          <li><a href="/technology.html">Technologie</a></li>
-          <li><a href="/clients.html">Clients</a></li>
-          <li><a href="/contact.html">Contact</a></li>
+          <li>
+            <a
+              href="/about-legacy.html"
+              data-translatable
+              data-fr="Présentation"
+              data-en="About Us"
+              data-ar="معلومات عنا"
+              >Présentation</a
+            >
+          </li>
+          <li>
+            <a
+              href="/vehicles.html"
+              data-translatable
+              data-fr="Véhicules Hamilcar"
+              data-en="Hamilcar Vehicles"
+              data-ar="مركبات هاميكار"
+              >Véhicules Hamilcar</a
+            >
+          </li>
+          <li>
+            <a
+              href="/technology.html"
+              data-translatable
+              data-fr="Technologie"
+              data-en="Technology"
+              data-ar="تكنولوجيا"
+              >Technologie</a
+            >
+          </li>
+          <li>
+            <a
+              href="/clients.html"
+              data-translatable
+              data-fr="Clients"
+              data-en="Clients"
+              data-ar="عملاء"
+              >Clients</a
+            >
+          </li>
+          <li>
+            <a
+              href="/contact.html"
+              data-translatable
+              data-fr="Contact"
+              data-en="Contact"
+              data-ar="اتصال"
+              >Contact</a
+            >
+          </li>
         </ul>
 
+        <div class="language-selector">
+          <button
+            id="current-lang"
+            aria-label="Change language"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <span class="flag-icon"></span>
+          </button>
+          <div id="lang-options" role="menu">
+            <button
+              data-lang="fr"
+              aria-label="Switch to French"
+              role="menuitem"
+            >
+              <span class="flag-icon fr"></span>
+            </button>
+            <button
+              data-lang="ar"
+              aria-label="Switch to Arabic"
+              role="menuitem"
+            >
+              <span class="flag-icon ar"></span>
+            </button>
+            <button
+              data-lang="en"
+              aria-label="Switch to English"
+              role="menuitem"
+            >
+              <span class="flag-icon en"></span>
+            </button>
+          </div>
+        </div>
 
         <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
       </nav>
     </header>
 
     <main>
-      <section id="hero" class="hero-section">
-        <div class="hero-background">
-          <img src="/assets/images/car-side3.jpg" alt="Background Car" />
-        </div>
-        <div class="hero-overlay"></div>
-        <div class="container hero-content">
-          <h1 data-aos="fade-down">HAMILCAR</h1>
-          <p class="subtitle" data-aos="fade-up" data-aos-delay="200">
-            Conçu pour Tous les Terrains. Prêt pour Toutes les Missions.
-          </p>
-          <a
-            href="#vehicles"
-            class="cta-button"
-            data-aos="zoom-in"
-            data-aos-delay="400"
-          >
-            Explorer les Véhicules
-          </a>
-        </div>
-        <a
-          href="#about-legacy"
-          class="scroll-down-indicator"
-          aria-label="Scroll down"
-        >
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            fill="none"
-            viewBox="0 0 24 24"
-            stroke-width="1.5"
-            stroke="currentColor"
-            class="w-6 h-6"
-          >
-            <path
-              stroke-linecap="round"
-              stroke-linejoin="round"
-              d="m19.5 8.25-7.5 7.5-7.5-7.5"
-            />
-          </svg>
-        </a>
-      </section>
-
-      <section id="about-legacy" class="content-section about-section">
-        <div class="container">
-          <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Bienvenue chez HAMILCAR!</h2>
-            <p class="section-subtitle">
-              Imaginés, conçus et construits sur le champ de bataille avec une
-              grande dose d'ADN militaire, les véhicules tout-terrain HAMILCAR
-              sont spécialement conçus pour être extrêmement durables,
-              exceptionnellement fiables et hautement fonctionnels, avec ce
-              qu'il faut de plaisir de conduite hors route. HAMILCAR a évolué
-              pour devenir un véhicule tout-terrain de fabrication tunisienne à
-              usage militaire, commercial et grand public, conçu pour gérer
-              toutes les missions et tous les terrains.
-            </p>
-          </div>
-          <div class="about-layout">
-            <div
-              class="about-image-or-video"
-              data-aos="fade-right"
-              data-aos-delay="200"
-            >
-              <img
-                src="/assets/images/founders.png"
-                alt="Hamilcar en action ou usine"
-              />
-            </div>
-            <div class="about-text" data-aos="fade-left" data-aos-delay="100">
-              <h3>Présentation des fondateurs HAMILCAR</h3>
-              <p>
-                Ingénieurs, de formation académique. Passionné de construction
-                automobile avec plus de 20 ans d'expérience dans divers domaines
-                technologiques et occupant plusieurs postes de direction,
-                contribuant ainsi au développement d'entreprises d'envergure.
-              </p>
-              <p>
-                Aujourd'hui, HAMILCAR représente le summum du véhicule
-                tout-terrain de fabrication tunisienne, prêt à affronter toutes
-                les missions et tous les terrains, pour un usage militaire,
-                commercial ou grand public.
-              </p>
-              <!-- <a href="#contact" class="link-arrow"
-                >En savoir plus sur notre mission</a
-              > -->
-            </div>
-          </div>
-          <!-- <div class="founder-intro" data-aos="fade-up" data-aos-delay="300">
-            <h4>Rencontrez les Fondateurs</h4>
-            <p>
-              Ingénieurs passionnés avec plus de 20 ans d'expérience... (Version
-              courte).
-              <a href="#contact" class="link-inline">Contactez notre équipe</a>.
-            </p>
-          </div> -->
-        </div>
-      </section>
-
-      <section id="vehicles" class="content-section vehicles-section alt-bg">
-        <div class="container">
-          <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">La Gamme HAMILCAR</h2>
-          </div>
-
-          <div
-            class="design-sections-container"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <div class="design-section">
-              <h4>DESIGN EXTERIEUR</h4>
-              <p>
-                HX 0 est le premier prototype de la marque HAMILCAR, c'est un
-                véhicule tout-terrain à multi-usage, conçu pour répondre à vos
-                exigences, et fabriqué pour atteindre vos objectifs.
-              </p>
-            </div>
-
-            <div class="design-section">
-              <h4>DESIGN INTERIEUR</h4>
-              <p>
-                HX-0 est un véhicule spacieux qui permet un contrôle visuel
-                optimal de son environnement, des positions assises réglables et
-                confortables.le tableau de bord et les équipements fournis
-                permettent un contrôle optimal pour les utilisateurs
-                professionnels. Ces équipements dépendent de la configuration.
-              </p>
-            </div>
-          </div>
-
-          <div
-            class="vehicle-gallery-placeholder"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <img
-              src="/assets/images/vehichule.png"
-              alt="Hamilcar en action ou usine"
-            />
-          </div>
-
-          <div
-            class="key-features-grid"
-            data-aos="fade-up"
-            data-aos-delay="200"
-          >
-            <div class="feature-item">
-              <h4>Carrosserie</h4>
-
-              <table class="feature-table">
-                <tbody>
-                  <tr>
-                    <th>Type</th>
-                    <td>Pick up</td>
-                  </tr>
-                  <tr>
-                    <th>Volume caisse</th>
-                    <td>1,15 m³</td>
-                  </tr>
-                  <tr>
-                    <th>Nombre de places</th>
-                    <td>4 places</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="feature-item">
-              <h4>Poids et Dimensions</h4>
-              <table class="feature-table">
-                <tbody>
-                  <tr>
-                    <th>PTC</th>
-                    <td>3500 Kg</td>
-                  </tr>
-                  <tr>
-                    <th>Charge utile</th>
-                    <td>1000 Kg</td>
-                  </tr>
-                  <tr>
-                    <th>Garde au sol</th>
-                    <td>400 mm</td>
-                  </tr>
-                  <tr>
-                    <th>Rayon Braquage</th>
-                    <td>~ 6 m</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="feature-item">
-              <h4>Moteur</h4>
-              <table class="feature-table">
-                <tbody>
-                  <tr>
-                    <th>Nombre de cylindres</th>
-                    <td>4 ou 8</td>
-                  </tr>
-                  <tr>
-                    <th>Puissance</th>
-                    <td>de 90 à 275 kW</td>
-                  </tr>
-                  <tr>
-                    <th>Énergie</th>
-                    <td>Diesel</td>
-                  </tr>
-                  <tr>
-                    <th>Autonomie</th>
-                    <td>de 750 à 1000 Km</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-            <div class="feature-item">
-              <h4>Transmission</h4>
-              <table class="feature-table">
-                <tbody>
-                  <tr>
-                    <th>Type</th>
-                    <td>4x4 drive, Manuelle</td>
-                  </tr>
-                  <tr>
-                    <th>Frein AV et AR</th>
-                    <td>À disque</td>
-                  </tr>
-                  <tr>
-                    <th>Pneus</th>
-                    <td>9,00 R16</td>
-                  </tr>
-                </tbody>
-              </table>
-            </div>
-          </div>
-          <div
-            class="section-footer-link"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <a href="#contact" class="cta-button"
-              >Cliquer pour avoir les specifications complètes</a
-            >
-          </div>
-        </div>
-      </section>
-
-      <section id="technology" class="content-section technology-section">
-        <div class="container">
-          <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Technologie Produit</h2>
-          </div>
-          <!-- <div class="construction-container">
-            <img
-              class="construction-step"
-              src="/assets/images/tech1.jpg"
-              alt="Step 1 - Base Frame"
-            />
-            <img
-              class="construction-step"
-              src="/assets/images/tech2.jpg"
-              alt="Step 2 - Middle Assembly"
-            />
-            <img
-              class="construction-step"
-              src="/assets/images/tech3.jpg"
-              alt="Step 3 - Outer Shell"
-            />
-            <img
-              class="construction-step"
-              src="/assets/images/tech4.jpg"
-              alt="Step 4 - Final Car"
-            />
-          </div> -->
-
-          <div class="technology-layout">
-            <div
-              class="tech-image-area"
-              data-aos="fade-down"
-              data-aos-delay="100"
-            >
-              <div class="construction-container">
-                <video
-                    autoplay  loop      muted     playsinline src="/assets/body1/body1.mp4"
-                    aria-label="Vidéo Technologie Hamilcar" >
-                    Your browser does not support the video tag.
-                </video>
-                
-              </div>
-            </div>
-            <div
-              class="tech-description-area"
-              data-aos="fade-down"
-              data-aos-delay="200"
-            >
-              <div class="tech-point">
-                <div>
-                  <h4>Body</h4>
-                  <p>
-                    Conçu avec différents matériaux et épaisseurs d'acier pour
-                    avoir une carrosserie solide pour résister à des conditions
-                    d'utilisation difficiles. Peut être fabriqué par des plaques
-                    balistiques ou recevoir des blindages amovibles. La forme du
-                    véhicule est conçue pour réduire l'impact des objets en
-                    métal ou en pierre projetés et même le souffle des
-                    explosifs.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          <div class="technology-layout">
-            <div
-              class="tech-image-area"
-              data-aos="fade-down"
-              data-aos-delay="100"
-            >
-              <div class="transmission-container">
-                <div class="simple-image-switcher">
-                  <img id="image-1" class="switch-image active" /* Start with
-                  the first image visible */
-                  src="/assets/images/transmission1.png" alt="Transmission View
-                  1" /> <img id="image-2" class="switch-image" /* Start with the
-                  second image hidden */ src="/assets/images/transmission2.png"
-                  alt="Transmission View 2" />
-
-                  <button
-                    id="prev-btn"
-                    class="switch-btn prev"
-                    aria-label="Previous Image"
-                  >
-                    &lt;
-                  </button>
-                  <button
-                    id="next-btn"
-                    class="switch-btn next"
-                    aria-label="Next Image"
-                  >
-                    &gt;
-                  </button>
-                </div>
-              </div>
-            </div>
-            <div
-              class="tech-description-area"
-              data-aos="fade-down"
-              data-aos-delay="200"
-            >
-              <div class="tech-point">
-                <div>
-                  <h4>Transmission</h4>
-                  <p>
-                    Hamilcar HX peuvent êtres propulsés par des moteurs de
-                    différentes puissances selon les configurations. La boîte de
-                    vitesses peut être manuelle ou automatique. La boite de
-                    transfert offre plusieurs combinaisons selon l'utilisation.
-                    Les éssieux sont équipés de systèmes de blocage de
-                    différentiel.
-                  </p>
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- <div
-            class="tech-3d-placeholder"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <p>
-              Placeholder: Intégration modèle 3D interactif (moteur, châssis?).
-            </p>
-          </div> -->
-          <div class="container"> <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Nos Véhicules</h2>
-            <p class="section-subtitle">Découvrez notre gamme adaptée à vos besoins.</p>
-        </div>
-    
-        <div class="vehicules-layout" data-aos="fade-up" data-aos-delay="100">
-    
-            <div class="vehicle-card">
-                <img src="/assets/images/PICK UP 4 Portes.png" alt="PICK UP 4 Portes">
-                <div class="vehicle-title">
-                    PICK UP 4 Portes
-                </div>
-            </div>
-    
-            <div class="vehicle-card">
-                <img src="/assets/images/PICK UP 2 Portes.png" alt="PICK UP 2 Portes">
-                <div class="vehicle-title">
-                    PICK UP 2 Portes
-                </div>
-            </div>
-    
-            <div class="vehicle-card">
-                <img src="/assets/images/SUV.png" alt="SUV">
-                <div class="vehicle-title">
-                    SUV
-                </div>
-            </div>
-    
-            <div class="vehicle-card">
-                <img src="/assets/images/VEHICLE COMMERCIAL.png" alt="VEHICLE COMMERCIAL">
-                <div class="vehicle-title">
-                    VEHICLE COMMERCIAL
-                </div>
-            </div>
-    
-        </div>
-    
-    </div>
-    <div class="video-section" data-aos="fade-up" data-aos-delay="400">
-      <h3>Voir la Technologie en Action</h3>
-      <div class="video-wrapper">
-          <video
-              autoplay  loop      muted     playsinline src="/assets/images/368302621741965313.mp4"
-              aria-label="Vidéo Technologie Hamilcar" >
-              Your browser does not support the video tag.
-          </video>
-      </div>
-  </div>
-        </div>
-      </section>
-
-      <section id="clients" class="content-section clients-section alt-bg">
-        <div class="container">
-          <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Nos clients potentiels et investisseurs</h2>
-
-          </div>
-          <div class="client-container">
-            <div class="client-item toggle-clickable" data-target="potentiel-clients-1">
-              <div>
-                  <div class="client-item-header">Véhicules protégés et banalisés pour les professionnels (militaires, police, etc.).
-                  </div>
-              </div>
-              <button class="expand-button toggle-button" data-target="potentiel-clients-1">+</button>
-          </div>
-          <div class="toggle-content" id="potentiel-clients-1">
-              <p>- A bord vous vous occupez de vos missions et nous veillons à votre sécurité.</p>
-
-              <p> - Configurez votre véhicule selon vos besoins.</p>
-                
-              <p> - Nous vous proposons toujours les solutions pour réussir vos missions.</p>
-                
-              <p>  - Optez pour nos solutions véhicules optimisées pour votre développement.
-                </p>
-          </div>
-
-          <div class="client-item toggle-clickable" data-target="potentiel-clients-2">
-            <div>
-                <div class="client-item-header">Des véhicules personnalisés et protégés pour les passionnés et les VIP.
-                </div>
-            </div>
-            <button class="expand-button toggle-button" data-target="potentiel-clients-2">+</button>
-        </div>
-        <div class="toggle-content" id="potentiel-clients-2">
-            <p>- A bord, vous profitez de votre journée et nous veillons à votre sécurité.</p>
-
-            <p> - Configurez votre véhicule selon vos envies.</p>
-              
-            <p> - Nous vous proposons toujours les solutions pour réussir vos défis. </p>
-              
-            <p>  - Optez pour nos solutions de véhicules optimisées pour votre développement. </p>
-        </div>
-
-        <div class="client-item toggle-clickable" data-target="investisseurs-1">
-          <div>
-          <div class="client-item-header " >
-              Entrepreneurs
-              
-          </div>
-        </div>
-          <button class="expand-button toggle-button" data-target="investisseurs-1">+</button>
-        </div>
-        <div class="toggle-content" id="investisseurs-1">
-          <p>Ingénieurs de formation académique, passionnés par la construction automobile avec plus de 20 ans d'expérience
-              dans différents secteurs technologiques et occupant plusieurs postes de direction, contribuant ainsi au développement
-              d'entreprises d'envergure.
-          </p>
-        </div>
-
-        <div class="client-item toggle-clickable" data-target="investisseurs-2">
-
-            <div>
-                <div class="client-item-header">Produit
-                </div>
-            </div>
-            <button class="expand-button toggle-button" data-target="investisseurs-2">+</button>
-        </div>
-        <div class="toggle-content" id="investisseurs-2">
-            <p>Nous ciblons les catégories suivantes :</p>
-            <p> -  Véhicules protégés et banalisés pour les professionnels :</p>
-            <p>  Ces véhicules sont des produits stratégiques qui sauvent la vie des usagers et assurent la sécurité des citoyens. 
-              Ce marché est une priorité dans les budgets de tous les pays. La maîtrise de cette technologie renforce la souveraineté 
-              du pays et présente une porte d'entrée pour l'industrie automobile.</p>
-              <p> -Véhicules tout-terrain pour passionnés et VIP :</p>
-                <p>  Ces véhicules offrent confort, exclusivité et protection à leurs futurs propriétaires. Ils peuvent être équipés 
-              de motorisations classiques à essence ou de moteurs électriques pour prendre le train de la mobilité écologique 
-              et intelligente.</p>
-            </div>
-
-            <div class="client-item toggle-clickable" data-target="investisseurs-3">
-
-              <div>
-                  <div class="client-item-header">Marché
-                  </div>
-              </div>
-              <button class="expand-button toggle-button" data-target="investisseurs-3">+</button>
-          </div>
-          <div class="toggle-content" id="investisseurs-3">
-              <p>Les catégories visées font partie d'une gamme de véhicules de petites et moyennes 
-                séries à forte valeur technologique et financière.</p>
-
-              <p>L'étude de marché est disonible pour les investisseurs intéressés par ce projet.</p>
-                
-              <p>Veuillez nous contacter via la rubrique contact.</p>
-              </div>
-      
-
-              <div class="client-item toggle-clickable" data-target="investisseurs-4">
-
-        <div>
-            <div class="client-item-header">Business plan </div>
-            </div>
-            <button class="expand-button toggle-button" data-target="investisseurs-4">+</button>
-        </div>
-        <div class="toggle-content" id="investisseurs-4">
-            <p>Le projet HAMILCAR dispose d'un savoir-faire unique au monde dans la construction automobile, 
-              incarné dans le prototype HX-0. L'idée est innovante, elle repose sur des conceptions complexes 
-              réalisables par des moyens de production conventionnels. Ceci contribue considérablement à la réduction du coût 
-              de l'investissement au profit de la rentabilité.
-            </p>
-
-            <p>Le business plan est disponible pour les investisseurs intéressés par ce projet.</p>
-              
-            <p>Veuillez nous contacter via la rubrique contact.</p>
-            </div>
-        
-      </div>
-      <br>
-      <br>
-        <div class="container">
-
-
-          <div
-            class="testimonial-slider-placeholder"
-            data-aos="fade-up"
-            data-aos-delay="100"
-          >
-            <p>Placeholder: Intégrer un slider de témoignages (Swiper.js?).</p>
-          </div>
-
-          <!-- <div class="client-logos" data-aos="fade-up" data-aos-delay="200">
-            <h4>Partenaires & Utilisateurs Clés</h4>
-            <div class="logo-grid">
-              <img
-                src="/assets/images/logo_placeholder_1.png"
-                alt="Logo Client 1"
-              />
-              <img
-                src="/assets/images/logo_placeholder_2.png"
-                alt="Logo Client 2"
-              />
-              <img
-                src="/assets/images/logo_placeholder_3.png"
-                alt="Logo Client 3"
-              />
-              <img
-                src="/assets/images/logo_placeholder_4.png"
-                alt="Logo Client 4"
-              />
-            </div>
-          </div>
-
-          <div
-            class="section-footer-link"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <a href="#contact" class="cta-button secondary"
-              >Devenir Partenaire</a
-            >
-          </div> -->
-        </div>
-      </section>
-
-      <section id="contact" class="content-section contact-section">
-        <div class="container">
-          <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Contactez HAMILCAR</h2>
-            <p class="section-subtitle">
-              Prêt à discuter de votre prochain projet ou véhicule ?
-            </p>
-          </div>
-          <div class="contact-layout" data-aos="fade-up" data-aos-delay="100">
-            <div class="contact-info">
-              <h3>Nos Coordonnées</h3>
-              <p>Pour toute demande, notre équipe est à votre disposition.</p>
-              <ul class="contact-details">
-                <li>
-                  <img
-                    src="/assets/icons/address.png"
-                    alt="Adresse"
-                    class="contact-icon"
-                  />
-                  <span>[VOTRE ADRESSE HAMILCAR ICI], Tunisie</span>
-                </li>
-                <li>
-                  <img
-                    src="/assets/icons/phone.png"
-                    alt="Téléphone"
-                    class="contact-icon"
-                  />
-                  <a href="tel:+216XXXXXXXX">+216 94 888 342</a>
-                </li>
-                <li>
-                  <img
-                    src="/assets/icons/email.png"
-                    alt="Email"
-                    class="contact-icon"
-                  />
-                  <a href="mailto:contact@hamilcar.tn">contact@hamilcar.tn</a>
-                </li>
-              </ul>
-              <div class="map-placeholder">
-                <p>Carte Interactive Ici (Intégration Google Maps / Leaflet)</p>
-              </div>
-            </div>
-            <div class="contact-form-container">
-              <h3>Envoyez-nous un Message</h3>
-              <div id="form-status"></div>
-              <form
-              id="cta-form"
-              action="https://formsubmit.co/amen.jouini18@gmail.com"
-              method="POST"
-            >
-              <label for="first_name">First Name:</label>
-              <input type="text" id="first_name" name="first_name" required />
-
-              <label for="last_name">Last Name:</label>
-              <input type="text" id="last_name" name="last_name" required />
-
-              <label for="email">Email:</label>
-              <input type="email" id="email" name="email" required />
-
-              <label for="phone">Phone Number:</label>
-              <input type="tel" id="phone" name="phone" required/>
-
-              <label for="message">Message (Optional):</label>
-              <textarea id="message" name="message" rows="4"></textarea>
-
-              <button type="submit" class="cta-button">Contact Us</button>
-
-              <input type="hidden" name="_captcha" value="false" />
-            </form>
-            </div>
-          </div>
-        </div>
-      </section>
+ 
     </main>
 
     <footer>
@@ -712,45 +135,20 @@
         </p>
       </div>
     </footer>
-    <div id="modal-overlay" class="modal-overlay">
-      <div
-        id="success-modal"
-        class="modal-box"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modal-title"
-        aria-describedby="modal-desc"
-      >
-        <button
-          id="close-modal-btn"
-          class="modal-close-btn"
-          aria-label="Close modal"
-        >
-          &times;
-        </button>
-        <div class="modal-icon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            width="48px"
-            height="48px"
-            color="#28a745"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-              clip-rule="evenodd"
-            />
-          </svg>
-        </div>
-        <h3 id="modal-title">Success!</h3>
-        <p id="modal-desc">
-          Your message has been sent successfully.<br />We'll be in touch
-          shortly.
-        </p>
-      </div>
-    </div>
+    <script>
+      document.addEventListener('DOMContentLoaded', function () {
+        const navLinks = document.querySelectorAll('.nav-links a');
+        const currentPage = window.location.pathname.split('/').pop(); // get filename
+    
+        navLinks.forEach(link => {
+          const linkPage = link.getAttribute('href').split('/').pop();
+          if (linkPage === currentPage) {
+            link.classList.add('active');
+          }
+        });
+      });
+    </script>
+    
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
   </body>

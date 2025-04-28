@@ -4,6 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HAMILCAR - Engineered for Dominance</title>
+    <script>
+      // This script runs immediately before the rest of the page renders.
+      // It prevents the flash of incorrect layout (FOUC/FOIL).
+      (function() {
+          try {
+              const storedLang = localStorage.getItem("selectedLanguage") || "en"; // Default to 'en' if nothing stored
+              const htmlEl = document.documentElement;
+              htmlEl.lang = storedLang; // Set language
+              htmlEl.dir = storedLang === "ar" ? "rtl" : "ltr"; // Set direction
+              console.log(`Early setup: lang=${htmlEl.lang}, dir=${htmlEl.dir}`);
+          } catch (e) {
+              // Fallback in case localStorage is unavailable or fails
+              console.error("Failed to set initial lang/dir:", e);
+              document.documentElement.lang = "en";
+              document.documentElement.dir = "ltr";
+          }
+      })();
+  </script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -18,47 +36,114 @@
           />
         </a>
         <ul class="nav-links">
-          <li><a href="/about-legacy.html">Présentation</a></li>
-          <li><a href="/vehicles.html">Véhicules Hamilcar</a></li>
-          <li><a href="/technology.html">Technologie</a></li>
-          <li><a href="/clients.html">Clients</a></li>
-          <li><a href="/contact.html">Contact</a></li>
+          <li>
+            <a
+              href="/about-legacy.html"
+              data-translatable
+              data-fr="Présentation"
+              data-en="About Us"
+              data-ar="معلومات عنا"
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="/vehicles.html"
+              data-translatable
+              data-fr="Véhicules Hamilcar"
+              data-en="Hamilcar Vehicles"
+              data-ar="مركبات هاميكار"
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="/technology.html"
+              data-translatable
+              data-fr="Technologie"
+              data-en="Technology"
+              data-ar="تكنولوجيا"
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="/clients.html"
+              data-translatable
+              data-fr="Clients"
+              data-en="Clients"
+              data-ar="عملاء"
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="/contact.html"
+              data-translatable
+              data-fr="Contact"
+              data-en="Contact"
+              data-ar="اتصال"
+              ></a
+            >
+          </li>
         </ul>
 
+        <div class="language-selector">
+          <button
+            id="current-lang"
+            aria-label="Change language"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <span class="flag-icon"></span>
+          </button>
+          <div id="lang-options" role="menu">
+            <button
+              data-lang="fr"
+              aria-label="Switch to French"
+              role="menuitem"
+            >
+              <span class="flag-icon fr"></span>
+            </button>
+            <button
+              data-lang="ar"
+              aria-label="Switch to Arabic"
+              role="menuitem"
+            >
+              <span class="flag-icon ar"></span>
+            </button>
+            <button
+              data-lang="en"
+              aria-label="Switch to English"
+              role="menuitem"
+            >
+              <span class="flag-icon en"></span>
+            </button>
+          </div>
+        </div>
 
         <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
       </nav>
     </header>
 
     <main>
-
       <section id="technology" class="content-section technology-section">
         <div class="container">
-          <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Technologie Produit</h2>
+          <div
+            class="section-header"
+            style="position: sticky"
+            data-aos="fade-up"
+          >
+            <h2
+              class="section-title"
+              data-translatable
+              data-fr="Technologie Produit"
+              data-en="Product Technology"
+              data-ar="تكنولوجيا المنتج"
+            >
+              Technologie Produit
+            </h2>
           </div>
-          <!-- <div class="construction-container">
-            <img
-              class="construction-step"
-              src="/assets/images/tech1.jpg"
-              alt="Step 1 - Base Frame"
-            />
-            <img
-              class="construction-step"
-              src="/assets/images/tech2.jpg"
-              alt="Step 2 - Middle Assembly"
-            />
-            <img
-              class="construction-step"
-              src="/assets/images/tech3.jpg"
-              alt="Step 3 - Outer Shell"
-            />
-            <img
-              class="construction-step"
-              src="/assets/images/tech4.jpg"
-              alt="Step 4 - Final Car"
-            />
-          </div> -->
 
           <div class="technology-layout">
             <div
@@ -68,11 +153,15 @@
             >
               <div class="construction-container">
                 <video
-                    autoplay  loop      muted     playsinline src="/assets/body1/body1.mp4"
-                    aria-label="Vidéo Technologie Hamilcar" >
-                    Your browser does not support the video tag.
+                  autoplay
+                  loop
+                  muted
+                  playsinline
+                  src="/assets/body1/body1.mp4"
+                  aria-label="Vidéo Technologie Hamilcar"
+                >
+                  Your browser does not support the video tag.
                 </video>
-                
               </div>
             </div>
             <div
@@ -82,15 +171,24 @@
             >
               <div class="tech-point">
                 <div>
-                  <h4>Body</h4>
-                  <p>
+                  <h4
+                    data-translatable
+                    data-fr="Carrosserie"
+                    data-en="Body"
+                    data-ar="هيكل"
+                  >
+                    Body
+                  </h4>
+                  <p
+                    data-translatable
+                    data-fr="Conçu avec différents matériaux et épaisseurs d'acier pour avoir une carrosserie solide pour résister à des conditions d'utilisation difficiles. Peut être fabriqué par des plaques balistiques ou recevoir des blindages amovibles."
+                    data-en="Designed with various materials and steel thicknesses to have a sturdy body to withstand harsh operating conditions. It can be made with ballistic plates or receive removable armor."
+                    data-ar="مصمم بمواد وسماكات مختلفة من الفولاذ ليكون له هيكل قوي لتحمل ظروف التشغيل الصعبة. يمكن أن يتم تصنيعه بألواح باليستية أو تلقي دروع قابلة للإزالة."
+                  >
                     Conçu avec différents matériaux et épaisseurs d'acier pour
                     avoir une carrosserie solide pour résister à des conditions
                     d'utilisation difficiles. Peut être fabriqué par des plaques
-                    balistiques ou recevoir des blindages amovibles. La forme du
-                    véhicule est conçue pour réduire l'impact des objets en
-                    métal ou en pierre projetés et même le souffle des
-                    explosifs.
+                    balistiques ou recevoir des blindages amovibles.
                   </p>
                 </div>
               </div>
@@ -105,13 +203,18 @@
             >
               <div class="transmission-container">
                 <div class="simple-image-switcher">
-                  <img id="image-1" class="switch-image active" /* Start with
-                  the first image visible */
-                  src="/assets/images/transmission1.png" alt="Transmission View
-                  1" /> <img id="image-2" class="switch-image" /* Start with the
-                  second image hidden */ src="/assets/images/transmission2.png"
-                  alt="Transmission View 2" />
-
+                  <img
+                    id="image-1"
+                    class="switch-image active"
+                    src="/assets/images/transmission1.png"
+                    alt="Transmission View 1"
+                  />
+                  <img
+                    id="image-2"
+                    class="switch-image"
+                    src="/assets/images/transmission2.png"
+                    alt="Transmission View 2"
+                  />
                   <button
                     id="prev-btn"
                     class="switch-btn prev"
@@ -136,84 +239,148 @@
             >
               <div class="tech-point">
                 <div>
-                  <h4>Transmission</h4>
-                  <p>
+                  <h4
+                    data-translatable
+                    data-fr="Transmission"
+                    data-en="Transmission"
+                    data-ar="نقل الحركة"
+                  >
+                    Transmission
+                  </h4>
+                  <p
+                    data-translatable
+                    data-fr="Hamilcar HX peuvent êtres propulsés par des moteurs de différentes puissances selon les configurations. La boîte de vitesses peut être manuelle ou automatique."
+                    data-en="Hamilcar HX can be powered by engines of different powers depending on the configurations. The gearbox can be manual or automatic."
+                    data-ar="يمكن أن يتم تشغيل Hamilcar HX بواسطة محركات بقوى مختلفة حسب التكوينات. يمكن أن تكون علبة التروس يدوية أو أوتوماتيكية."
+                  >
                     Hamilcar HX peuvent êtres propulsés par des moteurs de
                     différentes puissances selon les configurations. La boîte de
-                    vitesses peut être manuelle ou automatique. La boite de
-                    transfert offre plusieurs combinaisons selon l'utilisation.
-                    Les éssieux sont équipés de systèmes de blocage de
-                    différentiel.
+                    vitesses peut être manuelle ou automatique.
                   </p>
                 </div>
               </div>
             </div>
           </div>
-          <!-- <div
-            class="tech-3d-placeholder"
-            data-aos="fade-up"
-            data-aos-delay="300"
-          >
-            <p>
-              Placeholder: Intégration modèle 3D interactif (moteur, châssis?).
-            </p>
-          </div> -->
-          <div class="container"> <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Nos Véhicules</h2>
-            <p class="section-subtitle">Découvrez notre gamme adaptée à vos besoins.</p>
-        </div>
-    
-        <div class="vehicules-layout" data-aos="fade-up" data-aos-delay="100">
-    
-            <div class="vehicle-card">
-                <img src="/assets/images/PICK UP 4 Portes.png" alt="PICK UP 4 Portes">
-                <div class="vehicle-title">
-                    PICK UP 4 Portes
-                </div>
+
+          <div class="container">
+            <div class="section-header" data-aos="fade-up">
+              <h2
+                class="section-title"
+                data-translatable
+                data-fr="Nos Véhicules"
+                data-en="Our Vehicles"
+                data-ar="مركباتنا"
+              >
+                Nos Véhicules
+              </h2>
+              <p
+                class="section-subtitle"
+                data-translatable
+                data-fr="Découvrez notre gamme adaptée à vos besoins."
+                data-en="Discover our range tailored to your needs."
+                data-ar="اكتشف مجموعتنا المناسبة لاحتياجاتك."
+              >
+                Découvrez notre gamme adaptée à vos besoins.
+              </p>
             </div>
-    
-            <div class="vehicle-card">
-                <img src="/assets/images/PICK UP 2 Portes.png" alt="PICK UP 2 Portes">
-                <div class="vehicle-title">
-                    PICK UP 2 Portes
+
+            <div
+              class="vehicules-layout"
+              data-aos="fade-up"
+              data-aos-delay="100"
+            >
+              <div class="vehicle-card">
+                <img
+                  src="/assets/images/PICK UP 4 Portes.png"
+                  alt="PICK UP 4 Portes"
+                />
+                <div
+                  class="vehicle-title"
+                  data-translatable
+                  data-fr="PICK UP 4 Portes"
+                  data-en="PICK UP 4 Doors"
+                  data-ar="بيك أب 4 أبواب"
+                >
+                  PICK UP 4 Portes
                 </div>
-            </div>
-    
-            <div class="vehicle-card">
-                <img src="/assets/images/SUV.png" alt="SUV">
-                <div class="vehicle-title">
-                    SUV
+              </div>
+
+              <div class="vehicle-card">
+                <img
+                  src="/assets/images/PICK UP 2 Portes.png"
+                  alt="PICK UP 2 Portes"
+                />
+                <div
+                  class="vehicle-title"
+                  data-translatable
+                  data-fr="PICK UP 2 Portes"
+                  data-en="PICK UP 2 Doors"
+                  data-ar="بيك أب 2 أبواب"
+                >
+                  PICK UP 2 Portes
                 </div>
-            </div>
-    
-            <div class="vehicle-card">
-                <img src="/assets/images/VEHICLE COMMERCIAL.png" alt="VEHICLE COMMERCIAL">
-                <div class="vehicle-title">
-                    VEHICLE COMMERCIAL
+              </div>
+
+              <div class="vehicle-card">
+                <img src="/assets/images/SUV.png" alt="SUV" />
+                <div
+                  class="vehicle-title"
+                  data-translatable
+                  data-fr="SUV"
+                  data-en="SUV"
+                  data-ar="SUV"
+                >
+                  SUV
                 </div>
+              </div>
+
+              <div class="vehicle-card">
+                <img
+                  src="/assets/images/VEHICLE COMMERCIAL.png"
+                  alt="VEHICLE COMMERCIAL"
+                />
+                <div
+                  class="vehicle-title"
+                  data-translatable
+                  data-fr="VEHICLE COMMERCIAL"
+                  data-en="COMMERCIAL VEHICLE"
+                  data-ar="مركبة تجارية"
+                >
+                  VEHICLE COMMERCIAL
+                </div>
+              </div>
             </div>
-    
-        </div>
-    
-    </div>
-    <div class="video-section" data-aos="fade-up" data-aos-delay="400">
-      <h3>Voir la Technologie en Action</h3>
-      <div class="video-wrapper">
-          <video
-              autoplay  loop      muted     playsinline src="/assets/images/368302621741965313.mp4"
-              aria-label="Vidéo Technologie Hamilcar" >
-              Your browser does not support the video tag.
-          </video>
-      </div>
-  </div>
+          </div>
+
+          <div class="video-section" data-aos="fade-up" data-aos-delay="400">
+            <h3
+              data-translatable
+              data-fr="Voir la Technologie en Action"
+              data-en="See the Technology in Action"
+              data-ar="شاهد التكنولوجيا تعمل"
+            >
+              Voir la Technologie en Action
+            </h3>
+            <div class="video-wrapper">
+              <video
+                autoplay
+                loop
+                muted
+                playsinline
+                src="/assets/images/368302621741965313.mp4"
+                aria-label="Vidéo Technologie Hamilcar"
+              >
+                Your browser does not support the video tag.
+              </video>
+            </div>
+          </div>
         </div>
       </section>
-
     </main>
 
     <footer>
       <div class="container footer-content">
-         <!-- <div class="footer-logo">
+        <!-- <div class="footer-logo">
           <img
             alt="HAMILCAR Logo Footer"
             height="40"
@@ -222,57 +389,33 @@
         </div>  -->
 
         <div class="footer-social">
-          <a href="https://www.facebook.com/profile.php?id=100083210768748" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+          <a
+            href="https://www.facebook.com/profile.php?id=100083210768748"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
             ><img src="/assets/icons/fb.png" alt="Facebook"
           /></a>
-          <a href="https://www.linkedin.com/in/hamilcar-tunisie-012b48252/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+          <a
+            href="https://www.linkedin.com/in/hamilcar-tunisie-012b48252/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
             ><img src="/assets/icons/linkedin.png" alt="LinkedIn"
           /></a>
-        </div> 
-        <p class="footer-copyright">
-          &copy; <span id="current-year"></span> HAMILCAR. Tous droits réservés.
-        </p>
+        </div>
+        <p
+        class="footer-copyright"
+        data-translatable
+        data-fr="&copy; 2025 HAMILCAR. Tous droits réservés."
+        data-en="&copy; 2025 HAMILCAR. All rights reserved."
+        data-ar="&copy; 2025 هاميكار. جميع الحقوق محفوظة."
+      >
+        &copy; <span id="current-year"></span> HAMILCAR. Tous droits réservés.
+      </p>
       </div>
     </footer>
-    <div id="modal-overlay" class="modal-overlay">
-      <div
-        id="success-modal"
-        class="modal-box"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modal-title"
-        aria-describedby="modal-desc"
-      >
-        <button
-          id="close-modal-btn"
-          class="modal-close-btn"
-          aria-label="Close modal"
-        >
-          &times;
-        </button>
-        <div class="modal-icon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            width="48px"
-            height="48px"
-            color="#28a745"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-              clip-rule="evenodd"
-            />
-          </svg>
-        </div>
-        <h3 id="modal-title">Success!</h3>
-        <p id="modal-desc">
-          Your message has been sent successfully.<br />We'll be in touch
-          shortly.
-        </p>
-      </div>
-    </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
   </body>

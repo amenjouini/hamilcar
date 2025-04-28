@@ -4,6 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HAMILCAR - Engineered for Dominance</title>
+    <script>
+      // This script runs immediately before the rest of the page renders.
+      // It prevents the flash of incorrect layout (FOUC/FOIL).
+      (function() {
+          try {
+              const storedLang = localStorage.getItem("selectedLanguage") || "en"; // Default to 'en' if nothing stored
+              const htmlEl = document.documentElement;
+              htmlEl.lang = storedLang; // Set language
+              htmlEl.dir = storedLang === "ar" ? "rtl" : "ltr"; // Set direction
+              console.log(`Early setup: lang=${htmlEl.lang}, dir=${htmlEl.dir}`);
+          } catch (e) {
+              // Fallback in case localStorage is unavailable or fails
+              console.error("Failed to set initial lang/dir:", e);
+              document.documentElement.lang = "en";
+              document.documentElement.dir = "ltr";
+          }
+      })();
+  </script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -18,141 +36,476 @@
           />
         </a>
         <ul class="nav-links">
-          <li><a href="/about-legacy.html">Présentation</a></li>
-          <li><a href="/vehicles.html">Véhicules Hamilcar</a></li>
-          <li><a href="/technology.html">Technologie</a></li>
-          <li><a href="/clients.html">Clients</a></li>
-          <li><a href="/contact.html">Contact</a></li>
+          <li>
+            <a
+              href="/about-legacy.html"
+              data-translatable
+              data-fr="Présentation"
+              data-en="About Us"
+              data-ar="معلومات عنا"
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="/vehicles.html"
+              data-translatable
+              data-fr="Véhicules Hamilcar"
+              data-en="Hamilcar Vehicles"
+              data-ar="مركبات هاميكار"
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="/technology.html"
+              data-translatable
+              data-fr="Technologie"
+              data-en="Technology"
+              data-ar="تكنولوجيا"
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="/clients.html"
+              data-translatable
+              data-fr="Clients"
+              data-en="Clients"
+              data-ar="عملاء"
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="/contact.html"
+              data-translatable
+              data-fr="Contact"
+              data-en="Contact"
+              data-ar="اتصال"
+              ></a
+            >
+          </li>
         </ul>
 
+        <div class="language-selector">
+          <button
+            id="current-lang"
+            aria-label="Change language"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <span class="flag-icon"></span>
+          </button>
+          <div id="lang-options" role="menu">
+            <button
+              data-lang="fr"
+              aria-label="Switch to French"
+              role="menuitem"
+            >
+              <span class="flag-icon fr"></span>
+            </button>
+            <button
+              data-lang="ar"
+              aria-label="Switch to Arabic"
+              role="menuitem"
+            >
+              <span class="flag-icon ar"></span>
+            </button>
+            <button
+              data-lang="en"
+              aria-label="Switch to English"
+              role="menuitem"
+            >
+              <span class="flag-icon en"></span>
+            </button>
+          </div>
+        </div>
 
         <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
       </nav>
     </header>
 
     <main>
-    
       <section id="clients" class="content-section clients-section alt-bg">
         <div class="container">
-          <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Nos clients potentiels et investisseurs</h2>
-
+          <div
+            class="section-header"
+            style="position: sticky"
+            data-aos="fade-up"
+          >
+            <h2
+              class="section-title"
+              data-translatable
+              data-fr="Nos clients potentiels et investisseurs"
+              data-en="Our Potential Clients and Investors"
+              data-ar="عملاؤنا المحتملون والمستثمرون"
+            >
+              Nos clients potentiels et investisseurs
+            </h2>
           </div>
           <div class="client-container">
-            <div class="client-item toggle-clickable" data-target="potentiel-clients-1">
+            <div
+              class="client-item toggle-clickable"
+              data-target="potentiel-clients-1"
+            >
               <div>
-                  <div class="client-item-header">Véhicules protégés et banalisés pour les professionnels (militaires, police, etc.).
-                  </div>
+                <div
+                  class="client-item-header"
+                  data-translatable
+                  data-fr="Véhicules protégés et banalisés pour les professionnels (militaires, police, etc.)."
+                  data-en="Our Potential Clients and Investors"
+                  data-ar="مركبات محمية ومموهة للمحترفين (العسكريين، الشرطة، إلخ)."
+                >
+                  Véhicules protégés et banalisés pour les professionnels
+                  (militaires, police, etc.).
+                </div>
               </div>
-              <button class="expand-button toggle-button" data-target="potentiel-clients-1">+</button>
-          </div>
-          <div class="toggle-content" id="potentiel-clients-1">
-              <p>- A bord vous vous occupez de vos missions et nous veillons à votre sécurité.</p>
-
-              <p> - Configurez votre véhicule selon vos besoins.</p>
-                
-              <p> - Nous vous proposons toujours les solutions pour réussir vos missions.</p>
-                
-              <p>  - Optez pour nos solutions véhicules optimisées pour votre développement.
-                </p>
-          </div>
-
-          <div class="client-item toggle-clickable" data-target="potentiel-clients-2">
-            <div>
-                <div class="client-item-header">Des véhicules personnalisés et protégés pour les passionnés et les VIP.
-                </div>
+              <button
+                class="expand-button toggle-button"
+                data-target="potentiel-clients-1"
+              >
+                +
+              </button>
             </div>
-            <button class="expand-button toggle-button" data-target="potentiel-clients-2">+</button>
-        </div>
-        <div class="toggle-content" id="potentiel-clients-2">
-            <p>- A bord, vous profitez de votre journée et nous veillons à votre sécurité.</p>
+            <div class="toggle-content" id="potentiel-clients-1">
+              <p
+                data-translatable
+                data-fr="- A bord vous vous occupez de vos missions et nous veillons à votre sécurité."
+                data-en="- Onboard, you focus on your missions, and we ensure your safety."
+                data-ar="- على متن السيارة، تقومون بمهامكم ونحن نضمن سلامتكم."
+              >
+                - A bord vous vous occupez de vos missions et nous veillons à
+                votre sécurité.
+              </p>
 
-            <p> - Configurez votre véhicule selon vos envies.</p>
-              
-            <p> - Nous vous proposons toujours les solutions pour réussir vos défis. </p>
-              
-            <p>  - Optez pour nos solutions de véhicules optimisées pour votre développement. </p>
-        </div>
+              <p
+                data-translatable
+                data-fr="- Configurez votre véhicule selon vos besoins."
+                data-en="- Configure your vehicle according to your needs."
+                data-ar="- قم بتخصيص سيارتك حسب احتياجاتك."
+              >
+                - Configurez votre véhicule selon vos besoins.
+              </p>
 
-        <div class="client-item toggle-clickable" data-target="investisseurs-1">
-          <div>
-          <div class="client-item-header " >
-              Entrepreneurs
-              
-          </div>
-        </div>
-          <button class="expand-button toggle-button" data-target="investisseurs-1">+</button>
-        </div>
-        <div class="toggle-content" id="investisseurs-1">
-          <p>Ingénieurs de formation académique, passionnés par la construction automobile avec plus de 20 ans d'expérience
-              dans différents secteurs technologiques et occupant plusieurs postes de direction, contribuant ainsi au développement
-              d'entreprises d'envergure.
-          </p>
-        </div>
+              <p
+                data-translatable
+                data-fr="- Nous vous proposons toujours les solutions pour réussir vos missions."
+                data-en="- We always offer solutions to help you succeed in your missions."
+                data-ar="- نقدم لك دائمًا الحلول لتحقيق النجاح في مهامك."
+              >
+                - Nous vous proposons toujours les solutions pour réussir vos
+                missions.
+              </p>
 
-        <div class="client-item toggle-clickable" data-target="investisseurs-2">
-
-            <div>
-                <div class="client-item-header">Produit
-                </div>
-            </div>
-            <button class="expand-button toggle-button" data-target="investisseurs-2">+</button>
-        </div>
-        <div class="toggle-content" id="investisseurs-2">
-            <p>Nous ciblons les catégories suivantes :</p>
-            <p> -  Véhicules protégés et banalisés pour les professionnels :</p>
-            <p>  Ces véhicules sont des produits stratégiques qui sauvent la vie des usagers et assurent la sécurité des citoyens. 
-              Ce marché est une priorité dans les budgets de tous les pays. La maîtrise de cette technologie renforce la souveraineté 
-              du pays et présente une porte d'entrée pour l'industrie automobile.</p>
-              <p> -Véhicules tout-terrain pour passionnés et VIP :</p>
-                <p>  Ces véhicules offrent confort, exclusivité et protection à leurs futurs propriétaires. Ils peuvent être équipés 
-              de motorisations classiques à essence ou de moteurs électriques pour prendre le train de la mobilité écologique 
-              et intelligente.</p>
+              <p
+                data-translatable
+                data-fr="- Optez pour nos solutions véhicules optimisées pour votre développement."
+                data-en="- Choose our optimized vehicle solutions for your development."
+                data-ar="- اختر حلول المركبات المحسنة لتطويرك."
+              >
+                - Optez pour nos solutions véhicules optimisées pour votre
+                développement.
+              </p>
             </div>
 
-            <div class="client-item toggle-clickable" data-target="investisseurs-3">
-
+            <div
+              class="client-item toggle-clickable"
+              data-target="potentiel-clients-2"
+            >
               <div>
-                  <div class="client-item-header">Marché
-                  </div>
+                <div
+                  class="client-item-header"
+                  data-translatable
+                  data-fr="Des véhicules personnalisés et protégés pour les passionnés et les VIP."
+                  data-en="Customized and protected vehicles for enthusiasts and VIPs."
+                  data-ar="مركبات مخصصة ومحمية للهواة وكبار الشخصيات."
+                >
+                  Des véhicules personnalisés et protégés pour les passionnés et
+                  les VIP.
+                </div>
               </div>
-              <button class="expand-button toggle-button" data-target="investisseurs-3">+</button>
+              <button
+                class="expand-button toggle-button"
+                data-target="potentiel-clients-2"
+              >
+                +
+              </button>
+            </div>
+
+            <div class="toggle-content" id="potentiel-clients-2">
+              <p
+                data-translatable
+                data-fr="- A bord, vous profitez de votre journée et nous veillons à votre sécurité."
+                data-en="- Onboard, you enjoy your day and we ensure your safety."
+                data-ar="- على متن السيارة، تستمتعون بيومكم ونحن نضمن سلامتكم."
+              >
+                - A bord, vous profitez de votre journée et nous veillons à
+                votre sécurité.
+              </p>
+
+              <p
+                data-translatable
+                data-fr="- Configurez votre véhicule selon vos envies."
+                data-en="- Configure your vehicle according to your desires."
+                data-ar="- قم بتخصيص سيارتك حسب رغباتك."
+              >
+                - Configurez votre véhicule selon vos envies.
+              </p>
+
+              <p
+                data-translatable
+                data-fr="- Nous vous proposons toujours les solutions pour réussir vos défis."
+                data-en="- We always offer solutions to help you succeed in your challenges."
+                data-ar="- نقدم لك دائمًا الحلول لتحقيق النجاح في تحدياتك."
+              >
+                - Nous vous proposons toujours les solutions pour réussir vos
+                défis.
+              </p>
+
+              <p
+                data-translatable
+                data-fr="- Optez pour nos solutions de véhicules optimisées pour votre développement."
+                data-en="- Choose our optimized vehicle solutions for your development."
+                data-ar="- اختر حلول المركبات المحسنة لتطويرك."
+              >
+                - Optez pour nos solutions de véhicules optimisées pour votre
+                développement.
+              </p>
+            </div>
+
+            <div
+              class="client-item toggle-clickable"
+              data-target="investisseurs-1"
+            >
+              <div>
+                <div
+                  class="client-item-header"
+                  data-translatable
+                  data-fr="Entrepreneurs"
+                  data-en="Entrepreneurs"
+                  data-ar="رواد الأعمال"
+                >
+                  Entrepreneurs
+                </div>
+              </div>
+              <button
+                class="expand-button toggle-button"
+                data-target="investisseurs-1"
+              >
+                +
+              </button>
+            </div>
+
+            <div class="toggle-content" id="investisseurs-1">
+              <p
+                data-translatable
+                data-fr="Ingénieurs de formation académique, passionnés par la construction automobile avec plus de 20 ans d'expérience dans différents secteurs technologiques et occupant plusieurs postes de direction, contribuant ainsi au développement d'entreprises d'envergure."
+                data-en="Engineers with academic training, passionate about automotive construction with over 20 years of experience in various technological sectors, holding several management positions, thus contributing to the development of major companies."
+                data-ar="مهندسون بتكوين أكاديمي، شغوفون بصناعة السيارات ولديهم أكثر من 20 سنة من الخبرة في مختلف القطاعات التكنولوجية، وقد شغلوا عدة مناصب قيادية، مما ساهم في تطوير شركات كبرى."
+              >
+                Ingénieurs de formation académique, passionnés par la
+                construction automobile avec plus de 20 ans d'expérience dans
+                différents secteurs technologiques et occupant plusieurs postes
+                de direction, contribuant ainsi au développement d'entreprises
+                d'envergure.
+              </p>
+            </div>
+
+            <div
+              class="client-item toggle-clickable"
+              data-target="investisseurs-2"
+            >
+              <div>
+                <div
+                  class="client-item-header"
+                  data-translatable
+                  data-fr="Produit"
+                  data-en="Product"
+                  data-ar="المنتج"
+                >
+                  Produit
+                </div>
+              </div>
+              <button
+                class="expand-button toggle-button"
+                data-target="investisseurs-2"
+              >
+                +
+              </button>
+            </div>
+
+            <div class="toggle-content" id="investisseurs-2">
+              <p
+                data-translatable
+                data-fr="Nous ciblons les catégories suivantes :"
+                data-en="We target the following categories:"
+                data-ar="نستهدف الفئات التالية:"
+              >
+                Nous ciblons les catégories suivantes :
+              </p>
+
+              <p
+                data-translatable
+                data-fr="- Véhicules protégés et banalisés pour les professionnels :"
+                data-en="- Protected and unmarked vehicles for professionals:"
+                data-ar="- مركبات محمية وغير مميزة للمحترفين:"
+              >
+                - Véhicules protégés et banalisés pour les professionnels :
+              </p>
+
+              <p
+                data-translatable
+                data-fr="Ces véhicules sont des produits stratégiques qui sauvent la vie des usagers et assurent la sécurité des citoyens. Ce marché est une priorité dans les budgets de tous les pays. La maîtrise de cette technologie renforce la souveraineté du pays et présente une porte d'entrée pour l'industrie automobile."
+                data-en="These vehicles are strategic products that save users' lives and ensure citizens' safety. This market is a priority in the budgets of all countries. Mastering this technology strengthens the country's sovereignty and provides a gateway to the automotive industry."
+                data-ar="هذه المركبات منتجات استراتيجية تنقذ حياة المستخدمين وتضمن سلامة المواطنين. هذا السوق يعد أولوية في ميزانيات جميع الدول. إتقان هذه التكنولوجيا يعزز سيادة الدولة ويمثل مدخلاً لصناعة السيارات."
+              >
+                Ces véhicules sont des produits stratégiques qui sauvent la vie
+                des usagers et assurent la sécurité des citoyens. Ce marché est
+                une priorité dans les budgets de tous les pays. La maîtrise de
+                cette technologie renforce la souveraineté du pays et présente
+                une porte d'entrée pour l'industrie automobile.
+              </p>
+
+              <p
+                data-translatable
+                data-fr="- Véhicules tout-terrain pour passionnés et VIP :"
+                data-en="- Off-road vehicles for enthusiasts and VIPs:"
+                data-ar="- مركبات الطرق الوعرة للهواة وكبار الشخصيات:"
+              >
+                -Véhicules tout-terrain pour passionnés et VIP :
+              </p>
+
+              <p
+                data-translatable
+                data-fr="Ces véhicules offrent confort, exclusivité et protection à leurs futurs propriétaires. Ils peuvent être équipés de motorisations classiques à essence ou de moteurs électriques pour prendre le train de la mobilité écologique et intelligente."
+                data-en="These vehicles offer comfort, exclusivity, and protection to their future owners. They can be equipped with classic gasoline engines or electric motors to join the trend of ecological and smart mobility."
+                data-ar="توفر هذه المركبات الراحة والتميز والحماية لمالكيها المستقبليين. يمكن تجهيزها بمحركات بنزين كلاسيكية أو محركات كهربائية لمواكبة التحول نحو التنقل الذكي والبيئي."
+              >
+                Ces véhicules offrent confort, exclusivité et protection à leurs
+                futurs propriétaires. Ils peuvent être équipés de motorisations
+                classiques à essence ou de moteurs électriques pour prendre le
+                train de la mobilité écologique et intelligente.
+              </p>
+            </div>
+
+            <div
+              class="client-item toggle-clickable"
+              data-target="investisseurs-3"
+            >
+              <div>
+                <div
+                  class="client-item-header"
+                  data-translatable
+                  data-fr="Marché"
+                  data-en="Market"
+                  data-ar="السوق"
+                >
+                  Marché
+                </div>
+              </div>
+              <button
+                class="expand-button toggle-button"
+                data-target="investisseurs-3"
+              >
+                +
+              </button>
+            </div>
+
+            <div class="toggle-content" id="investisseurs-3">
+              <p
+                data-translatable
+                data-fr="Les catégories visées font partie d'une gamme de véhicules de petites et moyennes séries à forte valeur technologique et financière."
+                data-en="The targeted categories are part of a range of small and medium series vehicles with high technological and financial value."
+                data-ar="تشكل الفئات المستهدفة جزءًا من سلسلة مركبات صغيرة ومتوسطة ذات قيمة تكنولوجية ومالية عالية."
+              >
+                Les catégories visées font partie d'une gamme de véhicules de
+                petites et moyennes séries à forte valeur technologique et
+                financière.
+              </p>
+
+              <p
+                data-translatable
+                data-fr="L'étude de marché est disponible pour les investisseurs intéressés par ce projet."
+                data-en="The market study is available for investors interested in this project."
+                data-ar="دراسة السوق متوفرة للمستثمرين المهتمين بهذا المشروع."
+              >
+                L'étude de marché est disonible pour les investisseurs
+                intéressés par ce projet.
+              </p>
+
+              <p
+                data-translatable
+                data-fr="Veuillez nous contacter via la rubrique contact."
+                data-en="Please contact us via the contact section."
+                data-ar="يرجى الاتصال بنا عبر قسم الاتصال."
+              >
+                Veuillez nous contacter via la rubrique contact.
+              </p>
+            </div>
+
+            <div
+              class="client-item toggle-clickable"
+              data-target="investisseurs-4"
+            >
+              <div>
+                <div
+                  class="client-item-header"
+                  data-translatable
+                  data-fr="Business plan"
+                  data-en="Business Plan"
+                  data-ar="خطة العمل"
+                >
+                  Business plan
+                </div>
+              </div>
+              <button
+                class="expand-button toggle-button"
+                data-target="investisseurs-4"
+              >
+                +
+              </button>
+            </div>
+
+            <div class="toggle-content" id="investisseurs-4">
+              <p
+                data-translatable
+                data-fr="Le projet HAMILCAR dispose d'un savoir-faire unique au monde dans la construction automobile, incarné dans le prototype HX-0. L'idée est innovante, elle repose sur des conceptions complexes réalisables par des moyens de production conventionnels. Ceci contribue considérablement à la réduction du coût de l'investissement au profit de la rentabilité."
+                data-en="The HAMILCAR project possesses a unique know-how in automotive construction, embodied in the HX-0 prototype. The idea is innovative, relying on complex designs achievable through conventional production means. This greatly reduces investment costs in favor of profitability."
+                data-ar="يمتلك مشروع HAMILCAR معرفة فريدة في صناعة السيارات، مجسدة في النموذج الأولي HX-0. الفكرة مبتكرة وتعتمد على تصاميم معقدة قابلة للتنفيذ بوسائل إنتاج تقليدية، مما يساهم بشكل كبير في تقليل تكلفة الاستثمار لصالح الربحية."
+              >
+                Le projet HAMILCAR dispose d'un savoir-faire unique au monde
+                dans la construction automobile, incarné dans le prototype HX-0.
+                L'idée est innovante, elle repose sur des conceptions complexes
+                réalisables par des moyens de production conventionnels. Ceci
+                contribue considérablement à la réduction du coût de
+                l'investissement au profit de la rentabilité.
+              </p>
+
+              <p
+                data-translatable
+                data-fr="Le business plan est disponible pour les investisseurs intéressés par ce projet."
+                data-en="The business plan is available for investors interested in this project."
+                data-ar="خطة العمل متوفرة للمستثمرين المهتمين بهذا المشروع."
+              >
+                Le business plan est disponible pour les investisseurs
+                intéressés par ce projet.
+              </p>
+
+              <p
+                data-translatable
+                data-fr="Veuillez nous contacter via la rubrique contact."
+                data-en="Please contact us via the contact section."
+                data-ar="يرجى الاتصال بنا عبر قسم الاتصال."
+              >
+                Veuillez nous contacter via la rubrique contact.
+              </p>
+            </div>
           </div>
-          <div class="toggle-content" id="investisseurs-3">
-              <p>Les catégories visées font partie d'une gamme de véhicules de petites et moyennes 
-                séries à forte valeur technologique et financière.</p>
-
-              <p>L'étude de marché est disonible pour les investisseurs intéressés par ce projet.</p>
-                
-              <p>Veuillez nous contacter via la rubrique contact.</p>
-              </div>
-      
-
-              <div class="client-item toggle-clickable" data-target="investisseurs-4">
-
-        <div>
-            <div class="client-item-header">Business plan </div>
-            </div>
-            <button class="expand-button toggle-button" data-target="investisseurs-4">+</button>
         </div>
-        <div class="toggle-content" id="investisseurs-4">
-            <p>Le projet HAMILCAR dispose d'un savoir-faire unique au monde dans la construction automobile, 
-              incarné dans le prototype HX-0. L'idée est innovante, elle repose sur des conceptions complexes 
-              réalisables par des moyens de production conventionnels. Ceci contribue considérablement à la réduction du coût 
-              de l'investissement au profit de la rentabilité.
-            </p>
-
-            <p>Le business plan est disponible pour les investisseurs intéressés par ce projet.</p>
-              
-            <p>Veuillez nous contacter via la rubrique contact.</p>
-            </div>
-        
-      </div>
-      <br>
-      <br>
+        <br />
+        <br />
         <div class="container">
-
-
           <div
             class="testimonial-slider-placeholder"
             data-aos="fade-up"
@@ -162,45 +515,43 @@
           </div>
 
           <!-- <div class="client-logos" data-aos="fade-up" data-aos-delay="200">
-            <h4>Partenaires & Utilisateurs Clés</h4>
-            <div class="logo-grid">
-              <img
-                src="/assets/images/logo_placeholder_1.png"
-                alt="Logo Client 1"
-              />
-              <img
-                src="/assets/images/logo_placeholder_2.png"
-                alt="Logo Client 2"
-              />
-              <img
-                src="/assets/images/logo_placeholder_3.png"
-                alt="Logo Client 3"
-              />
-              <img
-                src="/assets/images/logo_placeholder_4.png"
-                alt="Logo Client 4"
-              />
-            </div>
+          <h4>Partenaires & Utilisateurs Clés</h4>
+          <div class="logo-grid">
+            <img
+              src="/assets/images/logo_placeholder_1.png"
+              alt="Logo Client 1"
+            />
+            <img
+              src="/assets/images/logo_placeholder_2.png"
+              alt="Logo Client 2"
+            />
+            <img
+              src="/assets/images/logo_placeholder_3.png"
+              alt="Logo Client 3"
+            />
+            <img
+              src="/assets/images/logo_placeholder_4.png"
+              alt="Logo Client 4"
+            />
           </div>
+        </div>
 
-          <div
-            class="section-footer-link"
-            data-aos="fade-up"
-            data-aos-delay="300"
+        <div
+          class="section-footer-link"
+          data-aos="fade-up"
+          data-aos-delay="300"
+        >
+          <a href="#contact" class="cta-button secondary"
+            >Devenir Partenaire</a
           >
-            <a href="#contact" class="cta-button secondary"
-              >Devenir Partenaire</a
-            >
-          </div> -->
+        </div> -->
         </div>
       </section>
-
- 
     </main>
 
     <footer>
       <div class="container footer-content">
-         <!-- <div class="footer-logo">
+        <!-- <div class="footer-logo">
           <img
             alt="HAMILCAR Logo Footer"
             height="40"
@@ -209,57 +560,33 @@
         </div>  -->
 
         <div class="footer-social">
-          <a href="https://www.facebook.com/profile.php?id=100083210768748" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+          <a
+            href="https://www.facebook.com/profile.php?id=100083210768748"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
             ><img src="/assets/icons/fb.png" alt="Facebook"
           /></a>
-          <a href="https://www.linkedin.com/in/hamilcar-tunisie-012b48252/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+          <a
+            href="https://www.linkedin.com/in/hamilcar-tunisie-012b48252/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
             ><img src="/assets/icons/linkedin.png" alt="LinkedIn"
           /></a>
-        </div> 
-        <p class="footer-copyright">
-          &copy; <span id="current-year"></span> HAMILCAR. Tous droits réservés.
-        </p>
+        </div>
+        <p
+        class="footer-copyright"
+        data-translatable
+        data-fr="&copy; 2025 HAMILCAR. Tous droits réservés."
+        data-en="&copy; 2025 HAMILCAR. All rights reserved."
+        data-ar="&copy; 2025 هاميكار. جميع الحقوق محفوظة."
+      >
+        &copy; <span id="current-year"></span> HAMILCAR. Tous droits réservés.
+      </p>
       </div>
     </footer>
-    <div id="modal-overlay" class="modal-overlay">
-      <div
-        id="success-modal"
-        class="modal-box"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modal-title"
-        aria-describedby="modal-desc"
-      >
-        <button
-          id="close-modal-btn"
-          class="modal-close-btn"
-          aria-label="Close modal"
-        >
-          &times;
-        </button>
-        <div class="modal-icon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            width="48px"
-            height="48px"
-            color="#28a745"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-              clip-rule="evenodd"
-            />
-          </svg>
-        </div>
-        <h3 id="modal-title">Success!</h3>
-        <p id="modal-desc">
-          Your message has been sent successfully.<br />We'll be in touch
-          shortly.
-        </p>
-      </div>
-    </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
   </body>

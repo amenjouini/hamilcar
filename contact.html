@@ -4,6 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HAMILCAR - Engineered for Dominance</title>
+    <script>
+      // This script runs immediately before the rest of the page renders.
+      // It prevents the flash of incorrect layout (FOUC/FOIL).
+      (function() {
+          try {
+              const storedLang = localStorage.getItem("selectedLanguage") || "en"; // Default to 'en' if nothing stored
+              const htmlEl = document.documentElement;
+              htmlEl.lang = storedLang; // Set language
+              htmlEl.dir = storedLang === "ar" ? "rtl" : "ltr"; // Set direction
+              console.log(`Early setup: lang=${htmlEl.lang}, dir=${htmlEl.dir}`);
+          } catch (e) {
+              // Fallback in case localStorage is unavailable or fails
+              console.error("Failed to set initial lang/dir:", e);
+              document.documentElement.lang = "en";
+              document.documentElement.dir = "ltr";
+          }
+      })();
+  </script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -18,32 +36,137 @@
           />
         </a>
         <ul class="nav-links">
-          <li><a href="/about-legacy.html">Présentation</a></li>
-          <li><a href="/vehicles.html">Véhicules Hamilcar</a></li>
-          <li><a href="/technology.html">Technologie</a></li>
-          <li><a href="/clients.html">Clients</a></li>
-          <li><a href="/contact.html">Contact</a></li>
+          <li>
+            <a
+              href="/about-legacy.html"
+              data-translatable
+              data-fr="Présentation"
+              data-en="About Us"
+              data-ar="معلومات عنا"
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="/vehicles.html"
+              data-translatable
+              data-fr="Véhicules Hamilcar"
+              data-en="Hamilcar Vehicles"
+              data-ar="مركبات هاميكار"
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="/technology.html"
+              data-translatable
+              data-fr="Technologie"
+              data-en="Technology"
+              data-ar="تكنولوجيا"
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="/clients.html"
+              data-translatable
+              data-fr="Clients"
+              data-en="Clients"
+              data-ar="عملاء"
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="/contact.html"
+              data-translatable
+              data-fr="Contact"
+              data-en="Contact"
+              data-ar="اتصال"
+              ></a
+            >
+          </li>
         </ul>
 
+        <div class="language-selector">
+          <button
+            id="current-lang"
+            aria-label="Change language"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <span class="flag-icon"></span>
+          </button>
+          <div id="lang-options" role="menu">
+            <button
+              data-lang="fr"
+              aria-label="Switch to French"
+              role="menuitem"
+            >
+              <span class="flag-icon fr"></span>
+            </button>
+            <button
+              data-lang="ar"
+              aria-label="Switch to Arabic"
+              role="menuitem"
+            >
+              <span class="flag-icon ar"></span>
+            </button>
+            <button
+              data-lang="en"
+              aria-label="Switch to English"
+              role="menuitem"
+            >
+              <span class="flag-icon en"></span>
+            </button>
+          </div>
+        </div>
 
         <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
       </nav>
     </header>
 
     <main>
-
       <section id="contact" class="content-section contact-section">
         <div class="container">
           <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Contactez HAMILCAR</h2>
-            <p class="section-subtitle">
+            <h2
+              class="section-title"
+              data-translatable
+              data-fr="Contactez HAMILCAR"
+              data-en="Contact HAMILCAR"
+              data-ar="تواصل معنا"
+            >
+              Contactez HAMILCAR
+            </h2>
+            <p
+              class="section-subtitle"
+              data-translatable
+              data-fr="Prêt à discuter de votre prochain projet ou véhicule ?"
+              data-en="Ready to discuss your next project or vehicle?"
+              data-ar="هل أنت مستعد لمناقشة مشروعك أو مركبتك القادمة؟"
+            >
               Prêt à discuter de votre prochain projet ou véhicule ?
             </p>
           </div>
           <div class="contact-layout" data-aos="fade-up" data-aos-delay="100">
             <div class="contact-info">
-              <h3>Nos Coordonnées</h3>
-              <p>Pour toute demande, notre équipe est à votre disposition.</p>
+              <h3
+                data-translatable
+                data-fr="Nos Coordonnées"
+                data-en="Our Contact Details"
+                data-ar="بيانات الاتصال الخاصة بنا"
+              >
+                Nos Coordonnées
+              </h3>
+              <p
+                data-translatable
+                data-fr="Pour toute demande, notre équipe est à votre disposition."
+                data-en="For any inquiries, our team is at your disposal."
+                data-ar="لأي استفسارات، فريقنا في خدمتك."
+              >
+                Pour toute demande, notre équipe est à votre disposition.
+              </p>
               <ul class="contact-details">
                 <li>
                   <img
@@ -51,7 +174,14 @@
                     alt="Adresse"
                     class="contact-icon"
                   />
-                  <span>[VOTRE ADRESSE HAMILCAR ICI], Tunisie</span>
+                  <span
+                    data-translatable
+                    data-fr="[VOTRE ADRESSE HAMILCAR ICI], Tunisie"
+                    data-en="[YOUR HAMILCAR ADDRESS HERE], Tunisia"
+                    data-ar="[عنوان هاميكار الخاص بك هنا]، تونس"
+                  >
+                    [VOTRE ADRESSE HAMILCAR ICI], Tunisie
+                  </span>
                 </li>
                 <li>
                   <img
@@ -59,7 +189,15 @@
                     alt="Téléphone"
                     class="contact-icon"
                   />
-                  <a href="tel:+216XXXXXXXX">+216 94 888 342</a>
+                  <a
+                    href="tel:+216XXXXXXXX"
+                    data-translatable
+                    data-fr="+216 94 888 342"
+                    data-en="+216 94 888 342"
+                    data-ar="+216 94 888 342"
+                  >
+                    +216 94 888 342
+                  </a>
                 </li>
                 <li>
                   <img
@@ -67,40 +205,106 @@
                     alt="Email"
                     class="contact-icon"
                   />
-                  <a href="mailto:contact@hamilcar.tn">contact@hamilcar.tn</a>
+                  <a
+                    href="mailto:contact@hamilcar.tn"
+                    data-translatable
+                    data-fr="contact@hamilcar.tn"
+                    data-en="contact@hamilcar.tn"
+                    data-ar="contact@hamilcar.tn"
+                  >
+                    contact@hamilcar.tn
+                  </a>
                 </li>
               </ul>
               <div class="map-placeholder">
-                <p>Carte Interactive Ici (Intégration Google Maps / Leaflet)</p>
+                <p
+                  data-translatable
+                  data-fr="Carte Interactive Ici (Intégration Google Maps / Leaflet)"
+                  data-en="Interactive Map Here (Google Maps / Leaflet Integration)"
+                  data-ar="خريطة تفاعلية هنا (تكامل خرائط جوجل / ليفليت)"
+                >
+                  Carte Interactive Ici (Intégration Google Maps / Leaflet)
+                </p>
               </div>
             </div>
             <div class="contact-form-container">
-              <h3>Envoyez-nous un Message</h3>
+              <h3
+                data-translatable
+                data-fr="Envoyez-nous un Message"
+                data-en="Send Us a Message"
+                data-ar="أرسل لنا رسالة"
+              >
+                Envoyez-nous un Message
+              </h3>
               <div id="form-status"></div>
               <form
-              id="cta-form"
-              action="https://formsubmit.co/amen.jouini18@gmail.com"
-              method="POST"
-            >
-              <label for="first_name">First Name:</label>
-              <input type="text" id="first_name" name="first_name" required />
+                id="cta-form"
+                action="https://formsubmit.co/amen.jouini18@gmail.com"
+                method="POST"
+              >
+                <label
+                  for="first_name"
+                  data-translatable
+                  data-fr="Prénom"
+                  data-en="First Name"
+                  data-ar="الاسم الأول"
+                  >First Name:</label
+                >
+                <input type="text" id="first_name" name="first_name" required />
 
-              <label for="last_name">Last Name:</label>
-              <input type="text" id="last_name" name="last_name" required />
+                <label
+                  for="last_name"
+                  data-translatable
+                  data-fr="Nom de Famille"
+                  data-en="Last Name"
+                  data-ar="اسم العائلة"
+                  >Last Name:</label
+                >
+                <input type="text" id="last_name" name="last_name" required />
 
-              <label for="email">Email:</label>
-              <input type="email" id="email" name="email" required />
+                <label
+                  for="email"
+                  data-translatable
+                  data-fr="Email"
+                  data-en="Email"
+                  data-ar="البريد الإلكتروني"
+                  >Email:</label
+                >
+                <input type="email" id="email" name="email" required />
 
-              <label for="phone">Phone Number:</label>
-              <input type="tel" id="phone" name="phone" required/>
+                <label
+                  for="phone"
+                  data-translatable
+                  data-fr="Numéro de Téléphone"
+                  data-en="Phone Number"
+                  data-ar="رقم الهاتف"
+                  >Phone Number:</label
+                >
+                <input type="tel" id="phone" name="phone" required />
 
-              <label for="message">Message (Optional):</label>
-              <textarea id="message" name="message" rows="4"></textarea>
+                <label
+                  for="message"
+                  data-translatable
+                  data-fr="Message (Optionnel)"
+                  data-en="Message (Optional)"
+                  data-ar="رسالة (اختياري)"
+                  >Message (Optional):</label
+                >
+                <textarea id="message" name="message" rows="4"></textarea>
 
-              <button type="submit" class="cta-button">Contact Us</button>
+                <button
+                  type="submit"
+                  class="cta-button"
+                  data-translatable
+                  data-fr="Contactez-nous"
+                  data-en="Contact Us"
+                  data-ar="اتصل بنا"
+                >
+                  Contact Us
+                </button>
 
-              <input type="hidden" name="_captcha" value="false" />
-            </form>
+                <input type="hidden" name="_captcha" value="false" />
+              </form>
             </div>
           </div>
         </div>
@@ -109,7 +313,7 @@
 
     <footer>
       <div class="container footer-content">
-         <!-- <div class="footer-logo">
+        <!-- <div class="footer-logo">
           <img
             alt="HAMILCAR Logo Footer"
             height="40"
@@ -118,14 +322,28 @@
         </div>  -->
 
         <div class="footer-social">
-          <a href="https://www.facebook.com/profile.php?id=100083210768748" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+          <a
+            href="https://www.facebook.com/profile.php?id=100083210768748"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
             ><img src="/assets/icons/fb.png" alt="Facebook"
           /></a>
-          <a href="https://www.linkedin.com/in/hamilcar-tunisie-012b48252/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+          <a
+            href="https://www.linkedin.com/in/hamilcar-tunisie-012b48252/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
             ><img src="/assets/icons/linkedin.png" alt="LinkedIn"
           /></a>
-        </div> 
-        <p class="footer-copyright">
+        </div>
+        <p
+          class="footer-copyright"
+          data-translatable
+          data-fr="&copy; 2025 HAMILCAR. Tous droits réservés."
+          data-en="&copy; 2025 HAMILCAR. All rights reserved."
+          data-ar="&copy; 2025 هاميكار. جميع الحقوق محفوظة."
+        >
           &copy; <span id="current-year"></span> HAMILCAR. Tous droits réservés.
         </p>
       </div>
@@ -162,8 +380,22 @@
             />
           </svg>
         </div>
-        <h3 id="modal-title">Success!</h3>
-        <p id="modal-desc">
+        <h3
+          id="modal-title"
+          data-translatable
+          data-fr="Succès !"
+          data-en="Success!"
+          data-ar="نجاح!"
+        >
+          Success!
+        </h3>
+        <p
+          id="modal-desc"
+          data-translatable
+          data-fr="Votre message a été envoyé avec succès.<br />Nous vous contacterons sous peu."
+          data-en="Your message has been sent successfully.<br />We'll be in touch shortly."
+          data-ar="تم إرسال رسالتك بنجاح.<br />سنتواصل معك قريبًا."
+        >
           Your message has been sent successfully.<br />We'll be in touch
           shortly.
         </p>

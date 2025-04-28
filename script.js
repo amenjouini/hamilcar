@@ -103,6 +103,147 @@ document.addEventListener('DOMContentLoaded', function() {
         activateNavLink(currentSectionId);
     };
 
+   // language 
+   const currentLangButton = document.getElementById("current-lang");
+   const currentLangIcon = currentLangButton?.querySelector(".flag-icon");
+   const langOptionsContainer = document.getElementById("lang-options");
+   const langOptionButtons = langOptionsContainer
+     ? langOptionsContainer.querySelectorAll("button[data-lang]")
+     : [];
+   const translatableElements = document.querySelectorAll("[data-translatable]");
+   const htmlElement = document.documentElement; // <html>
+ 
+   // --- State ---
+   let currentLanguage = localStorage.getItem("selectedLanguage") || "en";
+   let isLangOptionsVisible = false;
+ 
+   // --- Functions ---
+   function updateContent(lang) {
+     translatableElements.forEach((element) => {
+       const dataAttribute = `data-${lang}`;
+       if (element.hasAttribute(dataAttribute)) {
+         element.textContent = element.getAttribute(dataAttribute);
+       }
+     });
+ 
+     htmlElement.lang = lang;
+     htmlElement.dir = lang === "ar" ? "rtl" : "ltr";
+ 
+     if (currentLangButton) {
+       const labels = {
+         fr: "Changer de langue",
+         en: "Change language",
+         ar: "تغيير اللغة",
+       };
+       currentLangButton.setAttribute(
+         "aria-label",
+         labels[lang] || "Change language"
+       );
+     }
+ 
+     localStorage.setItem("selectedLanguage", lang);
+   }
+ 
+   function setCurrentFlag(lang) {
+     if (currentLangIcon) {
+       currentLangIcon.classList.remove("fr", "en", "ar");
+       currentLangIcon.classList.add(lang);
+     }
+   }
+ 
+   function toggleLangOptions() {
+     isLangOptionsVisible = !isLangOptionsVisible;
+     if (langOptionsContainer) {
+       langOptionsContainer.classList.toggle("visible", isLangOptionsVisible);
+     }
+     if (currentLangButton) {
+       currentLangButton.setAttribute("aria-expanded", isLangOptionsVisible);
+     }
+   }
+ 
+   function hideLangOptions() {
+     if (isLangOptionsVisible) {
+       isLangOptionsVisible = false;
+       if (langOptionsContainer) {
+         langOptionsContainer.classList.remove("visible");
+       }
+       if (currentLangButton) {
+         currentLangButton.setAttribute("aria-expanded", "false");
+       }
+     }
+   }
+ 
+   function initialize() {
+     console.log("Initializing language switcher...");
+     setCurrentFlag(currentLanguage);
+     updateContent(currentLanguage);
+     if (langOptionsContainer) {
+       langOptionsContainer.classList.remove("visible");
+     }
+     if (currentLangButton) {
+       currentLangButton.setAttribute("aria-expanded", "false");
+     }
+   }
+
+     
+
+
+  // Ensure the language options are hidden initially
+  if (langOptionsContainer) {
+    langOptionsContainer.classList.remove("visible");
+  }
+  if (currentLangButton) {
+    currentLangButton.setAttribute("aria-expanded", "false");
+  }
+ 
+   // --- Event Listeners ---
+   if (currentLangButton) {
+     currentLangButton.addEventListener("click", (event) => {
+       event.stopPropagation();
+       toggleLangOptions();
+     });
+   }
+ 
+   langOptionButtons.forEach((button) => {
+     button.addEventListener("click", () => {
+       const selectedLang = button.dataset.lang;
+       if (selectedLang && selectedLang !== currentLanguage) {
+         currentLanguage = selectedLang;
+         setCurrentFlag(currentLanguage);
+         updateContent(currentLanguage);
+       }
+       hideLangOptions();
+     });
+   });
+ 
+   document.addEventListener("click", (event) => {
+     if (
+       isLangOptionsVisible &&
+       langOptionsContainer &&
+       !langOptionsContainer.contains(event.target) &&
+       currentLangButton &&
+       event.target !== currentLangButton &&
+       !currentLangButton.contains(event.target)
+     ) {
+       hideLangOptions();
+     }
+   });
+ 
+   document.addEventListener("keydown", (event) => {
+     if (event.key === "Escape" && isLangOptionsVisible) {
+       hideLangOptions();
+       if (currentLangButton) {
+         currentLangButton.focus();
+       }
+     }
+   });
+ 
+   // --- Start the script ---
+   initialize();
+
+
+
+
     // Attach scroll event listener
     window.addEventListener('scroll', scrollSpy);
 

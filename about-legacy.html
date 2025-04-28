@@ -4,6 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HAMILCAR - Engineered for Dominance</title>
+    <script>
+      // This script runs immediately before the rest of the page renders.
+      // It prevents the flash of incorrect layout (FOUC/FOIL).
+      (function() {
+          try {
+              const storedLang = localStorage.getItem("selectedLanguage") || "en"; // Default to 'en' if nothing stored
+              const htmlEl = document.documentElement;
+              htmlEl.lang = storedLang; // Set language
+              htmlEl.dir = storedLang === "ar" ? "rtl" : "ltr"; // Set direction
+              console.log(`Early setup: lang=${htmlEl.lang}, dir=${htmlEl.dir}`);
+          } catch (e) {
+              // Fallback in case localStorage is unavailable or fails
+              console.error("Failed to set initial lang/dir:", e);
+              document.documentElement.lang = "en";
+              document.documentElement.dir = "ltr";
+          }
+      })();
+  </script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -18,12 +36,91 @@
           />
         </a>
         <ul class="nav-links">
-          <li><a href="/about-legacy.html">Présentation</a></li>
-          <li><a href="/vehicles.html">Véhicules Hamilcar</a></li>
-          <li><a href="/technology.html">Technologie</a></li>
-          <li><a href="/clients.html">Clients</a></li>
-          <li><a href="/contact.html">Contact</a></li>
+          <li>
+            <a
+              href="/about-legacy.html"
+              data-translatable
+              data-fr="Présentation"
+              data-en="About Us"
+              data-ar="معلومات عنا"
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="/vehicles.html"
+              data-translatable
+              data-fr="Véhicules Hamilcar"
+              data-en="Hamilcar Vehicles"
+              data-ar="مركبات هاميكار"
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="/technology.html"
+              data-translatable
+              data-fr="Technologie"
+              data-en="Technology"
+              data-ar="تكنولوجيا"
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="/clients.html"
+              data-translatable
+              data-fr="Clients"
+              data-en="Clients"
+              data-ar="عملاء"
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="/contact.html"
+              data-translatable
+              data-fr="Contact"
+              data-en="Contact"
+              data-ar="اتصال"
+              ></a
+            >
+          </li>
         </ul>
+
+        <div class="language-selector">
+          <button
+            id="current-lang"
+            aria-label="Change language"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <span class="flag-icon"></span>
+          </button>
+          <div id="lang-options" role="menu">
+            <button
+              data-lang="fr"
+              aria-label="Switch to French"
+              role="menuitem"
+            >
+              <span class="flag-icon fr"></span>
+            </button>
+            <button
+              data-lang="ar"
+              aria-label="Switch to Arabic"
+              role="menuitem"
+            >
+              <span class="flag-icon ar"></span>
+            </button>
+            <button
+              data-lang="en"
+              aria-label="Switch to English"
+              role="menuitem"
+            >
+              <span class="flag-icon en"></span>
+            </button>
+          </div>
+        </div>
 
         <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
       </nav>
@@ -36,8 +133,24 @@
         </div>
         <div class="hero-overlay"></div>
         <div class="container hero-content">
-          <h1 data-aos="fade-down">HAMILCAR</h1>
-          <p class="subtitle" data-aos="fade-up" data-aos-delay="200">
+          <h1
+            data-aos="fade-down"
+            data-translatable
+            data-fr="HAMILCAR"
+            data-en="HAMILCAR"
+            data-ar="هاميكار"
+          >
+            HAMILCAR
+          </h1>
+          <p
+            class="subtitle"
+            data-aos="fade-up"
+            data-aos-delay="200"
+            data-translatable
+            data-fr="Conçu pour Tous les Terrains. Prêt pour Toutes les Missions."
+            data-en="Designed for All Terrains. Ready for All Missions."
+            data-ar="مصمم لجميع التضاريس. جاهز لجميع المهام."
+          >
             Conçu pour Tous les Terrains. Prêt pour Toutes les Missions.
           </p>
           <a
@@ -45,6 +158,10 @@
             class="cta-button"
             data-aos="zoom-in"
             data-aos-delay="400"
+            data-translatable
+            data-fr="Explorer les Véhicules"
+            data-en="Explore the Vehicles"
+            data-ar="استكشف المركبات"
           >
             Explorer les Véhicules
           </a>
@@ -74,16 +191,27 @@
       <section id="about-legacy" class="content-section about-section">
         <div class="container">
           <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">Bienvenue chez HAMILCAR!</h2>
-            <p class="section-subtitle">
+            <h2
+              class="section-title"
+              data-translatable
+              data-fr="Bienvenue chez HAMILCAR!"
+              data-en="Welcome to HAMILCAR!"
+              data-ar="مرحبًا بكم في هاميكار!"
+            >
+              Bienvenue chez HAMILCAR!
+            </h2>
+            <p
+              class="section-subtitle"
+              data-translatable
+              data-fr="Imaginés, conçus et construits sur le champ de bataille avec une grande dose d'ADN militaire, les véhicules tout-terrain HAMILCAR sont spécialement conçus pour être extrêmement durables, exceptionnellement fiables et hautement fonctionnels, avec ce qu'il faut de plaisir de conduite hors route."
+              data-en="Imagined, designed, and built on the battlefield with a strong dose of military DNA, HAMILCAR's off-road vehicles are specially designed to be extremely durable, exceptionally reliable, and highly functional, with just the right amount of off-road driving pleasure."
+              data-ar="مُصممة ومُبنية في ساحة المعركة مع جرعة كبيرة من الحمض النووي العسكري، تُعتبر مركبات هاميكار القابلة للطرق الوعرة مصممة لتكون متينة للغاية، موثوقة استثنائياً وعملية للغاية، مع ما يكفي من متعة القيادة على الطرق الوعرة."
+            >
               Imaginés, conçus et construits sur le champ de bataille avec une
               grande dose d'ADN militaire, les véhicules tout-terrain HAMILCAR
               sont spécialement conçus pour être extrêmement durables,
               exceptionnellement fiables et hautement fonctionnels, avec ce
-              qu'il faut de plaisir de conduite hors route. HAMILCAR a évolué
-              pour devenir un véhicule tout-terrain de fabrication tunisienne à
-              usage militaire, commercial et grand public, conçu pour gérer
-              toutes les missions et tous les terrains.
+              qu'il faut de plaisir de conduite hors route.
             </p>
           </div>
           <div class="about-layout">
@@ -98,32 +226,38 @@
               />
             </div>
             <div class="about-text" data-aos="fade-left" data-aos-delay="100">
-              <h3>Présentation des fondateurs HAMILCAR</h3>
-              <p>
+              <h3
+                data-translatable
+                data-fr="Présentation des fondateurs HAMILCAR"
+                data-en="Introduction to the HAMILCAR Founders"
+                data-ar="مقدمة عن مؤسسي هاميكار"
+              >
+                Présentation des fondateurs HAMILCAR
+              </h3>
+              <p
+                data-translatable
+                data-fr="Ingénieurs, de formation académique. Passionné de construction automobile avec plus de 20 ans d'expérience dans divers domaines technologiques et occupant plusieurs postes de direction, contribuant ainsi au développement d'entreprises d'envergure."
+                data-en="Engineers by academic training. Passionate about automotive construction with over 20 years of experience in various technological fields and holding several leadership positions, contributing to the development of large-scale companies."
+                data-ar="مهندسون، بتدريب أكاديمي. شغوفون ببناء السيارات مع أكثر من 20 عامًا من الخبرة في مجالات تكنولوجية متنوعة وتولي عدة مناصب قيادية، مما يساهم في تطوير الشركات الكبيرة."
+              >
                 Ingénieurs, de formation académique. Passionné de construction
                 automobile avec plus de 20 ans d'expérience dans divers domaines
                 technologiques et occupant plusieurs postes de direction,
                 contribuant ainsi au développement d'entreprises d'envergure.
               </p>
-              <p>
+              <p
+                data-translatable
+                data-fr="Aujourd'hui, HAMILCAR représente le summum du véhicule tout-terrain de fabrication tunisienne, prêt à affronter toutes les missions et tous les terrains, pour un usage militaire, commercial ou grand public."
+                data-en="Today, HAMILCAR represents the pinnacle of Tunisian-made off-road vehicles, ready to tackle any mission and terrain, for military, commercial, or public use."
+                data-ar="اليوم، تمثل هاميكار قمة المركبات القابلة للطرق الوعرة المصنعة في تونس، جاهزة لمواجهة أي مهمة وأي تضاريس، للاستخدام العسكري أو التجاري أو العام."
+              >
                 Aujourd'hui, HAMILCAR représente le summum du véhicule
                 tout-terrain de fabrication tunisienne, prêt à affronter toutes
                 les missions et tous les terrains, pour un usage militaire,
                 commercial ou grand public.
               </p>
-              <!-- <a href="#contact" class="link-arrow"
-                >En savoir plus sur notre mission</a
-              > -->
             </div>
           </div>
-          <!-- <div class="founder-intro" data-aos="fade-up" data-aos-delay="300">
-            <h4>Rencontrez les Fondateurs</h4>
-            <p>
-              Ingénieurs passionnés avec plus de 20 ans d'expérience... (Version
-              courte).
-              <a href="#contact" class="link-inline">Contactez notre équipe</a>.
-            </p>
-          </div> -->
         </div>
       </section>
     </main>
@@ -154,50 +288,19 @@
             ><img src="/assets/icons/linkedin.png" alt="LinkedIn"
           /></a>
         </div>
-        <p class="footer-copyright">
-          &copy; <span id="current-year"></span> HAMILCAR. Tous droits réservés.
-        </p>
+      
+        <p
+        class="footer-copyright"
+        data-translatable
+        data-fr="&copy; 2025 HAMILCAR. Tous droits réservés."
+        data-en="&copy; 2025 HAMILCAR. All rights reserved."
+        data-ar="&copy; 2025 هاميكار. جميع الحقوق محفوظة."
+      >
+        &copy; <span id="current-year"></span> HAMILCAR. Tous droits réservés.
+      </p>
       </div>
     </footer>
-    <div id="modal-overlay" class="modal-overlay">
-      <div
-        id="success-modal"
-        class="modal-box"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modal-title"
-        aria-describedby="modal-desc"
-      >
-        <button
-          id="close-modal-btn"
-          class="modal-close-btn"
-          aria-label="Close modal"
-        >
-          &times;
-        </button>
-        <div class="modal-icon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            width="48px"
-            height="48px"
-            color="#28a745"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-              clip-rule="evenodd"
-            />
-          </svg>
-        </div>
-        <h3 id="modal-title">Success!</h3>
-        <p id="modal-desc">
-          Your message has been sent successfully.<br />We'll be in touch
-          shortly.
-        </p>
-      </div>
-    </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
   </body>

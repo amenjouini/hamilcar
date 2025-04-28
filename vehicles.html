@@ -4,6 +4,24 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>HAMILCAR - Engineered for Dominance</title>
+    <script>
+      // This script runs immediately before the rest of the page renders.
+      // It prevents the flash of incorrect layout (FOUC/FOIL).
+      (function() {
+          try {
+              const storedLang = localStorage.getItem("selectedLanguage") || "en"; // Default to 'en' if nothing stored
+              const htmlEl = document.documentElement;
+              htmlEl.lang = storedLang; // Set language
+              htmlEl.dir = storedLang === "ar" ? "rtl" : "ltr"; // Set direction
+              console.log(`Early setup: lang=${htmlEl.lang}, dir=${htmlEl.dir}`);
+          } catch (e) {
+              // Fallback in case localStorage is unavailable or fails
+              console.error("Failed to set initial lang/dir:", e);
+              document.documentElement.lang = "en";
+              document.documentElement.dir = "ltr";
+          }
+      })();
+  </script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -18,25 +36,113 @@
           />
         </a>
         <ul class="nav-links">
-          <li><a href="/about-legacy.html">Présentation</a></li>
-          <li><a href="/vehicles.html">Véhicules Hamilcar</a></li>
-          <li><a href="/technology.html">Technologie</a></li>
-          <li><a href="/clients.html">Clients</a></li>
-          <li><a href="/contact.html">Contact</a></li>
+          <li>
+            <a
+              href="/about-legacy.html"
+              data-translatable
+              data-fr="Présentation"
+              data-en="About Us"
+              data-ar="معلومات عنا"
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="/vehicles.html"
+              data-translatable
+              data-fr="Véhicules Hamilcar"
+              data-en="Hamilcar Vehicles"
+              data-ar="مركبات هاميكار"
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="/technology.html"
+              data-translatable
+              data-fr="Technologie"
+              data-en="Technology"
+              data-ar="تكنولوجيا"
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="/clients.html"
+              data-translatable
+              data-fr="Clients"
+              data-en="Clients"
+              data-ar="عملاء"
+              ></a
+            >
+          </li>
+          <li>
+            <a
+              href="/contact.html"
+              data-translatable
+              data-fr="Contact"
+              data-en="Contact"
+              data-ar="اتصال"
+              ></a
+            >
+          </li>
         </ul>
 
+        <div class="language-selector">
+          <button
+            id="current-lang"
+            aria-label="Change language"
+            aria-haspopup="true"
+            aria-expanded="false"
+          >
+            <span class="flag-icon"></span>
+          </button>
+          <div id="lang-options" role="menu">
+            <button
+              data-lang="fr"
+              aria-label="Switch to French"
+              role="menuitem"
+            >
+              <span class="flag-icon fr"></span>
+              <span class="lang-name">Français</span>
+            </button>
+            <button
+              data-lang="ar"
+              aria-label="Switch to Arabic"
+              role="menuitem"
+            >
+              <span class="flag-icon ar"></span>
+              <span class="lang-name" style="justify-content: relative;">عربي</span>
+            </button>
+            <button
+              data-lang="en"
+              aria-label="Switch to English"
+              role="menuitem"
+            >
+              <span class="flag-icon en"></span>
+              <span class="lang-name">English</span>
+            </button>
+          </div>
+        </div>
 
         <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
       </nav>
     </header>
 
     <main>
-  
-
       <section id="vehicles" class="content-section vehicles-section alt-bg">
         <div class="container">
           <div class="section-header" data-aos="fade-up">
-            <h2 class="section-title">La Gamme HAMILCAR</h2>
+            <h2
+              class="section-title"
+              style="position: sticky"
+              data-translatable
+              data-fr="La Gamme HAMILCAR"
+              data-en="The HAMILCAR Range"
+              data-ar="مجموعة هاميكار"
+            >
+              La Gamme HAMILCAR
+            </h2>
           </div>
 
           <div
@@ -45,8 +151,20 @@
             data-aos-delay="100"
           >
             <div class="design-section">
-              <h4>DESIGN EXTERIEUR</h4>
-              <p>
+              <h4
+                data-translatable
+                data-fr="DESIGN EXTERIEUR"
+                data-en="EXTERIOR DESIGN"
+                data-ar="تصميم خارجي"
+              >
+                DESIGN EXTERIEUR
+              </h4>
+              <p
+                data-translatable
+                data-fr="HX 0 est le premier prototype de la marque HAMILCAR, c'est un véhicule tout-terrain à multi-usage, conçu pour répondre à vos exigences, et fabriqué pour atteindre vos objectifs."
+                data-en="HX 0 is the first prototype of the HAMILCAR brand, a multi-purpose off-road vehicle designed to meet your requirements and built to achieve your goals."
+                data-ar="HX 0 هو أول نموذج أولي لعلامة هاميكار، وهو مركبة متعددة الاستخدامات مصممة لتلبية متطلباتك ومبنية لتحقيق أهدافك."
+              >
                 HX 0 est le premier prototype de la marque HAMILCAR, c'est un
                 véhicule tout-terrain à multi-usage, conçu pour répondre à vos
                 exigences, et fabriqué pour atteindre vos objectifs.
@@ -54,13 +172,25 @@
             </div>
 
             <div class="design-section">
-              <h4>DESIGN INTERIEUR</h4>
-              <p>
+              <h4
+                data-translatable
+                data-fr="DESIGN INTERIEUR"
+                data-en="INTERIOR DESIGN"
+                data-ar="تصميم داخلي"
+              >
+                DESIGN INTERIEUR
+              </h4>
+              <p
+                data-translatable
+                data-fr="HX-0 est un véhicule spacieux qui permet un contrôle visuel optimal de son environnement, des positions assises réglables et confortables. Le tableau de bord et les équipements fournis permettent un contrôle optimal pour les utilisateurs professionnels."
+                data-en="HX-0 is a spacious vehicle that allows for optimal visual control of its environment, with adjustable and comfortable seating positions. The dashboard and provided equipment allow for optimal control for professional users."
+                data-ar="HX-0 هي مركبة فسيحة تسمح بالتحكم البصري الأمثل في بيئتها، مع مقاعد قابلة للتعديل ومريحة. كما أن لوحة العدادات والمعدات المقدمة تتيح التحكم الأمثل للمستخدمين المحترفين."
+              >
                 HX-0 est un véhicule spacieux qui permet un contrôle visuel
                 optimal de son environnement, des positions assises réglables et
-                confortables.le tableau de bord et les équipements fournis
+                confortables. Le tableau de bord et les équipements fournis
                 permettent un contrôle optimal pour les utilisateurs
-                professionnels. Ces équipements dépendent de la configuration.
+                professionnels.
               </p>
             </div>
           </div>
@@ -82,109 +212,338 @@
             data-aos-delay="200"
           >
             <div class="feature-item">
-              <h4>Carrosserie</h4>
-
+              <h4
+                data-translatable
+                data-fr="Carrosserie"
+                data-en="Body"
+                data-ar="هيكل"
+              >
+                Carrosserie
+              </h4>
               <table class="feature-table">
                 <tbody>
                   <tr>
-                    <th>Type</th>
-                    <td>Pick up</td>
+                    <th
+                      data-translatable
+                      data-fr="Type"
+                      data-en="Type"
+                      data-ar="النوع"
+                    >
+                      Type
+                    </th>
+                    <td
+                      data-translatable
+                      data-fr="Pick up"
+                      data-en="Pick up"
+                      data-ar="بيك أب"
+                    >
+                      Pick up
+                    </td>
                   </tr>
                   <tr>
-                    <th>Volume caisse</th>
-                    <td>1,15 m³</td>
+                    <th
+                      data-translatable
+                      data-fr="Volume caisse"
+                      data-en="Body Volume"
+                      data-ar="حجم الصندوق"
+                    >
+                      Volume caisse
+                    </th>
+                    <td
+                      data-translatable
+                      data-fr="1,15 m³"
+                      data-en="1.15 m³"
+                      data-ar="1.15 م³"
+                    >
+                      1,15 m³
+                    </td>
                   </tr>
                   <tr>
-                    <th>Nombre de places</th>
-                    <td>4 places</td>
+                    <th
+                      data-translatable
+                      data-fr="Nombre de places"
+                      data-en="Number of Seats"
+                      data-ar="عدد المقاعد"
+                    >
+                      Nombre de places
+                    </th>
+                    <td
+                      data-translatable
+                      data-fr="4 places"
+                      data-en="4 seats"
+                      data-ar="4 مقاعد"
+                    >
+                      4 places
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="feature-item">
-              <h4>Poids et Dimensions</h4>
+              <h4
+                data-translatable
+                data-fr="Poids et Dimensions"
+                data-en="Weight and Dimensions"
+                data-ar="الوزن والأبعاد"
+              >
+                Poids et Dimensions
+              </h4>
               <table class="feature-table">
                 <tbody>
                   <tr>
-                    <th>PTC</th>
-                    <td>3500 Kg</td>
+                    <th
+                      data-translatable
+                      data-fr="PTC"
+                      data-en="GVW"
+                      data-ar="الوزن الإجمالي"
+                    >
+                      PTC
+                    </th>
+                    <td
+                      data-translatable
+                      data-fr="3500 Kg"
+                      data-en="3500 Kg"
+                      data-ar="3500 كجم"
+                    >
+                      3500 Kg
+                    </td>
                   </tr>
                   <tr>
-                    <th>Charge utile</th>
-                    <td>1000 Kg</td>
+                    <th
+                      data-translatable
+                      data-fr="Charge utile"
+                      data-en="Payload"
+                      data-ar="الحمولة"
+                    >
+                      Charge utile
+                    </th>
+                    <td
+                      data-translatable
+                      data-fr="1000 Kg"
+                      data-en="1000 Kg"
+                      data-ar="1000 كجم"
+                    >
+                      1000 Kg
+                    </td>
                   </tr>
                   <tr>
-                    <th>Garde au sol</th>
-                    <td>400 mm</td>
+                    <th
+                      data-translatable
+                      data-fr="Garde au sol"
+                      data-en="Ground Clearance"
+                      data-ar="الخلوص الأرضي"
+                    >
+                      Garde au sol
+                    </th>
+                    <td
+                      data-translatable
+                      data-fr="400 mm"
+                      data-en="400 mm"
+                      data-ar="400 مم"
+                    >
+                      400 mm
+                    </td>
                   </tr>
                   <tr>
-                    <th>Rayon Braquage</th>
-                    <td>~ 6 m</td>
+                    <th
+                      data-translatable
+                      data-fr="Rayon Braquage"
+                      data-en="Turning Radius"
+                      data-ar="نصف قطر الدوران"
+                    >
+                      Rayon Braquage
+                    </th>
+                    <td
+                      data-translatable
+                      data-fr="~ 6 m"
+                      data-en="~ 6 m"
+                      data-ar="~ 6 م"
+                    >
+                      ~ 6 m
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="feature-item">
-              <h4>Moteur</h4>
+              <h4
+                data-translatable
+                data-fr="Moteur"
+                data-en="Engine"
+                data-ar="المحرك"
+              >
+                Moteur
+              </h4>
               <table class="feature-table">
                 <tbody>
                   <tr>
-                    <th>Nombre de cylindres</th>
-                    <td>4 ou 8</td>
+                    <th
+                      data-translatable
+                      data-fr="Nombre de cylindres"
+                      data-en="Number of Cylinders"
+                      data-ar="عدد الأسطوانات"
+                    >
+                      Nombre de cylindres
+                    </th>
+                    <td
+                      data-translatable
+                      data-fr="4 ou 8"
+                      data-en="4 or 8"
+                      data-ar="4 أو 8"
+                    >
+                      4 ou 8
+                    </td>
                   </tr>
                   <tr>
-                    <th>Puissance</th>
-                    <td>de 90 à 275 kW</td>
+                    <th
+                      data-translatable
+                      data-fr="Puissance"
+                      data-en="Power"
+                      data-ar="القوة"
+                    >
+                      Puissance
+                    </th>
+                    <td
+                      data-translatable
+                      data-fr="de 90 à 275 kW"
+                      data-en="from 90 to 275 kW"
+                      data-ar="من 90 إلى 275 كيلوات"
+                    >
+                      de 90 à 275 kW
+                    </td>
                   </tr>
                   <tr>
-                    <th>Énergie</th>
-                    <td>Diesel</td>
+                    <th
+                      data-translatable
+                      data-fr="Énergie"
+                      data-en="Energy"
+                      data-ar="الطاقة"
+                    >
+                      Énergie
+                    </th>
+                    <td
+                      data-translatable
+                      data-fr="Diesel"
+                      data-en="Diesel"
+                      data-ar="ديزل"
+                    >
+                      Diesel
+                    </td>
                   </tr>
                   <tr>
-                    <th>Autonomie</th>
-                    <td>de 750 à 1000 Km</td>
+                    <th
+                      data-translatable
+                      data-fr="Autonomie"
+                      data-en="Range"
+                      data-ar="المدى"
+                    >
+                      Autonomie
+                    </th>
+                    <td
+                      data-translatable
+                      data-fr="de 750 à 1000 Km"
+                      data-en="from 750 to 1000 Km"
+                      data-ar="من 750 إلى 1000 كم"
+                    >
+                      de 750 à 1000 Km
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
             <div class="feature-item">
-              <h4>Transmission</h4>
+              <h4
+                data-translatable
+                data-fr="Transmission"
+                data-en="Transmission"
+                data-ar="نقل الحركة"
+              >
+                Transmission
+              </h4>
               <table class="feature-table">
                 <tbody>
                   <tr>
-                    <th>Type</th>
-                    <td>4x4 drive, Manuelle</td>
+                    <th
+                      data-translatable
+                      data-fr="Type"
+                      data-en="Type"
+                      data-ar="النوع"
+                    >
+                      Type
+                    </th>
+                    <td
+                      data-translatable
+                      data-fr="4x4 drive, Manuelle"
+                      data-en="4x4 drive, Manual"
+                      data-ar="دفع 4x4، يدوي"
+                    >
+                      4x4 drive, Manuelle
+                    </td>
                   </tr>
                   <tr>
-                    <th>Frein AV et AR</th>
-                    <td>À disque</td>
+                    <th
+                      data-translatable
+                      data-fr="Frein AV et AR"
+                      data-en="Front and Rear Brake"
+                      data-ar="المكابح الأمامية والخلفية"
+                    >
+                      Frein AV et AR
+                    </th>
+                    <td
+                      data-translatable
+                      data-fr="À disque"
+                      data-en="Disc"
+                      data-ar="قرص"
+                    >
+                      À disque
+                    </td>
                   </tr>
                   <tr>
-                    <th>Pneus</th>
-                    <td>9,00 R16</td>
+                    <th
+                      data-translatable
+                      data-fr="Pneus"
+                      data-en="Tires"
+                      data-ar="الإطارات"
+                    >
+                      Pneus
+                    </th>
+                    <td
+                      data-translatable
+                      data-fr="9,00 R16"
+                      data-en="9.00 R16"
+                      data-ar="9.00 R16"
+                    >
+                      9,00 R16
+                    </td>
                   </tr>
                 </tbody>
               </table>
             </div>
           </div>
+
           <div
             class="section-footer-link"
             data-aos="fade-up"
             data-aos-delay="300"
           >
-            <a href="#contact" class="cta-button"
-              >Cliquer pour avoir les specifications complètes</a
+            <a
+              href="#contact"
+              class="cta-button"
+              data-translatable
+              data-fr="Cliquer pour avoir les specifications complètes"
+              data-en="Click to get full specifications"
+              data-ar="انقر للحصول على المواصفات الكاملة"
             >
+              Cliquer pour avoir les specifications complètes
+            </a>
           </div>
         </div>
       </section>
-
-
     </main>
 
     <footer>
       <div class="container footer-content">
-         <!-- <div class="footer-logo">
+        <!-- <div class="footer-logo">
           <img
             alt="HAMILCAR Logo Footer"
             height="40"
@@ -193,57 +552,33 @@
         </div>  -->
 
         <div class="footer-social">
-          <a href="https://www.facebook.com/profile.php?id=100083210768748" target="_blank" rel="noopener noreferrer" aria-label="Facebook"
+          <a
+            href="https://www.facebook.com/profile.php?id=100083210768748"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="Facebook"
             ><img src="/assets/icons/fb.png" alt="Facebook"
           /></a>
-          <a href="https://www.linkedin.com/in/hamilcar-tunisie-012b48252/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"
+          <a
+            href="https://www.linkedin.com/in/hamilcar-tunisie-012b48252/"
+            target="_blank"
+            rel="noopener noreferrer"
+            aria-label="LinkedIn"
             ><img src="/assets/icons/linkedin.png" alt="LinkedIn"
           /></a>
-        </div> 
-        <p class="footer-copyright">
+        </div>
+        <p
+          class="footer-copyright"
+          data-translatable
+          data-fr="&copy; 2025 HAMILCAR. Tous droits réservés."
+          data-en="&copy; 2025 HAMILCAR. All rights reserved."
+          data-ar="&copy; 2025 هاميكار. جميع الحقوق محفوظة."
+        >
           &copy; <span id="current-year"></span> HAMILCAR. Tous droits réservés.
         </p>
       </div>
     </footer>
-    <div id="modal-overlay" class="modal-overlay">
-      <div
-        id="success-modal"
-        class="modal-box"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="modal-title"
-        aria-describedby="modal-desc"
-      >
-        <button
-          id="close-modal-btn"
-          class="modal-close-btn"
-          aria-label="Close modal"
-        >
-          &times;
-        </button>
-        <div class="modal-icon">
-          <svg
-            xmlns="http://www.w3.org/2000/svg"
-            viewBox="0 0 24 24"
-            fill="currentColor"
-            width="48px"
-            height="48px"
-            color="#28a745"
-          >
-            <path
-              fill-rule="evenodd"
-              d="M2.25 12c0-5.385 4.365-9.75 9.75-9.75s9.75 4.365 9.75 9.75-4.365 9.75-9.75 9.75S2.25 17.385 2.25 12Zm13.36-1.814a.75.75 0 1 0-1.22-.872l-3.236 4.53L9.53 12.22a.75.75 0 0 0-1.06 1.06l2.25 2.25a.75.75 0 0 0 1.14-.094l3.75-5.25Z"
-              clip-rule="evenodd"
-            />
-          </svg>
-        </div>
-        <h3 id="modal-title">Success!</h3>
-        <p id="modal-desc">
-          Your message has been sent successfully.<br />We'll be in touch
-          shortly.
-        </p>
-      </div>
-    </div>
+
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
     <script src="script.js"></script>
   </body>

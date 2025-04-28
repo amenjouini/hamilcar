@@ -76,11 +76,6 @@ h2.section-title {
   margin-bottom: 1rem;
   color: var(--color-heading);
 }
-h2.section-title {
-  font-size: clamp(2rem, 4vw, 2.8rem);
-  margin-bottom: 1rem;
-  color: var(--color-heading);
-}
 h3 {
   font-size: clamp(1.4rem, 3vw, 1.8rem);
   margin-bottom: 0.8rem;
@@ -134,10 +129,24 @@ ul {
   justify-content: space-between;
   align-items: center;
 }
+
+/* Default logo positioning (left for LTR languages) */
+#header .logo-link {
+  text-align: left; /* Default alignment */
+}
+
+/* When the language is Arabic (RTL), align the logo to the right */
+html[dir="rtl"] #header .logo-link {
+  text-align: right; /* Align logo to the right */
+}
+
+/* Control size */
 #header .logo-link img {
+  display: block;
   height: 45px;
   width: auto;
-} /* Control size */
+}
+
 .nav-links {
   display: flex;
   gap: 30px;
@@ -174,7 +183,156 @@ ul {
 .mobile-menu-toggle {
   display: none; /* Handled by JS and media query */
 }
+ /* Language Selector Styles */
+ .language-selector {
+  position: relative; /* For positioning the options dropdown */
+  margin-left: 1em; /* Adjust spacing */
+}
 
+#current-lang {
+  width: 35px;  /* Slightly larger for better touch */
+  height: 35px;
+  border-radius: 50%;
+  border: 1px solid #ccc; /* Add a subtle border */
+  cursor: pointer;
+  padding: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #fff; /* White background */
+  overflow: hidden; /* Ensure flag stays within circle */
+  transition: box-shadow 0.2s ease;
+}
+#current-lang:focus {
+   outline: 2px solid #007bff; /* Focus indicator */
+   outline-offset: 2px;
+}
+#current-lang:hover {
+  box-shadow: 0 0 5px rgba(0, 0, 0, 0.2);
+}
+
+.flag-icon {
+  display: inline-block;
+  width: 28px;  /* Slightly smaller than button */
+  height: 28px;
+  border-radius: 50%;
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  border: 1px solid #eee; /* Subtle border on flag */
+}
+
+/* --- PLACEHOLDER FLAGS --- */
+/* Replace with your actual flag image paths */
+.flag-icon.fr {
+  /* background-image: url('/assets/images/fr.png'); */
+  background-image: url('/assets/images/fr.png'); /* Placeholder */
+  background-color: #ED2939; /* Add bg color for better placeholder */
+}
+
+.flag-icon.ar {
+  /* background-image: url('/assets/images/ar.png'); */
+  background-image: url('/assets/images/ar.png'); /* Placeholder */
+   background-color: #CE1126; /* Add bg color for better placeholder */
+}
+
+.flag-icon.en {
+  /* background-image: url('/assets/images/en.png'); */
+  background-image: url('/assets/images/en.png'); /* Placeholder */
+   background-color: #C8102E; /* Add bg color for better placeholder */
+}
+/* --- END PLACEHOLDER FLAGS --- */
+
+
+#lang-options {
+  position: absolute;
+  top: calc(100% + 8px); /* Position below the button with some gap */
+  right: 0;
+  background-color: #fff;
+  border: 1px solid #ccc;
+  border-radius: 8px; /* More rounded */
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+  z-index: 100; /* Ensure it's above other elements */
+  overflow: hidden; /* Clip corners */
+  padding: 5px 0; /* Padding top/bottom */
+  min-width: 55px; /* Ensure minimum width */
+  opacity: 0; /* Start hidden for transition */
+  transform: translateY(-10px); /* Start slightly up */
+  transition: opacity 0.2s ease, transform 0.2s ease;
+  pointer-events: none; /* Prevent interaction when hidden */
+}
+
+#lang-options.visible {
+   opacity: 1;
+   transform: translateY(0);
+   pointer-events: auto; /* Allow interaction when visible */
+}
+
+#lang-options button {
+  /* display: block; */ /* Removed, flex handles layout */
+  width: 100%; /* Take full width */
+  /* height: 40px; */ /* Increased height */
+  padding: 8px 10px; /* Adjust padding */
+  border: none;
+  background-color: transparent;
+  cursor: pointer;
+  display: flex;
+  justify-content: relative;  /* Changed to center */
+  align-items: center;
+  gap: 8px; /* Space between flag and potential text */
+  transition: background-color 0.2s ease;
+}
+
+#lang-options button .lang-name {
+  font-size: 14px;  /* Adjust font size for language names */
+  font-weight: 500;  /* Optional: Make the text bolder */
+  color: #333; /* Text color */
+  text-transform: capitalize; /* Make the language name text proper case */
+}
+
+#lang-options button:hover {
+  background-color: #f0f0f0; /* Lighter hover */
+}
+
+#lang-options button .flag-icon {
+  width: 25px; /* Slightly smaller flags in dropdown */
+  height: 25px;
+}
+
+/* Utility class to hide elements visually and from screen readers */
+.hidden {
+ display: none;
+}
+
+/* Ensure the language selector is positioned correctly within the nav */
+nav .container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between; /* Or space-around, adjust as needed */
+}
+
+nav ul.nav-links {
+    /* Existing styles */
+    display: flex;
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+nav ul.nav-links li {
+    margin-right: 1em;
+}
+
+
+/* Ensure language selector doesn't interfere with mobile menu button */
+.mobile-menu-toggle {
+    /* Existing styles */
+    order: 1; /* Adjust order if needed */
+}
+
+.language-selector {
+    order: 2; /* Adjust order to position it correctly */
+}
 /* 5. Hero Section */
 .hero-section {
   height: 100vh; /* Full viewport height */
@@ -366,6 +524,8 @@ ul {
 
 .section-header {
   text-align: center;
+  top: 0;
+  z-index: 10;
   margin-bottom: 60px; /* More space after header */
 }
 .section-subtitle {
@@ -1268,6 +1428,7 @@ footer {
 @media (max-width: 480px) {
   html {
     font-size: 15px;
+    scroll-behavior: auto; 
   }
   h1 {
     font-size: 1.8rem;
