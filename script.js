@@ -67,6 +67,23 @@ document.addEventListener('DOMContentLoaded', function() {
         });
     };
 
+    const langButtons = document.querySelectorAll('#lang-options button');
+
+// Add event listener to each
+langButtons.forEach(button => {
+  button.addEventListener('click', () => {
+    const selectedLang = button.getAttribute('data-lang');
+    changeLanguage(selectedLang);
+  });
+});
+    function changeLanguage(lang) {
+        document.documentElement.lang = lang;
+        if (lang === 'ar') {
+          document.documentElement.dir = 'rtl';
+        } else {
+          document.documentElement.dir = 'ltr';
+        }
+      }
     const scrollSpy = () => {
         let currentSectionId = '';
         const scrollY = window.pageYOffset;
@@ -185,7 +202,9 @@ document.addEventListener('DOMContentLoaded', function() {
      }
    }
 
-     
+   
+  
+  
 
 
   // Ensure the language options are hidden initially

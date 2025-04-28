@@ -500,12 +500,40 @@ nav ul.nav-links li {
     max-width: 550px; /* Optional: constrain max width */
   }
 
-  #lang-options {
-    right: auto; /* cancel the right: 0 */
-    left: 0%; /* center it horizontally */
-    transform: translate(0); /* adjust the position */
-    min-width: 100px; /* make it wider if needed */
+  #lang-options button {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    padding: 8px 10px;
+    width: 100%;
+    border: none;
+    background-color: transparent;
+    cursor: pointer;
+    transition: background-color 0.2s ease;
+    direction: ltr; /* force left-to-right inside button by default */
   }
+  
+  html[dir="rtl"] #lang-options button {
+    direction: rtl; /* flip inside button when Arabic */
+  }
+  
+  #lang-options .flag-icon {
+    width: 25px;
+    height: 25px;
+  }
+  
+  #lang-options .lang-name {
+    font-size: 16px;
+    white-space: nowrap; /* Prevent breaking text */
+  }
+  
+  html[dir="rtl"] #lang-options {
+    right: 0;
+    left: auto;
+  }
+  
+
+
 }
 @keyframes bounce {
   0%,
