@@ -264,6 +264,7 @@ html[dir="rtl"] #header .logo-link {
 }
 
 #lang-options.visible {
+
    opacity: 1;
    transform: translateY(0);
    pointer-events: auto; /* Allow interaction when visible */
@@ -497,6 +498,13 @@ nav ul.nav-links li {
   .design-section {
     flex-basis: 90%; /* Allow sections to take up more width when stacked */
     max-width: 550px; /* Optional: constrain max width */
+  }
+
+  #lang-options {
+    right: auto; /* cancel the right: 0 */
+    left: 0%; /* center it horizontally */
+    transform: translate(0); /* adjust the position */
+    min-width: 100px; /* make it wider if needed */
   }
 }
 @keyframes bounce {
