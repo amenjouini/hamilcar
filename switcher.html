@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Image Switcher Test</title>
+    <style>
+        /* Style for the main page body for context */
+     
+
+        /* The container for the image switcher */
+        .client-image-switcher {
+            position: relative;
+            width: 100%;
+            max-width: 600px; /* Max width of the switcher */
+            overflow: hidden; /* Clips content outside the bounds */
+            border-radius: 8px; /* Rounded corners for the container */
+            aspect-ratio: 16 / 9; /* Maintain a 16:9 aspect ratio */
+            
+            /* --- KEY CHANGE --- */
+            /* Make the container itself transparent. */
+            /* Any "background" seen will be the body's background or what's behind this div. */
+            background: transparent; 
+            border: 2px solid #333; /* Added a border to visualize the container */
+        }
+
+        /* Styling for individual images within the switcher */
+        .switch-client-image {
+            position: absolute; /* Position images on top of each other */
+            top: 0;
+            left: 0;
+            width: 100%; /* Image takes full width of the container */
+            height: 100%; /* Image takes full height of the container */
+            object-fit: cover; /* Cover the container, cropping if necessary */
+            
+            opacity: 0; /* Images are transparent by default */
+            transition: opacity 1s ease-in-out; /* Smooth 1-second fade transition */
+            z-index: 0; /* Default stacking order */
+            
+            pointer-events: none; /* Images are not interactive */
+            background-color: transparent; /* Ensure the img element itself has no bg, in case of transparent PNGs */
+        }
+
+        /* Styling for the currently active (visible) image */
+        .switch-client-image.active {
+            opacity: 1; /* Active image is fully opaque */
+            z-index: 1; /* Active image is stacked on top */
+        }
+
+        /* Informational text styling */
+ 
+    </style>
+</head>
+<body>
+
+    <div>
+        <div class="client-image-switcher">
+            <img
+                class="switch-client-image active"
+                src="/assets/images/car-side1.jpg"
+                alt="View 1"
+            />
+            <img
+                class="switch-client-image"
+                src="/assets/images/car-side2.jpg"
+                alt="View 2"
+            />  
+            <img
+                class="switch-client-image"
+                src="/assets/images/car-side3.jpg"
+                alt="View 3"
+            />
+        </div>
+        <p class="info-text">
+            The container has a transparent background and a dark border.
+            The page body is light gray. During transitions, you might see the light gray page background
+            if both images are semi-transparent.
+        </p>
+    </div>
+
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            // Select all images that are part of the switcher
+            const images = document.querySelectorAll('.switch-client-image');
+            let currentImageIndex = 0; // Index of the currently displayed image
+            const totalImages = images.length;
+
+            console.log('Image switcher script started.');
+            console.log('Total images found:', totalImages);
+
+            // Initial setup: Ensure only the first image is active if not already set.
+            // This is mostly a safeguard; HTML should define the initial active image.
+            if (totalImages > 0) {
+                images.forEach((img, index) => {
+                    if (index === currentImageIndex) {
+                        if (!img.classList.contains('active')) {
+                            img.classList.add('active');
+                            console.log(`Initial: Forcing image ${index} to be active.`);
+                        } else {
+                            console.log(`Initial: Image ${index} is already active.`);
+                        }
+                    } else {
+                        img.classList.remove('active');
+                    }
+                });
+            } else {
+                console.warn('No images found for the switcher.');
+                return; // Stop if no images
+            }
+
+            // Function to display the next image
+            function showNextImage() {
+                if (totalImages <= 1) {
+                    // No need to switch if there's only one image or none
+                    console.log('Not enough images to switch.');
+                    return; 
+                }
+
+                const previousImageIndex = currentImageIndex;
+                currentImageIndex = (currentImageIndex + 1) % totalImages; // Loop back to the first image
+
+                console.log(`Switching: From image index ${previousImageIndex} to ${currentImageIndex}`);
+
+                // Remove 'active' class from the current (soon to be old) image
+                if (images[previousImageIndex]) {
+                    images[previousImageIndex].classList.remove('active');
+                    console.log(`Deactivated image index: ${previousImageIndex}`);
+                }
+
+                // Add 'active' class to the new image
+                if (images[currentImageIndex]) {
+                    images[currentImageIndex].classList.add('active');
+                    console.log(`Activated image index: ${currentImageIndex}`);
+                }
+            }
+
+            // Set an interval to call showNextImage every 3 seconds (3000 milliseconds)
+            // Only start the slideshow if there's more than one image
+            if (totalImages > 1) {
+                setInterval(showNextImage, 3000);
+                console.log('Slideshow interval started (3000ms).');
+            } else {
+                 console.log('Slideshow interval NOT started (only one image or no images).');
+            }
+        });
+    </script>
+
+</body>
+</html>

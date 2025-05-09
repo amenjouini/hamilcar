@@ -7,21 +7,21 @@
     <script>
       // This script runs immediately before the rest of the page renders.
       // It prevents the flash of incorrect layout (FOUC/FOIL).
-      (function() {
-          try {
-              const storedLang = localStorage.getItem("selectedLanguage") || "en"; // Default to 'en' if nothing stored
-              const htmlEl = document.documentElement;
-              htmlEl.lang = storedLang; // Set language
-              htmlEl.dir = storedLang === "ar" ? "rtl" : "ltr"; // Set direction
-              console.log(`Early setup: lang=${htmlEl.lang}, dir=${htmlEl.dir}`);
-          } catch (e) {
-              // Fallback in case localStorage is unavailable or fails
-              console.error("Failed to set initial lang/dir:", e);
-              document.documentElement.lang = "en";
-              document.documentElement.dir = "ltr";
-          }
+      (function () {
+        try {
+          const storedLang = localStorage.getItem("selectedLanguage") || "en"; // Default to 'en' if nothing stored
+          const htmlEl = document.documentElement;
+          htmlEl.lang = storedLang; // Set language
+          htmlEl.dir = storedLang === "ar" ? "rtl" : "ltr"; // Set direction
+          console.log(`Early setup: lang=${htmlEl.lang}, dir=${htmlEl.dir}`);
+        } catch (e) {
+          // Fallback in case localStorage is unavailable or fails
+          console.error("Failed to set initial lang/dir:", e);
+          document.documentElement.lang = "en";
+          document.documentElement.dir = "ltr";
+        }
       })();
-  </script>
+    </script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -43,8 +43,7 @@
               data-fr="Présentation"
               data-en="About Us"
               data-ar="معلومات عنا"
-              ></a
-            >
+            ></a>
           </li>
           <li>
             <a
@@ -53,38 +52,34 @@
               data-fr="Véhicules Hamilcar"
               data-en="Hamilcar Vehicles"
               data-ar="مركبات هاميكار"
-              ></a
-            >
+            ></a>
           </li>
           <li>
             <a
               href="/technology.html"
               data-translatable
               data-fr="Technologie"
-              data-en="Technology"
+              data-en="Design/ Technology"
               data-ar="تكنولوجيا"
-              ></a
-            >
+            ></a>
           </li>
           <li>
             <a
               href="/clients.html"
               data-translatable
               data-fr="Clients"
-              data-en="Clients"
+              data-en="Customer/ Investors"
               data-ar="عملاء"
-              ></a
-            >
+            ></a>
           </li>
           <li>
             <a
               href="/contact.html"
               data-translatable
               data-fr="Contact"
-              data-en="Contact"
+              data-en="Contact/ News"
               data-ar="اتصال"
-              ></a
-            >
+            ></a>
           </li>
         </ul>
 
@@ -106,14 +101,10 @@
               <span class="flag-icon fr"></span>
               <span class="lang-name">Français</span>
             </button>
-            <button
-              data-lang="ar"
-              aria-label="Switch to Arabic"
-              role="menuitem"
-            >
+            <!-- <button data-lang="ar" aria-label="Switch to Arabic" role="menuitem">
               <span class="flag-icon ar"></span>
-              <span class="lang-name" style="justify-content: relative;">عربي</span>
-            </button>
+              <span class="lang-name">عربي</span>
+            </button> -->
             <button
               data-lang="en"
               aria-label="Switch to English"

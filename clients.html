@@ -7,21 +7,21 @@
     <script>
       // This script runs immediately before the rest of the page renders.
       // It prevents the flash of incorrect layout (FOUC/FOIL).
-      (function() {
-          try {
-              const storedLang = localStorage.getItem("selectedLanguage") || "en"; // Default to 'en' if nothing stored
-              const htmlEl = document.documentElement;
-              htmlEl.lang = storedLang; // Set language
-              htmlEl.dir = storedLang === "ar" ? "rtl" : "ltr"; // Set direction
-              console.log(`Early setup: lang=${htmlEl.lang}, dir=${htmlEl.dir}`);
-          } catch (e) {
-              // Fallback in case localStorage is unavailable or fails
-              console.error("Failed to set initial lang/dir:", e);
-              document.documentElement.lang = "en";
-              document.documentElement.dir = "ltr";
-          }
+      (function () {
+        try {
+          const storedLang = localStorage.getItem("selectedLanguage") || "en"; // Default to 'en' if nothing stored
+          const htmlEl = document.documentElement;
+          htmlEl.lang = storedLang; // Set language
+          htmlEl.dir = storedLang === "ar" ? "rtl" : "ltr"; // Set direction
+          console.log(`Early setup: lang=${htmlEl.lang}, dir=${htmlEl.dir}`);
+        } catch (e) {
+          // Fallback in case localStorage is unavailable or fails
+          console.error("Failed to set initial lang/dir:", e);
+          document.documentElement.lang = "en";
+          document.documentElement.dir = "ltr";
+        }
       })();
-  </script>
+    </script>
     <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet" />
     <link rel="stylesheet" href="style.css" />
   </head>
@@ -43,8 +43,7 @@
               data-fr="Présentation"
               data-en="About Us"
               data-ar="معلومات عنا"
-              ></a
-            >
+            ></a>
           </li>
           <li>
             <a
@@ -53,8 +52,7 @@
               data-fr="Véhicules Hamilcar"
               data-en="Hamilcar Vehicles"
               data-ar="مركبات هاميكار"
-              ></a
-            >
+            ></a>
           </li>
           <li>
             <a
@@ -63,8 +61,7 @@
               data-fr="Technologie"
               data-en="Technology"
               data-ar="تكنولوجيا"
-              ></a
-            >
+            ></a>
           </li>
           <li>
             <a
@@ -73,8 +70,7 @@
               data-fr="Clients"
               data-en="Clients"
               data-ar="عملاء"
-              ></a
-            >
+            ></a>
           </li>
           <li>
             <a
@@ -83,8 +79,7 @@
               data-fr="Contact"
               data-en="Contact"
               data-ar="اتصال"
-              ></a
-            >
+            ></a>
           </li>
         </ul>
 
@@ -106,14 +101,10 @@
               <span class="flag-icon fr"></span>
               <span class="lang-name">Français</span>
             </button>
-            <button
-              data-lang="ar"
-              aria-label="Switch to Arabic"
-              role="menuitem"
-            >
+            <!-- <button data-lang="ar" aria-label="Switch to Arabic" role="menuitem">
               <span class="flag-icon ar"></span>
-              <span class="lang-name" style="justify-content: relative;">عربي</span>
-            </button>
+              <span class="lang-name">عربي</span>
+            </button> -->
             <button
               data-lang="en"
               aria-label="Switch to English"
@@ -124,7 +115,6 @@
             </button>
           </div>
         </div>
-
 
         <button class="mobile-menu-toggle" aria-label="Toggle menu">☰</button>
       </nav>
@@ -172,45 +162,86 @@
                 +
               </button>
             </div>
+
             <div class="toggle-content" id="potentiel-clients-1">
-              <p
-                data-translatable
-                data-fr="- A bord vous vous occupez de vos missions et nous veillons à votre sécurité."
-                data-en="- Onboard, you focus on your missions, and we ensure your safety."
-                data-ar="- على متن السيارة، تقومون بمهامكم ونحن نضمن سلامتكم."
-              >
-                - A bord vous vous occupez de vos missions et nous veillons à
-                votre sécurité.
-              </p>
+              <div class="image-text-wrapper">
+                <div class="client-image-switcher">
+                  <img class="switch-client-image active" src="assets/images/car-side4.jpg" alt="View 1" />
+                  <img class="switch-client-image" src="assets/images/ChatGPT Image Apr 14, 2025, 07_27_04 PM.png" alt="View 2" />
+                  <img class="switch-client-image" src="assets/images/ChatGPT Image Apr 14, 2025, 07_28_23 PM.png" alt="View 3" />
+                </div>
 
-              <p
-                data-translatable
-                data-fr="- Configurez votre véhicule selon vos besoins."
-                data-en="- Configure your vehicle according to your needs."
-                data-ar="- قم بتخصيص سيارتك حسب احتياجاتك."
-              >
-                - Configurez votre véhicule selon vos besoins.
-              </p>
+                <div class="text-content">
+                  <h4
+                    data-translatable
+                    data-fr="1. Entrepreneurs"
+                    data-en="1- Entrepreneurs"
+                  ></h4>
+                  <p
+                    data-translatable
+                    data-fr="Ingénieurs de formation, passionnés par la construction automobile avec plus de 20 ans d'expérience dans divers secteurs, occupant plusieurs postes de direction pour le développement de sociétés de grande envergure."
+                    data-en="Engineers by training, passionate about automotive construction with more than 20 years of experience in a variety of sectors, holding several leadership positions for the development of large-scale companies."
+                  ></p>
+                  <h4
+                    data-translatable
+                    data-fr="2- Le Produit"
+                    data-en="2- The Product"
+                  ></h4>
+                  <p
+                    data-translatable
+                    data-fr="Ciblage des catégories suivantes :
+                    ●	Véhicules protégés et banalisés pour professionnels : Produits stratégiques qui sauvent la vie et assurent la sécurité 
+                    des citoyens. Ce marché est prioritaire dans les budgets de tous les pays, renforçant la souveraineté du pays et offrant une porte d’entrée pour l’industrie automobile.
+                    ●	Véhicules tout terrain pour passionnés et VIP : Offrent le confort, l'exclusivité et la protection. 
+                    Équipés de moteurs classiques ou moteurs électrique pour la mobilité écologique et intelligente."
+                    data-en="Targeting the following categories:
+                    ● Protected and unbranded vehicles for professionals: Strategic life-saving and safety products 
+                    citizens. This market is a priority in the budgets of all countries, strengthening the country’s sovereignty and providing a gateway for the automotive industry.
+                    ● Off-road vehicles for enthusiasts and VIPs: Offer comfort, exclusivity and protection. 
+                    Equipped with conventional engines or electric motors for eco-friendly and intelligent mobility."
+                  ></p>
+                  
+                </div>
+              </div>
+              <div class="image-text-wrapper">
+                <div class="client-image-switcher">
+                  <img class="switch-client-image active" src="assets/images/car-side1.jpg" alt="View 1" />
+                  <img class="switch-client-image" src="assets/images/car-side2.jpg" alt="View 2" />
+                  <img class="switch-client-image" src="assets/images/car-side3.jpg" alt="View 3" />
+                </div>
+                
 
-              <p
-                data-translatable
-                data-fr="- Nous vous proposons toujours les solutions pour réussir vos missions."
-                data-en="- We always offer solutions to help you succeed in your missions."
-                data-ar="- نقدم لك دائمًا الحلول لتحقيق النجاح في مهامك."
-              >
-                - Nous vous proposons toujours les solutions pour réussir vos
-                missions.
-              </p>
-
-              <p
-                data-translatable
-                data-fr="- Optez pour nos solutions véhicules optimisées pour votre développement."
-                data-en="- Choose our optimized vehicle solutions for your development."
-                data-ar="- اختر حلول المركبات المحسنة لتطويرك."
-              >
-                - Optez pour nos solutions véhicules optimisées pour votre
-                développement.
-              </p>
+                <div class="text-content">
+                  <h4
+                    data-translatable
+                    data-fr="3. Le Marché"
+                    data-en="3- The Market"
+                  ></h4>
+                  <p
+                    data-translatable
+                    data-fr="Les catégories ciblées sont des segments de petite et moyenne série pour des produits à forte valeur technologique et financière.
+                    L’étude du marché est une rubrique privée destinée aux investisseurs ayant intérêt à ce projet.
+                    Merci de nous contacter via la rubrique contact."
+                    data-en="The target categories are small and medium series segments for products with high technological and financial value.
+                    The market study is a private section for investors interested in this project.
+                    Please contact us via the contact section."
+                  ></p>
+                  <h4
+                    data-translatable
+                    data-fr="4- Business Plan"
+                    data-en="4- Business Plan"
+                  ></h4>
+                  <p
+                    data-translatable
+                    data-fr="Le projet HAMILCAR dispose d’un savoir-faire unique au monde dans la construction automobile, concrétisé dans le prototype HX-0. L’idée est innovante, elle est basée sur une conception complexe réalisable par des moyens de production conventionnels. Cela contribue considérablement à la réduction du coût de l’investissement au profit de la rentabilité.
+                    Le schéma d’investissement est une rubrique privée destinée aux investisseurs ayant intérêt à ce projet.
+                    Merci de nous contacter à travers la rubrique contact."
+                    data-en="The HAMILCAR project has a unique know-how in automotive construction, embodied in the HX-0 prototype. The idea is innovative, it is based on a complex design that can be achieved by conventional means of production. This contributes significantly to reducing the cost of investment in favour of profitability.
+                    The investment scheme is a private line for investors with an interest in this project.
+                    Thank you for contacting us through the contact section."
+                  ></p>
+                </div>
+              </div>
             </div>
 
             <div
@@ -223,7 +254,6 @@
                   data-translatable
                   data-fr="Des véhicules personnalisés et protégés pour les passionnés et les VIP."
                   data-en="Customized and protected vehicles for enthusiasts and VIPs."
-                  data-ar="مركبات مخصصة ومحمية للهواة وكبار الشخصيات."
                 >
                   Des véhicules personnalisés et protégés pour les passionnés et
                   les VIP.
@@ -242,7 +272,6 @@
                 data-translatable
                 data-fr="- A bord, vous profitez de votre journée et nous veillons à votre sécurité."
                 data-en="- Onboard, you enjoy your day and we ensure your safety."
-                data-ar="- على متن السيارة، تستمتعون بيومكم ونحن نضمن سلامتكم."
               >
                 - A bord, vous profitez de votre journée et nous veillons à
                 votre sécurité.
@@ -252,7 +281,6 @@
                 data-translatable
                 data-fr="- Configurez votre véhicule selon vos envies."
                 data-en="- Configure your vehicle according to your desires."
-                data-ar="- قم بتخصيص سيارتك حسب رغباتك."
               >
                 - Configurez votre véhicule selon vos envies.
               </p>
@@ -261,7 +289,6 @@
                 data-translatable
                 data-fr="- Nous vous proposons toujours les solutions pour réussir vos défis."
                 data-en="- We always offer solutions to help you succeed in your challenges."
-                data-ar="- نقدم لك دائمًا الحلول لتحقيق النجاح في تحدياتك."
               >
                 - Nous vous proposons toujours les solutions pour réussir vos
                 défis.
@@ -271,7 +298,6 @@
                 data-translatable
                 data-fr="- Optez pour nos solutions de véhicules optimisées pour votre développement."
                 data-en="- Choose our optimized vehicle solutions for your development."
-                data-ar="- اختر حلول المركبات المحسنة لتطويرك."
               >
                 - Optez pour nos solutions de véhicules optimisées pour votre
                 développement.
@@ -288,7 +314,6 @@
                   data-translatable
                   data-fr="Entrepreneurs"
                   data-en="Entrepreneurs"
-                  data-ar="رواد الأعمال"
                 >
                   Entrepreneurs
                 </div>
@@ -306,7 +331,6 @@
                 data-translatable
                 data-fr="Ingénieurs de formation académique, passionnés par la construction automobile avec plus de 20 ans d'expérience dans différents secteurs technologiques et occupant plusieurs postes de direction, contribuant ainsi au développement d'entreprises d'envergure."
                 data-en="Engineers with academic training, passionate about automotive construction with over 20 years of experience in various technological sectors, holding several management positions, thus contributing to the development of major companies."
-                data-ar="مهندسون بتكوين أكاديمي، شغوفون بصناعة السيارات ولديهم أكثر من 20 سنة من الخبرة في مختلف القطاعات التكنولوجية، وقد شغلوا عدة مناصب قيادية، مما ساهم في تطوير شركات كبرى."
               >
                 Ingénieurs de formation académique, passionnés par la
                 construction automobile avec plus de 20 ans d'expérience dans
@@ -326,7 +350,6 @@
                   data-translatable
                   data-fr="Produit"
                   data-en="Product"
-                  data-ar="المنتج"
                 >
                   Produit
                 </div>
@@ -344,7 +367,6 @@
                 data-translatable
                 data-fr="Nous ciblons les catégories suivantes :"
                 data-en="We target the following categories:"
-                data-ar="نستهدف الفئات التالية:"
               >
                 Nous ciblons les catégories suivantes :
               </p>
@@ -353,7 +375,6 @@
                 data-translatable
                 data-fr="- Véhicules protégés et banalisés pour les professionnels :"
                 data-en="- Protected and unmarked vehicles for professionals:"
-                data-ar="- مركبات محمية وغير مميزة للمحترفين:"
               >
                 - Véhicules protégés et banalisés pour les professionnels :
               </p>
@@ -362,7 +383,6 @@
                 data-translatable
                 data-fr="Ces véhicules sont des produits stratégiques qui sauvent la vie des usagers et assurent la sécurité des citoyens. Ce marché est une priorité dans les budgets de tous les pays. La maîtrise de cette technologie renforce la souveraineté du pays et présente une porte d'entrée pour l'industrie automobile."
                 data-en="These vehicles are strategic products that save users' lives and ensure citizens' safety. This market is a priority in the budgets of all countries. Mastering this technology strengthens the country's sovereignty and provides a gateway to the automotive industry."
-                data-ar="هذه المركبات منتجات استراتيجية تنقذ حياة المستخدمين وتضمن سلامة المواطنين. هذا السوق يعد أولوية في ميزانيات جميع الدول. إتقان هذه التكنولوجيا يعزز سيادة الدولة ويمثل مدخلاً لصناعة السيارات."
               >
                 Ces véhicules sont des produits stratégiques qui sauvent la vie
                 des usagers et assurent la sécurité des citoyens. Ce marché est
@@ -375,7 +395,6 @@
                 data-translatable
                 data-fr="- Véhicules tout-terrain pour passionnés et VIP :"
                 data-en="- Off-road vehicles for enthusiasts and VIPs:"
-                data-ar="- مركبات الطرق الوعرة للهواة وكبار الشخصيات:"
               >
                 -Véhicules tout-terrain pour passionnés et VIP :
               </p>
@@ -384,7 +403,6 @@
                 data-translatable
                 data-fr="Ces véhicules offrent confort, exclusivité et protection à leurs futurs propriétaires. Ils peuvent être équipés de motorisations classiques à essence ou de moteurs électriques pour prendre le train de la mobilité écologique et intelligente."
                 data-en="These vehicles offer comfort, exclusivity, and protection to their future owners. They can be equipped with classic gasoline engines or electric motors to join the trend of ecological and smart mobility."
-                data-ar="توفر هذه المركبات الراحة والتميز والحماية لمالكيها المستقبليين. يمكن تجهيزها بمحركات بنزين كلاسيكية أو محركات كهربائية لمواكبة التحول نحو التنقل الذكي والبيئي."
               >
                 Ces véhicules offrent confort, exclusivité et protection à leurs
                 futurs propriétaires. Ils peuvent être équipés de motorisations
@@ -403,7 +421,6 @@
                   data-translatable
                   data-fr="Marché"
                   data-en="Market"
-                  data-ar="السوق"
                 >
                   Marché
                 </div>
@@ -421,7 +438,6 @@
                 data-translatable
                 data-fr="Les catégories visées font partie d'une gamme de véhicules de petites et moyennes séries à forte valeur technologique et financière."
                 data-en="The targeted categories are part of a range of small and medium series vehicles with high technological and financial value."
-                data-ar="تشكل الفئات المستهدفة جزءًا من سلسلة مركبات صغيرة ومتوسطة ذات قيمة تكنولوجية ومالية عالية."
               >
                 Les catégories visées font partie d'une gamme de véhicules de
                 petites et moyennes séries à forte valeur technologique et
@@ -432,7 +448,6 @@
                 data-translatable
                 data-fr="L'étude de marché est disponible pour les investisseurs intéressés par ce projet."
                 data-en="The market study is available for investors interested in this project."
-                data-ar="دراسة السوق متوفرة للمستثمرين المهتمين بهذا المشروع."
               >
                 L'étude de marché est disonible pour les investisseurs
                 intéressés par ce projet.
@@ -442,7 +457,6 @@
                 data-translatable
                 data-fr="Veuillez nous contacter via la rubrique contact."
                 data-en="Please contact us via the contact section."
-                data-ar="يرجى الاتصال بنا عبر قسم الاتصال."
               >
                 Veuillez nous contacter via la rubrique contact.
               </p>
@@ -458,7 +472,6 @@
                   data-translatable
                   data-fr="Business plan"
                   data-en="Business Plan"
-                  data-ar="خطة العمل"
                 >
                   Business plan
                 </div>
@@ -476,7 +489,6 @@
                 data-translatable
                 data-fr="Le projet HAMILCAR dispose d'un savoir-faire unique au monde dans la construction automobile, incarné dans le prototype HX-0. L'idée est innovante, elle repose sur des conceptions complexes réalisables par des moyens de production conventionnels. Ceci contribue considérablement à la réduction du coût de l'investissement au profit de la rentabilité."
                 data-en="The HAMILCAR project possesses a unique know-how in automotive construction, embodied in the HX-0 prototype. The idea is innovative, relying on complex designs achievable through conventional production means. This greatly reduces investment costs in favor of profitability."
-                data-ar="يمتلك مشروع HAMILCAR معرفة فريدة في صناعة السيارات، مجسدة في النموذج الأولي HX-0. الفكرة مبتكرة وتعتمد على تصاميم معقدة قابلة للتنفيذ بوسائل إنتاج تقليدية، مما يساهم بشكل كبير في تقليل تكلفة الاستثمار لصالح الربحية."
               >
                 Le projet HAMILCAR dispose d'un savoir-faire unique au monde
                 dans la construction automobile, incarné dans le prototype HX-0.
@@ -490,7 +502,6 @@
                 data-translatable
                 data-fr="Le business plan est disponible pour les investisseurs intéressés par ce projet."
                 data-en="The business plan is available for investors interested in this project."
-                data-ar="خطة العمل متوفرة للمستثمرين المهتمين بهذا المشروع."
               >
                 Le business plan est disponible pour les investisseurs
                 intéressés par ce projet.
@@ -500,7 +511,6 @@
                 data-translatable
                 data-fr="Veuillez nous contacter via la rubrique contact."
                 data-en="Please contact us via the contact section."
-                data-ar="يرجى الاتصال بنا عبر قسم الاتصال."
               >
                 Veuillez nous contacter via la rubrique contact.
               </p>
@@ -585,18 +595,18 @@
           /></a>
         </div>
         <p
-        class="footer-copyright"
-        data-translatable
-        data-fr="&copy; 2025 HAMILCAR. Tous droits réservés."
-        data-en="&copy; 2025 HAMILCAR. All rights reserved."
-        data-ar="&copy; 2025 هاميكار. جميع الحقوق محفوظة."
-      >
-        &copy; <span id="current-year"></span> HAMILCAR. Tous droits réservés.
-      </p>
+          class="footer-copyright"
+          data-translatable
+          data-fr="&copy; 2025 HAMILCAR. Tous droits réservés."
+          data-en="&copy; 2025 HAMILCAR. All rights reserved."
+          data-ar="&copy; 2025 هاميكار. جميع الحقوق محفوظة."
+        >
+          &copy; <span id="current-year"></span> HAMILCAR. Tous droits réservés.
+        </p>
       </div>
     </footer>
 
     <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
-    <script src="script.js"></script>
+    <script src="script.js" ></script>
   </body>
 </html>
