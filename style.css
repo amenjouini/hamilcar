@@ -150,7 +150,7 @@ html[dir="rtl"] #header .logo-link {
 
 .nav-links {
   display: flex;
-  column-gap: 10px;
+    column-gap: 10px;
 } /* Increased gap */
 .nav-links a {
   font-weight: normal;
@@ -181,9 +181,9 @@ html[dir="rtl"] #header .logo-link {
   width: 60%;
 } /* Underline effect */
 
-/* .mobile-menu-toggle {
-  display: none; } /* Handled by JS and media query */
-
+.mobile-menu-toggle {
+  display: none; /* Handled by JS and media query */
+}
  /* Language Selector Styles */
  .language-selector {
   position: relative; /* For positioning the options dropdown */
@@ -311,7 +311,7 @@ html[dir="rtl"] #header .logo-link {
     display: flex;
     align-items: center;
     justify-content: space-between; /* Or space-around, adjust as needed */ 
-
+}
 
 nav ul.nav-links {
     /* Existing styles */
@@ -531,9 +531,10 @@ nav ul.nav-links li {
     right: 0;
     left: auto;
   }
+  
+
+
 }
-
-
 @keyframes bounce {
   0%,
   20%,
@@ -934,22 +935,16 @@ img {
   z-index: 1;
 }
 
-
-
-
-
 /* and this one is for the technology */
 .simple-image-switcher {
-  position: relative;
+  position: relative; /* Needed for absolute positioning of children */
   width: 100%;
-  max-width: 600px;
-  overflow: hidden;
-  border-radius: 8px;
-  aspect-ratio: 16 / 9;
-  background-color: #f0f0f0;
+  max-width: 600px; /* Example: Set a max width */
+  overflow: hidden; /* Hide anything that might spill out */
+  border-radius: 8px; /* Optional styling */
+  aspect-ratio: 16 / 9; /* Give it a defined aspect ratio */
+  background-color: #f0f0f0; /* Background placeholder */
 }
-
-
 
 .switch-image {
   position: absolute;
@@ -1170,7 +1165,6 @@ img {
 }
 
 .toggle-content h4 {
-
   font-size: 1.3rem;
   color: var(--color-accent-primary);
   max-width: 600px;
@@ -1417,9 +1411,9 @@ footer {
     padding: 60px 0;
   }
 
-   /* Mobile Menu */
- .nav-links {
-    display: none; /* THIS IS KEY: Ensures menu is hidden by default on mobile */
+  /* Mobile Menu */
+  .nav-links {
+    display: none;
     flex-direction: column;
     width: 100%;
     position: absolute;
@@ -1430,16 +1424,13 @@ footer {
     padding: 10px 0;
     border-top: 1px solid var(--color-border);
   }
-
   .nav-links.active {
-    display: none; /* This rule makes it visible when toggled */
-  }
-
+    display: flex;
+  } /* JS Toggles this */
   .nav-links li {
     margin: 0;
     width: 100%;
   }
-
   .nav-links a {
     padding: 15px 20px;
     display: block;
@@ -1447,23 +1438,19 @@ footer {
     border-bottom: 1px solid var(--color-border);
     font-size: 1rem;
   }
-
   .nav-links li:last-child a {
     border-bottom: none;
   }
-
   .nav-links a::after {
     display: none;
   }
-
   .nav-links a:hover,
   .nav-links a.active {
     background-color: rgba(255, 165, 0, 0.1);
     color: var(--color-accent-primary);
   }
-
   .mobile-menu-toggle {
-    display: block; /* Make the toggle button visible on mobile */
+    display: block;
     background: none;
     border: none;
     font-size: 1.8rem;
@@ -1533,7 +1520,7 @@ footer {
     margin: 0;
   }
 
-  .image-text-wrapper {
+  image-text-wrapper {
     flex-direction: column;
   }
 
@@ -1543,18 +1530,12 @@ footer {
   }
 }
 
-
-
-@media (min-width: 769px) {
-  .nav-links {
-    display: flex !important; /* Always show nav links */
-    flex-direction: row;
-  }
-
+/* @media (min-width: 769px) {
   .mobile-menu-toggle {
-    display: none; /* Hide toggle button on desktop */
+    display: none;
   }
-}
+} */
+
 @media (max-width: 480px) {
   html {
     font-size: 15px;
@@ -1680,4 +1661,5 @@ footer {
 .modal-close-btn:hover {
   color: #666;
 }
+
 /* --- End Modal Styles --- */
