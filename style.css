@@ -191,7 +191,7 @@ html[dir="rtl"] #header .logo-link {
  /* Language Selector Styles */
 .language-selector {
   position: relative; /* For positioning the options dropdown */
-  margin-left: 1rem; /* Adjust spacing */
+  
 }
 
 #current-lang {
@@ -1445,7 +1445,7 @@ footer {
     flex-direction: column;
     width: 100%;
     position: absolute;
-    top: 61px; /* Adjust based on header height */
+    top: 46px; /* Adjust based on header height */
     left: 0;
     margin-top: 29px;
     background-color: var(--color-background-alt);
@@ -1594,6 +1594,9 @@ footer {
     gap: 25px;
   }
 
+  #header .container {
+    height: 50px;
+  }
 #header .logo-link img {
   display: block;
   height: 26px;
