@@ -51,6 +51,34 @@ document.addEventListener("DOMContentLoaded", function () {
          });
     }
 
+    //download full specifications
+
+     const download_button =
+            document.getElementById('download_Btn');
+        const content =
+            document.getElementById('content');
+    
+        download_button.addEventListener
+            ('click', async function () {
+                const filename = 'table_data.pdf';
+
+                try {
+                    const opt = {
+                        margin: 1,
+                        filename: filename,
+                        image: { type: 'jpeg', quality: 0.98 },
+                        html2canvas: { scale: 2 },
+                        jsPDF: {
+                            unit: 'in', format: 'letter',
+                            orientation: 'portrait'
+                        }
+                    };
+                    await html2pdf().set(opt).
+                        from(content).save();
+                } catch (error) {
+                    console.error('Error:', error.message);
+                }
+            });
 
   // Active Navigation Link Highlighting on Scroll (Scrollspy)
   const sections = document.querySelectorAll("main section[id]"); // Get all main sections with an ID
