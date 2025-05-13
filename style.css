@@ -1593,6 +1593,13 @@ footer {
   .logo-grid {
     gap: 25px;
   }
+
+#header .logo-link img {
+  display: block;
+  height: 26px;
+  width: 110px;
+}
+
   #header .logo-grid img {
     height: 35px;
     width: 35px;
@@ -1636,8 +1643,9 @@ footer {
   }
 
   .header-social img {
-    height: 24px;
-    width: 24px;
+    margin-bottom: 8px;
+    height: 22px;
+    width: 22px;
   }
 
 
