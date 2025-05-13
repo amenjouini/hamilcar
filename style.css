@@ -336,9 +336,9 @@ nav ul.nav-links li {
     order: 1; /* Adjust order if needed */
 }
 
-.language-selector {
-    order: 2; /* Adjust order to position it correctly */
-}
+/*.language-selector {
+    order: 2; /* Adjust order to position it correctly }*/
+
 /* 5. Hero Section */
 .hero-section {
   height: 100vh; /* Full viewport height */
@@ -1628,11 +1628,12 @@ footer {
     gap: 10px; /* Optional: Adds spacing between stacked items */
   }
  
-
+/* 
   .language-selector {
     display: block;
-    margin-left: 0.5rem; /* Less margin on small screens */
-  }
+    margin-left: 0.5rem; /* Less margin on small screens }*/
+ 
+  
 
   .header-social {
     display: flex;
