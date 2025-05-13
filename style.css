@@ -1387,7 +1387,7 @@ footer {
   }
   h2.section-title {
     padding-top: 20px;
-margin-bottom: 20px;
+    margin-bottom: 20px;
     font-size: clamp(1.8rem, 3.5vw, 2.5rem);
   }
   .content-section {
@@ -1593,14 +1593,25 @@ margin-bottom: 20px;
   .logo-grid {
     gap: 25px;
   }
-  .logo-grid img {
+  #header .logo-grid img {
     height: 35px;
+    width: 35px;
   }
   .footer-social a {
     margin: 0 8px;
   }
 
-    #header .container {
+  .mobile-menu-toggle {
+    display: block;
+    background: none;
+    border: none;
+    font-size: 1.8rem;
+    cursor: pointer;
+    color: var(--color-primary-text);
+    padding: 5px;
+  }
+
+  #header .container {
     flex-direction: row;
     align-items: center;
     padding: 10px 20px;
@@ -1609,22 +1620,24 @@ margin-bottom: 20px;
  
 
   .language-selector {
+    display: block;
     margin-left: 0.5rem; /* Less margin on small screens */
   }
 
   .header-social {
+    display: flex;
     margin-top: 15px;
     margin-bottom: 5px;
     text-align: center; /* Center social icons */
   }
 
   .header-social a {
-    margin: 0 6px; /* Tighter spacing between icons */
+    margin: 6px 6px; /* Tighter spacing between icons */
   }
 
   .header-social img {
-    height: 20px;
-    width: 20px;
+    height: 24px;
+    width: 24px;
   }
 
 
