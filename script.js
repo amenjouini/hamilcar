@@ -50,6 +50,77 @@ document.addEventListener("DOMContentLoaded", function () {
              }
          });
     }
+// scroll between desgin veh (int)
+window.scrollCarousel = function (direction) {
+  const carousel = document.getElementById('carousel');
+  const firstImage = carousel.querySelector('img');
+
+  if (!firstImage) return;
+
+  const imageWidth = firstImage.offsetWidth;
+  const gap = parseInt(getComputedStyle(carousel).gap) || 0;
+  const scrollAmount = imageWidth + gap;
+
+  carousel.scrollBy({
+    left: direction * scrollAmount,
+    behavior: 'smooth'
+  });
+};
+
+function updateArrowVisibility() {
+  const carousel = document.getElementById('carousel');
+  const leftArrow = document.querySelector('.arrow.left');
+  const rightArrow = document.querySelector('.arrow.right');
+
+  const scrollLeft = carousel.scrollLeft;
+  const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+  leftArrow.style.display = scrollLeft <= 1 ? 'none' : 'block';
+  rightArrow.style.display = scrollLeft >= maxScroll - 1 ? 'none' : 'block';
+}
+
+window.addEventListener('load', () => {
+  updateArrowVisibility();
+  document.getElementById('carousel').addEventListener('scroll', updateArrowVisibility);
+});
+
+
+// scroll between desgin veh (ext)
+window.scrollExtCarousel = function (direction) {
+  const carousel = document.getElementById('extcarousel');
+  const firstImage = carousel.querySelector('img');
+
+  if (!firstImage) return;
+
+  const imageWidth = firstImage.offsetWidth;
+  const gap = parseInt(getComputedStyle(carousel).gap) || 0;
+  const scrollAmount = imageWidth + gap;
+
+  carousel.scrollBy({
+    left: direction * scrollAmount,
+    behavior: 'smooth'
+  });
+};
+
+function updateArrowVisibility() {
+  const carousel = document.getElementById('extcarousel');
+  const leftArrow = document.querySelector('.arrow.left');
+  const rightArrow = document.querySelector('.arrow.right');
+
+  const scrollLeft = carousel.scrollLeft;
+  const maxScroll = carousel.scrollWidth - carousel.clientWidth;
+
+  leftArrow.style.display = scrollLeft <= 1 ? 'none' : 'block';
+  rightArrow.style.display = scrollLeft >= maxScroll - 1 ? 'none' : 'block';
+}
+
+window.addEventListener('load', () => {
+  updateArrowVisibility();
+  document.getElementById('extcarousel').addEventListener('scroll', updateArrowVisibility);
+});
+
+
+
 
   // Active Navigation Link Highlighting on Scroll (Scrollspy)
   const sections = document.querySelectorAll("main section[id]"); // Get all main sections with an ID

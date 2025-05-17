@@ -468,6 +468,75 @@ nav ul.nav-links li {
 }
 
 /* Styling for each individual design section (Exterior/Interior) */
+.carousel-wrapper {
+  display: flex;
+  align-items: center;
+  width: calc(429px * 3 + 10px); /* 3 images + 2 gaps of 5px */
+  position: relative;
+  overflow: hidden;
+  margin-top: 1rem;
+}
+
+.carousel-container {
+  display: flex;
+  gap: 5px;
+  overflow-x: scroll; 
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* IE 10+ */
+  scroll-behavior: smooth;
+  padding: 5px 0;
+  width: max-content;
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;              /* Chrome, Safari */
+}
+
+.carousel-container img {
+  width: 429px;
+  height: 498px;
+  object-fit: cover;
+  flex-shrink: 0;
+  border-radius: 8px;
+}
+
+.arrow {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: 8px;
+  font-size: 2rem;
+  padding: 0 10px;
+  cursor: pointer;
+  z-index: 10;
+  height: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.arrow.left {
+  position: absolute;
+  left: 0;
+}
+
+.arrow.right {
+  position: absolute;
+  right: 0;
+}
+
+
+
+@media (max-width: 500px) {
+
+
+  .design-sections-container {
+    flex-direction: column; /* Stack sections vertically */
+    align-items: center;
+  }
+}
+
 .design-section {
   flex-basis: 45%; /* Each section takes up roughly 45% of the container width */
   /* Alternatively, use max-width if you want a fixed max size */
@@ -503,6 +572,8 @@ nav ul.nav-links li {
     flex-basis: 90%; /* Allow sections to take up more width when stacked */
     max-width: 550px; /* Optional: constrain max width */
   }
+
+  
 
   #lang-options button {
     display: flex;
@@ -1075,6 +1146,41 @@ img {
     grid-template-columns: 1fr; /* Switch to 1 column */
     gap: 25px; /* Adjust vertical gap */
   }
+  .carousel-wrapper {
+    margin-top: 10rem; /* Even smaller margin */
+    position: relative;
+    overflow: hidden;
+    margin-top: 1rem;
+    display: flex;
+    align-items: center;
+  }
+
+
+.carousel-container {
+  display: flex;
+  gap: 5px;
+  overflow-x: scroll; 
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* IE 10+ */
+  scroll-behavior: smooth;
+  padding: 5px 0;
+  width: max-content;
+}
+
+  .carousel-container img {
+   max-height: 280px; 
+   aspect-ratio: 4/3;
+  }
+
+  .arrow {
+    font-size: 1.5rem; /* Even smaller arrows */
+    padding: 0 6px;
+  }
+
+  .carousel-container {
+    gap: 3px; /* Slightly reduce gap if images feel too spaced out on small screens */
+    padding: 3px 0;
+  }
 }
 
 @media (max-width: 480px) {
@@ -1085,6 +1191,64 @@ img {
   .vehicules-layout {
      gap: 20px;
   }
+  .carousel-wrapper {
+  position: relative;
+  overflow: hidden;
+  width: 350px; /* Tailored for mobile (adjustable) */
+  display: flex;
+  align-items: center;
+  margin-top: 1rem;
+}
+
+.carousel-container {
+  display: flex;
+  gap: 5px;
+  overflow-x: scroll;
+  scroll-behavior: smooth;
+  padding: 5px 0;
+  scrollbar-width: none;      /* Firefox */
+  -ms-overflow-style: none;   /* IE 10+ */
+  width: 100%; /* Full width of the wrapper */
+}
+
+.carousel-container::-webkit-scrollbar {
+  display: none;
+}
+
+.carousel-container img {
+  flex: 0 0 66.66%; /* 1.5 images visible: 100% / 1.5 = ~66.66% */
+  height: 280px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.arrow {
+  font-size: 1.5rem;
+  padding: 0 6px;
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border: none;
+  border-radius: 8px;
+  cursor: pointer;
+  height: 100%;
+  z-index: 10;
+  position: absolute;
+  top: 0;
+  transition: background-color 0.3s ease;
+}
+
+.arrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.arrow.left {
+  left: 0;
+}
+
+.arrow.right {
+  right: 0;
+}
+
 }
 
 /* .testimonial-item { padding: 30px; text-align: center; }
