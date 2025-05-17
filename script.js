@@ -67,10 +67,10 @@ window.scrollCarousel = function (direction) {
   });
 };
 
-function updateArrowVisibility() {
+function updateIntArrowVisibility() {
   const carousel = document.getElementById('carousel');
-  const leftArrow = document.querySelector('.arrow.left');
-  const rightArrow = document.querySelector('.arrow.right');
+  const leftArrow = document.querySelector('.intarrow.left');
+  const rightArrow = document.querySelector('.intarrow.right');
 
   const scrollLeft = carousel.scrollLeft;
   const maxScroll = carousel.scrollWidth - carousel.clientWidth;
@@ -80,8 +80,8 @@ function updateArrowVisibility() {
 }
 
 window.addEventListener('load', () => {
-  updateArrowVisibility();
-  document.getElementById('carousel').addEventListener('scroll', updateArrowVisibility);
+  updateIntArrowVisibility();
+  document.getElementById('carousel').addEventListener('scroll', updateIntArrowVisibility);
 });
 
 
@@ -104,8 +104,8 @@ window.scrollExtCarousel = function (direction) {
 
 function updateArrowVisibility() {
   const carousel = document.getElementById('extcarousel');
-  const leftArrow = document.querySelector('.arrow.left');
-  const rightArrow = document.querySelector('.arrow.right');
+  const leftArrow = document.querySelector('.extarrow.left');
+  const rightArrow = document.querySelector('.extarrow.right');
 
   const scrollLeft = carousel.scrollLeft;
   const maxScroll = carousel.scrollWidth - carousel.clientWidth;

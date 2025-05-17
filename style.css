@@ -500,7 +500,7 @@ nav ul.nav-links li {
   border-radius: 8px;
 }
 
-.arrow {
+.extarrow {
   background-color: rgba(0, 0, 0, 0.6);
   color: white;
   border-radius: 8px;
@@ -512,16 +512,42 @@ nav ul.nav-links li {
   transition: background-color 0.3s ease;
 }
 
-.arrow:hover {
+.extarrow:hover {
   background-color: rgba(0, 0, 0, 0.8);
 }
 
-.arrow.left {
+.extarrow.left {
   position: absolute;
   left: 0;
 }
 
-.arrow.right {
+.extarrow.right {
+  position: absolute;
+  right: 0;
+}
+
+.intarrow {
+  background-color: rgba(0, 0, 0, 0.6);
+  color: white;
+  border-radius: 8px;
+  font-size: 2rem;
+  padding: 0 10px;
+  cursor: pointer;
+  z-index: 10;
+  height: 100%;
+  transition: background-color 0.3s ease;
+}
+
+.intarrow:hover {
+  background-color: rgba(0, 0, 0, 0.8);
+}
+
+.intarrow.left {
+  position: absolute;
+  left: 0;
+}
+
+.intarrow.right {
   position: absolute;
   right: 0;
 }
