@@ -1902,7 +1902,7 @@ footer {
   #header .container {
     flex-direction: row;
     align-items: center;
-    padding: 10px 20px;
+    padding: 10px 10px;
     gap: 10px; /* Optional: Adds spacing between stacked items */
   }
  
