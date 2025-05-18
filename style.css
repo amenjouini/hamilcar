@@ -54,7 +54,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .container {
-  max-width: 1200px;
+  max-width: 1000px; /*kenet 1200px*/
   margin: 0 auto;
   padding: 0 20px;
 } /* Wider container */
@@ -72,7 +72,7 @@ h1 {
   margin-bottom: 1rem;
 } /* Responsive H1 */
 h2.section-title {
-  margin-top: 2rem;
+
   font-size: clamp(2rem, 4vw, 2.8rem);
   margin-bottom: 1rem;
   color: var(--color-heading);
@@ -599,8 +599,6 @@ nav ul.nav-links li {
     max-width: 550px; /* Optional: constrain max width */
   }
 
-  
-
   #lang-options button {
     display: flex;
     align-items: center;
@@ -633,7 +631,60 @@ nav ul.nav-links li {
     left: auto;
   }
   
+.hero-section {
+  height: 450px; /* Full viewport height */
+  min-height: 50px;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center; /* Center content horizontally */
+  text-align: center;
+  overflow: hidden;
 
+}
+.hero-background {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  z-index: 0;
+}
+
+.hero-background img {
+  width: 100%;
+  height: 60%;
+  object-fit: cover; /* Makes sure the image covers the whole area */
+  filter: brightness(0.85) contrast(1.05);
+
+}
+
+.hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    to bottom,
+    rgba(18, 18, 18, 0.2) 0%,
+    rgba(18, 18, 18, 0.6) 100%
+  );
+  z-index: 1;
+}
+.scroll-down-indicator {
+  position: absolute;
+  bottom: 90px;
+  left: 50%;
+  transform: translateX(-50%);
+  z-index: 3;
+  color: rgba(255, 255, 255, 0.7);
+  animation: bounce 2s infinite;
+}
+
+.content-section {
+  padding: 0px 0;
+} 
 
 }
 @keyframes bounce {
@@ -655,7 +706,8 @@ nav ul.nav-links li {
 /* 6. Content Sections General Styles */
 .content-section {
   padding: 100px 0;
-} /* More padding */
+} 
+
 .content-section.alt-bg {
   background-color: var(--color-background-alt);
 }
@@ -1611,12 +1663,10 @@ footer {
     font-size: clamp(2.2rem, 4.5vw, 3.5rem);
   }
   h2.section-title {
-    padding-top: 20px;
-    margin-bottom: 20px;
     font-size: clamp(1.8rem, 3.5vw, 2.5rem);
   }
   .content-section {
-    padding: 80px 0;
+    padding: 0px 0;
   }
   .about-layout,
   .technology-layout {
@@ -1658,10 +1708,7 @@ footer {
   }
   h2.section-title {
     font-size: clamp(1.6rem, 5vw, 2.2rem);
-    margin-bottom: 40px;
-  }
-  .content-section {
-    padding: 60px 0;
+    margin-bottom: 50px;
   }
 
   /* Mobile Menu */
