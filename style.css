@@ -54,7 +54,7 @@ body {
   -moz-osx-font-smoothing: grayscale;
 }
 .container {
-  max-width: 1000px; /*kenet 1200px*/
+  max-width: 1200px;
   margin: 0 auto;
   padding: 0 20px;
 } /* Wider container */
@@ -588,6 +588,12 @@ nav ul.nav-links li {
 /* --- Responsive Adjustments --- */
 /* On smaller screens, stack the sections instead of side-by-side */
 @media (max-width: 768px) {
+  .container {
+  width: auto;
+  margin: 0 auto;
+
+} /* Wider container */
+
   .design-sections-container {
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items horizontally when stacked */
