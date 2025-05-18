@@ -378,6 +378,28 @@ window.addEventListener('load', () => {
   //     });
   // }
 
+    // for the presentation image switcher
+  const presSwitchers = document.querySelectorAll('.presentation-image-switcher');
+
+  presSwitchers.forEach((switcher, idx) => {
+    const images = switcher.querySelectorAll('.switch-presentation-image');
+    let currentIndex = 0;
+
+    if (images.length === 0) return;
+
+    // Ensure only the first image is active
+    images.forEach((img, i) => {
+      img.classList.toggle('active', i === 0);
+    });
+
+    // Independent loop per switcher
+    setInterval(() => {
+      images[currentIndex].classList.remove('active');
+      currentIndex = (currentIndex + 1) % images.length;
+      images[currentIndex].classList.add('active');
+    }, 3000);
+  });
+
   // for the client image switcher
   const switchers = document.querySelectorAll('.client-image-switcher');
 
