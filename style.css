@@ -1900,7 +1900,7 @@ footer {
   }
 
   #header .container {
-    max-width: max-content;
+    max-width: fit-content;
     flex-direction: row;
     align-items: center;
     padding: 10px ;
