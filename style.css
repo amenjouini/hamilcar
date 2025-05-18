@@ -653,7 +653,7 @@ nav ul.nav-links li {
 
 .hero-background img {
   width: 100%;
-  height: 60%;
+  height: 55%;
   object-fit: cover; /* Makes sure the image covers the whole area */
   filter: brightness(0.85) contrast(1.05);
 
