@@ -186,7 +186,7 @@ html[dir="rtl"] #header .logo-link {
 } /* Underline effect */
 
 .mobile-menu-toggle {
-  display: none !important; /* Handled by JS and media query */
+  display: none; /* Handled by JS and media query */
 }
  /* Language Selector Styles */
 .language-selector {
@@ -1756,7 +1756,7 @@ footer {
     color: var(--color-accent-primary);
   }
   .mobile-menu-toggle {
-    display: block;
+    display: block  !important;
     background: none;
     border: none;
     font-size: 1.8rem;
