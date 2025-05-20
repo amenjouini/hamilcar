@@ -1756,14 +1756,12 @@ footer {
     color: var(--color-accent-primary);
   }
   .mobile-menu-toggle {
-    display: block  !important;
+    display: block;
     background: none;
     border: none;
     font-size: 1.8rem;
     cursor: pointer;
     color: var(--color-primary-text);
-    position: fixed;
-    width: 100%;
     /* padding: 5px; */
   }
 
@@ -1874,7 +1872,9 @@ footer {
     gap: 25px;
   }
 
-
+  #header .container {
+    height: 50px;
+  }
 #header .logo-link img {
   display: block;
   height: 26px;
@@ -1890,30 +1890,36 @@ footer {
   }
 
   .mobile-menu-toggle {
-    display: block  !important;
+    display: block !important;
     background: none;
     border: none;
     font-size: 1.8rem;
     cursor: pointer;
     color: var(--color-primary-text);
-    position: fixed;
-    width: 100%;
-
+    /* padding: 5px; */
   }
+  #header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  z-index: 999;
+
+}
 
   #header .container {
-    height: 50px;
     max-width: 100%;
     flex-direction: row;
     align-items: center;
     padding: 10px ;
-    gap: 20px; /* Optional: Adds spacing between stacked items */
+    /* gap: 20px;  Optional: Adds spacing between stacked items */
   }
  
-/* 
-  .language-selector {
-    display: block;
-    margin-left: 0.5rem; /* Less margin on small screens }*/
+
+   .language-selector {
+    display: block !important;
+   
+  } 
  
   
 
