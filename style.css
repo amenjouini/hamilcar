@@ -1762,7 +1762,8 @@ footer {
     font-size: 1.8rem;
     cursor: pointer;
     color: var(--color-primary-text);
-    
+    position: fixed;
+    width: 100%;
     /* padding: 5px; */
   }
 
@@ -1873,9 +1874,7 @@ footer {
     gap: 25px;
   }
 
-  #header .container {
-    height: 50px;
-  }
+
 #header .logo-link img {
   display: block;
   height: 26px;
@@ -1891,16 +1890,19 @@ footer {
   }
 
   .mobile-menu-toggle {
-    display: block;
+    display: block  !important;
     background: none;
     border: none;
     font-size: 1.8rem;
     cursor: pointer;
     color: var(--color-primary-text);
-    padding: 5px;
+    position: fixed;
+    width: 100%;
+
   }
 
   #header .container {
+    height: 50px;
     max-width: 100%;
     flex-direction: row;
     align-items: center;
