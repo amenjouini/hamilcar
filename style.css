@@ -1896,30 +1896,21 @@ footer {
     font-size: 1.8rem;
     cursor: pointer;
     color: var(--color-primary-text);
-    /* padding: 5px; */
+    padding: 2px;
   }
-  #header {
-  position: fixed;
-  top: 0;
-  left: 0;
-  width: 100%;
-  z-index: 999;
-
-}
 
   #header .container {
     max-width: 100%;
     flex-direction: row;
     align-items: center;
-    /* padding: 10px ; */
-     gap: 20px; /* Optional: Adds spacing between stacked items */
+    padding: 10px ;
+    gap: 20px; /* Optional: Adds spacing between stacked items */
   }
  
-
-   .language-selector {
-    display: block !important;
-   
-  } 
+/* 
+  .language-selector {
+    display: block;
+    margin-left: 0.5rem; /* Less margin on small screens }*/
  
   
 
