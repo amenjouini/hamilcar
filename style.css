@@ -1911,8 +1911,8 @@ footer {
     max-width: 100%;
     flex-direction: row;
     align-items: center;
-    
-    /* gap: 20px;  Optional: Adds spacing between stacked items */
+    /* padding: 10px ; */
+     gap: 20px; /* Optional: Adds spacing between stacked items */
   }
  
 
