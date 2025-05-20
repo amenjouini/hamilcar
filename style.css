@@ -1762,7 +1762,8 @@ footer {
     font-size: 1.8rem;
     cursor: pointer;
     color: var(--color-primary-text);
-    padding: 5px;
+    
+    /* padding: 5px; */
   }
 
   /* Stack Layouts */
