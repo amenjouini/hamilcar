@@ -38,8 +38,11 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
+    outline: 1px solid red;
+
 }
 html {
+  overflow-x: hidden;
   scroll-behavior: smooth;
   font-size: 16px;
 }
@@ -387,7 +390,6 @@ nav ul.nav-links li {
 .hero-content {
   position: relative;
   z-index: 2;
-  padding: 0 20px;
 }
 .hero-content h1 {
   text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.6);
@@ -1764,7 +1766,7 @@ footer {
     font-size: 1.8rem;
     cursor: pointer;
     color: var(--color-primary-text);
-    /* padding: 5px; */
+    padding: 0px 10px 0px 0px;
   }
 
   /* Stack Layouts */
@@ -1913,7 +1915,7 @@ footer {
     max-width: 100%;
     flex-direction: row;
     align-items: center;
-    /* padding: 10px ; */
+     padding: 8px ; 
      gap: 20px; /* Optional: Adds spacing between stacked items */
   }
  
