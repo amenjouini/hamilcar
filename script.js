@@ -543,7 +543,7 @@ window.addEventListener('load', () => {
       event.preventDefault();
 
       const formData = new FormData(form);
-      const formSubmitUrl = "https://formsubmit.co/amen.jouini18@gmail.com";
+      const formSubmitUrl = "https://formsubmit.co/contact@hamilcar.tn";
 
       // Update button state
       if (submitButton) {

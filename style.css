@@ -38,7 +38,7 @@
   box-sizing: border-box;
   margin: 0;
   padding: 0;
-  /* outline: 1px solid red; */
+  outline: 1px solid red;
 
 }
 html {
@@ -553,17 +553,6 @@ nav ul.nav-links li {
 .intarrow.right {
   position: absolute;
   right: 0;
-}
-
-
-
-@media (max-width: 500px) {
-
-
-  .design-sections-container {
-    flex-direction: column; /* Stack sections vertically */
-    align-items: center;
-  }
 }
 
 .design-section {
@@ -1369,6 +1358,18 @@ img {
 
 .arrow.right {
   right: 0;
+}
+
+  .design-sections-container {
+    flex-direction: column; /* Stack sections vertically */
+    align-items: center;
+  }
+
+  
+.design-section {
+  flex-basis: 45%; /* Each section takes up roughly 45% of the container width */
+  width: 100%; /* Prevents sections from becoming too narrow */
+  text-align: center; /* Centers the H4 title within its section */
 }
 
 }
