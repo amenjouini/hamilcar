@@ -590,6 +590,8 @@ nav ul.nav-links li {
     flex-direction: column; /* Stack items vertically */
     align-items: center; /* Center items horizontally when stacked */
     gap: 40px; /* Adjust vertical gap */
+    max-width: 100%;
+    
   }
 
   .design-section {
@@ -1302,37 +1304,7 @@ img {
   .vehicules-layout {
      gap: 20px;
   }
-  .carousel-wrapper {
-  position: relative;
-  overflow: hidden;
-  width: 350px; /* Tailored for mobile (adjustable) */
-  display: flex;
-  align-items: center;
-  margin-top: 1rem;
-}
-
-.carousel-container {
-  display: flex;
-  gap: 5px;
-  overflow-x: scroll;
-  scroll-behavior: smooth;
-  padding: 5px 0;
-  scrollbar-width: none;      /* Firefox */
-  -ms-overflow-style: none;   /* IE 10+ */
-  width: 100%; /* Full width of the wrapper */
-}
-
-.carousel-container::-webkit-scrollbar {
-  display: none;
-}
-
-.carousel-container img {
-  flex: 0 0 66.66%; /* 1.5 images visible: 100% / 1.5 = ~66.66% */
-  height: 280px;
-  object-fit: cover;
-  border-radius: 8px;
-}
-
+ 
 .arrow {
   font-size: 1.5rem;
   padding: 0 6px;
@@ -1360,17 +1332,67 @@ img {
   right: 0;
 }
 
-  .design-sections-container {
+ .design-sections-container {
     flex-direction: column; /* Stack sections vertically */
     align-items: center;
+    gap: 40px; /* Adjust vertical gap */
+    width: 100%;
+    overflow-x: hidden; /* Add this to prevent horizontal scrollbars from its content */
   }
 
-  
-.design-section {
-  flex-basis: 45%; /* Each section takes up roughly 45% of the container width */
-  width: 100%; /* Prevents sections from becoming too narrow */
-  text-align: center; /* Centers the H4 title within its section */
-}
+  .design-section {
+    width: 100%; /* Ensures it takes the full width of its parent */
+    text-align: center;
+    box-sizing: border-box; /* Recommended for easier width/padding management */
+    padding-left: 15px; /* Optional: Add some padding if content is too close to screen edges */
+    padding-right: 15px; /* Optional: Add some padding */
+  }
+
+  .carousel-wrapper {
+    position: relative;
+    /* overflow: hidden; -- This is good to keep if you want to ensure nothing from .carousel-container spills out of the wrapper */
+    width: 100%; /* Make the wrapper take the full available width of .design-section */
+    /* max-width: 350px; */ /* Optional: You can still set a max-width if you don't want it to become too large on screens between, say, 350px and 480px. If used, margin: 1rem auto; would center it. */
+    display: flex;
+    align-items: center;
+    margin-top: 1rem;
+    box-sizing: border-box; /* Include for consistent box model behavior */
+  }
+
+  .carousel-container {
+    display: flex;
+    gap: 5px;
+    overflow-x: scroll; /* This allows horizontal scrolling of images within the wrapper */
+    scroll-behavior: smooth;
+    padding: 5px 0;
+    scrollbar-width: none;    /* Firefox */
+    -ms-overflow-style: none; /* IE 10+ */
+    width: 100%;              /* Ensures it uses the full width of .carousel-wrapper */
+  }
+
+  .carousel-container::-webkit-scrollbar {
+    display: none; /* Hides scrollbar for WebKit browsers */
+  }
+
+  .carousel-container img {
+    flex: 0 0 75%; /* Adjust as needed. Maybe 1.33 images visible (100% / 1.33 = ~75%) or 80% for more of one image */
+    /* Or for a single image to be more prominent and only a bit of the next: */
+    /* flex: 0 0 90%; */
+    height: 280px; /* Or consider using aspect-ratio if all images are same dimensions */
+    object-fit: cover;
+    border-radius: 8px;
+  }
+
+
+
+  .design-section p {
+    /* Ensure text wraps correctly and doesn't cause overflow */
+    overflow-wrap: break-word;
+    word-wrap: break-word; /* For older browser compatibility */
+    hyphens: auto; /* Optional: for better text breaking */
+    text-align: left; /* Or center, if preferred, but ensure it fits */
+    padding: 0 5px; /* Add a little horizontal padding to prevent text from touching the carousel arrows if they overlap */
+  }
 
 }
 
