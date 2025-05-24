@@ -1390,7 +1390,7 @@ img {
     overflow-wrap: break-word;
     word-wrap: break-word; /* For older browser compatibility */
     hyphens: auto; /* Optional: for better text breaking */
-    text-align: left; /* Or center, if preferred, but ensure it fits */
+    text-align: justify; /* Or center, if preferred, but ensure it fits */
     padding: 0 5px; /* Add a little horizontal padding to prevent text from touching the carousel arrows if they overlap */
   }
 
