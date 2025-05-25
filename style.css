@@ -234,7 +234,7 @@ html[dir="rtl"] #header .logo-link {
 /* Replace with your actual flag image paths */
 .flag-icon.fr {
   /* background-image: url('/assets/images/fr.png'); */
-  background-image: url('/assets/images/fr.png'); /* Placeholder */
+  background-image: url('https://res.cloudinary.com/diu2cdrmm/image/upload/v1748198701/fr_p5pvtg.png'); /* Placeholder */
   background-color: #ED2939; /* Add bg color for better placeholder */
 }
 
@@ -246,7 +246,7 @@ html[dir="rtl"] #header .logo-link {
 
 .flag-icon.en {
   /* background-image: url('/assets/images/en.png'); */
-  background-image: url('/assets/images/en.png'); /* Placeholder */
+  background-image: url('https://res.cloudinary.com/diu2cdrmm/image/upload/v1748198489/en_wqplup.png'); /* Placeholder */
    background-color: #C8102E; /* Add bg color for better placeholder */
 }
 /* --- END PLACEHOLDER FLAGS --- */
