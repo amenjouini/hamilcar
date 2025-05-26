@@ -84,6 +84,12 @@ window.addEventListener('load', () => {
   document.getElementById('carousel').addEventListener('scroll', updateIntArrowVisibility);
 });
 
+// window.addEventListener('load', () => {
+//   setTimeout(updateIntArrowVisibility, 50);
+//   document.getElementById('carousel').addEventListener('scroll', updateIntArrowVisibility);
+// });
+
+
 
 // scroll between desgin veh (ext)
 window.scrollExtCarousel = function (direction) {
@@ -118,7 +124,6 @@ window.addEventListener('load', () => {
   updateArrowVisibility();
   document.getElementById('extcarousel').addEventListener('scroll', updateArrowVisibility);
 });
-
 
 
 
